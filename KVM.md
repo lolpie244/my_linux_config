@@ -47,4 +47,5 @@ options vfio-pci ids=10de:2191,10de:1aeb
 ```
 sudo mkinitcpio -g /boot/linux-custom.img
 sudo mkinitcpio -P
-``` and **reboot pc**
+```
+and **reboot pc**
