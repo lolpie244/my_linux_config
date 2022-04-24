@@ -29,3 +29,7 @@ and add drivers
 2) reconfig grub with command `sudo grub-mkconfig -o /boot/grub/grub.cfg` and reboot pc
 3) edit `/etc/mkinitcpio.conf`
 	* add `vfio vfio_iommu_type1 vfio_pci vfio_virqfd nouveau` to the begin of `MODULES="..."`
+	* add `modconf` to the begin of `HOOKS = "..."`
+4) rebild initramfs
+`
+sudo mkinitcpio -g /boot/linux-custom.img and reboot pc
