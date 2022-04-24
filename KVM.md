@@ -32,7 +32,7 @@ and add drivers
 # GPU
 1) edit `/etc/default/grub` and add \
  > GRUB_CMDLINE_LINUX_DEFAULT="quiet ... **intel_iommu=on**"
-2) reconfig grub with command `sudo grub-mkconfig -o /boot/grub/grub.cfg` and reboot pc
+2) reconfig grub with command `sudo grub-mkconfig -o /boot/grub/grub.cfg` and **reboot pc**
 3) write `lspci -nn`, search video and audio and write down somewhere codes
 > 01:00.0 VGA compatible controller [0300]: NVIDIA Corporation TU116M [GeForce GTX 1660 Ti Mobile] [**10de:2191**] (rev a1)\
 01:00.1 Audio device [0403]: NVIDIA Corporation TU116 High Definition Audio Controller [**10de:1aeb**] (rev a1)
@@ -45,4 +45,4 @@ options vfio-pci ids=10de:2191,10de:1aeb
 	* add `modconf` to the begin of `HOOKS = "..."`
 6) rebild initramfs
 `
-sudo mkinitcpio -g /boot/linux-custom.img and reboot pc
+sudo mkinitcpio -g /boot/linux-custom.img` and **reboot pc**
