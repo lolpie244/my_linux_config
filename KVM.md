@@ -2,17 +2,23 @@
 ## Pacman packeds
 ```
 sudo pacman -S archlinux-keyring
-sudo pacman -S qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat
+sudo pacman -S libvirt virt-manager ovmf qemu
 ```
 ## drivers
 https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso \
 https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win-guest-tools.exe
 
 # INSTALLATION
+1) edit `/etc/libvirt/qemu.conf` and add 
+```
+nvram = ["/usr/share/ovmf/ovmf_code_x64.bin:/usr/share/ovmf/ovmf_vars_x64.bin"]
+```
 1) Turn on service:
 ```
-sudo systemctl enable libvirtd.service 
-sudo systemctl start libvirtd.service
+sudo systemctl start libvirtd.service 
+sudo systemctl start virtlogd.socket
+sudo systemctl enable libvirtd.service
+sudo systemctl enable virtlogd.socket
 ```
 ---
 2) create vm in virt-managet \
