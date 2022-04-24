@@ -9,10 +9,6 @@ https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/v
 https://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-latest.exe 
 
 # INSTALLATION
-1) edit `/etc/libvirt/qemu.conf` and add 
-```
-nvram = ["/usr/share/ovmf/ovmf_code_x64.bin:/usr/share/ovmf/ovmf_vars_x64.bin"]
-```
 1) Turn on service:
 ```
 sudo systemctl start libvirtd.service 
@@ -48,7 +44,7 @@ options vfio-pci ids=10de:2191,10de:1aeb
 sudo mkinitcpio -g /boot/linux-custom.img
 sudo mkinitcpio -P
 ```
-and **reboot pc**\
+and **reboot pc**
 
 7) run `lspci -nnk` and check, if it look like this
 > 01:00.0 VGA compatible controller [0300]: NVIDIA Corporation TU116M [GeForce GTX 1660 Ti Mobile] [10de:2191] (rev a1)\
