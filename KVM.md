@@ -48,7 +48,8 @@ options vfio-pci ids=10de:2191,10de:1aeb
 sudo mkinitcpio -g /boot/linux-custom.img
 sudo mkinitcpio -P
 ```
-and **reboot pc**
+and **reboot pc**\
+
 7) run `lspci -nnk` and check, if it look like this
 > 01:00.0 VGA compatible controller [0300]: NVIDIA Corporation TU116M [GeForce GTX 1660 Ti Mobile] [10de:2191] (rev a1)\
 	Subsystem: Lenovo Device [17aa:3fc7]\
