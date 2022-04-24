@@ -50,11 +50,11 @@ sudo mkinitcpio -P
 ```
 and **reboot pc**
 7) run `lspci -nnk` and check, if it look like this
-> 01:00.0 VGA compatible controller [0300]: NVIDIA Corporation TU116M [GeForce GTX 1660 Ti Mobile] [10de:2191] (rev a1)
-	Subsystem: Lenovo Device [17aa:3fc7]
-	Kernel driver in use: **vfio-pci**
-	Kernel modules: nouveau, nvidia_drm, nvidia
-01:00.1 Audio device [0403]: NVIDIA Corporation TU116 High Definition Audio Controller [10de:1aeb] (rev a1)
-	Subsystem: Lenovo Device [17aa:3fc7]
-	Kernel driver in use: **vfio-pci**
+> 01:00.0 VGA compatible controller [0300]: NVIDIA Corporation TU116M [GeForce GTX 1660 Ti Mobile] [10de:2191] (rev a1)\
+	Subsystem: Lenovo Device [17aa:3fc7]\
+	Kernel driver in use: **vfio-pci**\
+	Kernel modules: nouveau, nvidia_drm, nvidia\
+01:00.1 Audio device [0403]: NVIDIA Corporation TU116 High Definition Audio Controller [10de:1aeb] (rev a1)\
+	Subsystem: Lenovo Device [17aa:3fc7]\
+	Kernel driver in use: **vfio-pci**\
 	Kernel modules: snd_hda_intel
