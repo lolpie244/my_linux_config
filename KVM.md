@@ -55,4 +55,4 @@ and **reboot pc**
 	Subsystem: Lenovo Device [17aa:3fc7]\
 	Kernel driver in use: **vfio-pci**\
 	Kernel modules: snd_hda_intel
-8) add your gpu, sound and all usb in vm (they are in PCI HOST DEVICE)
+8) add your gpu, sound and all usb in vm (they are in PCI HOST DEVICE) BUT mouse don't work and i don't know how to fix it
