@@ -6,7 +6,7 @@ sudo pacman -S libvirt virt-manager ovmf qemu
 ```
 ## drivers
 https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso \
-https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win-guest-tools.exe
+https://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-latest.exe 
 
 # INSTALLATION
 1) edit `/etc/libvirt/qemu.conf` and add 
