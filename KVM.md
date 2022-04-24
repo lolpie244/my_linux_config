@@ -44,5 +44,7 @@ options vfio-pci ids=10de:2191,10de:1aeb
 	* add `vfio vfio_iommu_type1 vfio_pci vfio_virqfd nouveau` to the begin of `MODULES="..."`
 	* add `modconf` to the begin of `HOOKS = "..."`
 6) rebild initramfs
-`
-sudo mkinitcpio -g /boot/linux-custom.img` and **reboot pc**
+```
+sudo mkinitcpio -g /boot/linux-custom.img
+sudo mkinitcpio -P
+``` and **reboot pc**
