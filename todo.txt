@@ -1,2 +1,2 @@
-/usr/share/X11/xkb/keycodes/evdev - remap keyboard buttons
+/usr/share/X11/xkb/keycodes/evdev - remap keyboard buttons 52 <-> 118
 envycontrol - change videocards
