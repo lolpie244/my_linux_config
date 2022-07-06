@@ -53,7 +53,7 @@ then
 		envycontrol --switch integrated
 	else
 		sed -i 's/TLP_ENABLE=1/TLP_ENABLE=0/g' /etc/tlp.conf
-		envycontrol --switch hybrid
+		envycontrol --switch nvidia
 	fi
 	reboot now
 fi
