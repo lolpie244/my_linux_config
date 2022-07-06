@@ -1,8 +1,7 @@
 # INSTALL REQUIREDS:
 ## Pacman packeds
 ```
-sudo pacman -S archlinux-keyring
-sudo pacman -S libvirt virt-manager ovmf qemu
+sudo pacman -S archlinux-keyring qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat ebtables iptables libguestfs
 ```
 ## drivers
 https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso \
