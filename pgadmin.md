@@ -14,3 +14,11 @@ echo "pgadmin4" >> pgadmin
 chmod +x pgadmin 
 ```
 * run: with `./pgadmin`
+# postgresql
+```
+sudo pacman -S postgresql
+sudo su - postgres 
+initdb --locale en_US.UTF-8 -D /var/lib/postgres/data
+exit
+sudo systemctl enable --now postgresql
+```
