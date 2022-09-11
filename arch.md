@@ -30,8 +30,9 @@ sudo ln -s /var/lib/snapd/snap /snap
 `envycontrol` - change videocards
 # IDE
 ```
-yay -S rider clion
-sudo pacman -S pycharm-community-edition gcc dotnet-sdk dotnet-runtime mono
+yay -S clion
+sudo snap install rider --classic
+sudo pacman -S gcc dotnet-sdk dotnet-runtime mono
 ```
 # commands
 `sudo nano /usr/share/X11/xkb/keycodes/evdev` - remap keyboard buttons 52 <-> 118 \
