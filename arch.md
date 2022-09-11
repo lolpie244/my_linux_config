@@ -31,7 +31,7 @@ sudo ln -s /var/lib/snapd/snap /snap
 # IDE
 ```
 yay -S rider clion
-sudo pacman -S pycharm-community-edition gcc dotnet-sdk dotnet-runtime
+sudo pacman -S pycharm-community-edition gcc dotnet-sdk dotnet-runtime mono
 ```
 # commands
 `sudo nano /usr/share/X11/xkb/keycodes/evdev` - remap keyboard buttons 52 <-> 118 \
