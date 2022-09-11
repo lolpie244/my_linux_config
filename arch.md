@@ -28,7 +28,11 @@ sudo ln -s /var/lib/snapd/snap /snap
 `bauh` - software manager \
 `gnome-shell-extension-pop-shell-git` - pop shell tiling manager \
 `envycontrol` - change videocards
-
+# IDE
+```
+yay -S rider clion
+sudo pacman -S pycharm-community-edition
+```
 # commands
 `sudo nano /usr/share/X11/xkb/keycodes/evdev` - remap keyboard buttons 52 <-> 118 \
 `ln -s redirect_to_file redirect_from_file` -  create redirect
