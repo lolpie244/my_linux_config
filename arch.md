@@ -1,6 +1,6 @@
 # installing gnome
 ```
-sudo pacman -S nano evince gdm gedit gnome-backgrounds gnome-calculator gnome-control-center gnome-disk-utility gnome-keyring gnome-remote-desktop gnome-shell gnome-shell-extensions gnome-terminal nautilus xdg-user-dirs-gtk gnome-tweaks git bluez nvidia nvidia-prime
+sudo pacman -S nano evince gdm gedit gnome-backgrounds gnome-calculator gnome-control-center gnome-disk-utility gnome-keyring gnome-remote-desktop gnome-shell gnome-shell-extensions gnome-terminal nautilus xdg-user-dirs-gtk xdg-user-dirs-portal gnome-tweaks git bluez nvidia nvidia-prime
 
 sudo systemctl enable --now gdm.service
 sudo systemctl enable --now bluetooth.service
