@@ -30,8 +30,7 @@ sudo ln -s /var/lib/snapd/snap /snap
 `envycontrol` - change videocards
 # IDE
 ```
-yay -S clion
-sudo snap install rider --classic
+yay -S clion rider
 sudo pacman -S gcc dotnet-sdk dotnet-runtime mono
 ```
 # commands
