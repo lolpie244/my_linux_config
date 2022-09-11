@@ -11,7 +11,13 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 ```
+# software from aur
+```
+yay -S noisetorch switcheroo-control auto-cpufreq tlpui bauh
 
+sudo systemctl enable --now switcheroo-control.service
+sudo systemctl enable --now auto-cpufreq
+```
 # installing snap
 ```
 yay -S snapd
@@ -26,3 +32,4 @@ sudo ln -s /var/lib/snapd/snap /snap
 # commands
 `sudo nano /usr/share/X11/xkb/keycodes/evdev` - remap keyboard buttons 52 <-> 118 \
 `ln -s redirect_to_file redirect_from_file` -  create redirect
+
