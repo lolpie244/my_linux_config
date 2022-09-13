@@ -17,6 +17,8 @@ yay -S noisetorch switcheroo-control auto-cpufreq tlpui bauh
 
 sudo systemctl enable --now switcheroo-control.service
 sudo systemctl enable --now auto-cpufreq
+sudo systemctl enable --now tlp.service
+sudo tlp start
 ```
 # installing snap
 ```
