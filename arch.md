@@ -33,7 +33,7 @@ sudo ln -s /var/lib/snapd/snap /snap
 # IDE
 ```
 yay -S clion rider
-sudo pacman -S gcc dotnet-sdk dotnet-runtime mono
+sudo pacman -S gcc dotnet-sdk dotnet-runtime mono aspnet-runtime
 ```
 # commands
 `sudo nano /usr/share/X11/xkb/keycodes/evdev` - remap keyboard buttons 52 <-> 118 \
