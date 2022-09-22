@@ -5,6 +5,10 @@ sudo pacman -S nano evince gdm gedit gnome-backgrounds gnome-calculator gnome-co
 sudo systemctl enable --now gdm.service
 sudo systemctl enable --now bluetooth.service
 ```
+# codecs
+```
+sudo pacman -S jasper lame libdca libdv gst-libav libtheora libvorbis libxv wavpack x264 xvidcore dvd+rw-tools dvdauthor dvgrab libmad libmpeg2 libdvdcss libdvdread libdvdnav exfat-utils fuse-exfat a52dec faac faad2 flac
+```
 # installing yay
 ```
 git clone https://aur.archlinux.org/yay.git
