@@ -10,10 +10,8 @@ https://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools
 # INSTALLATION
 1) Turn on service:
 ```
-sudo systemctl start libvirtd.service 
-sudo systemctl start virtlogd.socket
-sudo systemctl enable libvirtd.service
-sudo systemctl enable virtlogd.socket
+sudo systemctl enable --now libvirtd.service
+sudo systemctl enable --now virtlogd.socket
 ```
 ---
 2) create vm in virt-managet \
