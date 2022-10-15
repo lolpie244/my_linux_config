@@ -17,7 +17,7 @@ makepkg -si
 ```
 # software from aur
 ```
-yay -S noisetorch switcheroo-control auto-cpufreq tlpui bauh
+yay -S noisetorch switcheroo-control auto-cpufreq tlpui bauh nerd-fonts-complete
 
 sudo systemctl enable --now switcheroo-control.service
 sudo systemctl enable --now auto-cpufreq
