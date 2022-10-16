@@ -60,13 +60,13 @@ software()
 {
     sudo dnf copr enable principis/NoiseTorch
 
-    sudo dnf install timeshift noisetorch gnome-shell-extension-pop-shell gnome-tweaks gcc dotnet-sdk-6.0 dotnet-runtime-6.0 mono-devel aspnetcore-runtime-6.0 htop
+    sudo dnf install timeshift noisetorch gnome-shell-extension-pop-shell gnome-tweaks gcc gcc-c++ dotnet-sdk-6.0 dotnet-runtime-6.0 mono-devel aspnetcore-runtime-6.0 htop
     sudo flatpak install qbittorrent zoom teams_for_linux com.obsproject.Studio onlyoffice xournalpp org.gnome.NetworkDisplays krita
 }
 
 neovim() 
 {
-    sudo dnf install neovim go npm
+    sudo dnf install neovim go npm gcc-c++
 }
 postgres() 
 {
