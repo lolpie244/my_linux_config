@@ -26,12 +26,24 @@ return require("packer").startup(function()
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 	use {
-		"terrortylor/nvim-comment",
+		"numToStr/Comment.nvim",
 		config = function ()
-			require("nvim_comment").setup({
-				create_mappings = true,
-				line_mapping = "gc",
-				operator_mapping = "<Leader>c",
+			require("Comment").setup({
+				padding = true,
+				sticky = true,
+				ignore = nil,
+				toggler = {
+						line = 'gc',
+						block = 'gbc',
+				},
+				opleader = {
+					line = 'gc',
+					block = 'gb',
+				},
+				mappings = {
+					basic = true,
+					extra = true,
+				},
 			})
 		end
 	}

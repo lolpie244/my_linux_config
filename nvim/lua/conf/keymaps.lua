@@ -1,9 +1,9 @@
-local keymap = vim.keymap.set
+local keymap = vim.keymap.set 
 local opts = { noremap = true, silent = true }
 
--- Common
-
-
+-- Comment
+keymap("n", "<C-_>", "gcc", opts)
+keymap("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)gv", {remap = true})
 -- buffer size
 keymap("n", "<C-h>", "15<C-w><", opts)
 keymap("n", "<C-j>", "15<C-w>-", opts)
@@ -36,6 +36,13 @@ keymap("n", "<A-v>", "\"+p", {remap = true})
 keymap("n", "<C-d>", "yyp", opts)
 keymap("v", "<C-d>", "y'>o<Esc>p", {remap = true})
 
+-- tab
+keymap("v", ">", ">gv", {remap = true})
+keymap("n", ">", ">>", {remap = true})
+
+keymap("v", "<", "<gv", {remap = true})
+keymap("n", "<", "<<", {remap = true})
+
 
 -- Git
 keymap("n", "<Leader>gg", ":Git<CR>", opts)
@@ -43,7 +50,7 @@ keymap("n", "gss", ":Git stash<CR>", opts)
 keymap("n", "gsp", ":Git stash pop<CR>", opts)
 keymap("n", "gsl", ":Git stash list<CR>", opts)
 keymap("n", "gbb", ":Git blame<CR>", opts)
-keymap("n", "gcc", ":Git commit<CR>", opts)
+-- keymap("n", "gcc", ":Git commit<CR>", opts)
 keymap("n", "gps", ":Git push<CR>", opts)
 keymap("n", "gpl", ":Git pull<CR>", opts)
 keymap("n", "gll", ":Git log", opts)
