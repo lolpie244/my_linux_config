@@ -74,7 +74,8 @@ postgres()
     sudo systemctl enable postgresql
     sudo postgresql-setup --initdb --unit postgresql
     sudo systemctl start postgresql
-    # sudo -u postgres psql
+    sudo -u postgres psql -c "CREATE USER postgres WITH PASSWORD 'postgres'"
+    sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres'"
 }
 
 
