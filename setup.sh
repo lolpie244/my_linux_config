@@ -113,6 +113,24 @@ fi
 if ask_to_run "Install other software"; then
     sudo ./$distr_script software
 fi
+if ask_to_tun "Install theme, icons and font"; then
+    sudo ./$distr_script theme
+    
+    mkdir from_git
+    cd from_git
+
+    git clone https://github.com/vinceliuice/Graphite-gtk-theme.git
+    ./Graphite-gtk-theme/install.sh --tweaks nord
+    ./Graphite-gtk-theme/other/grub2/install.sh
+
+    git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git
+    ./Tela-circle-icon-theme/install.sh -a
+
+    rm -R from_git
+    cd ..
+    mkdir ~/.fonts
+    cp fonts/* ~/.fonts/
+fi
 
 if ask_to_run "Move home folders to hdd"; then
 
