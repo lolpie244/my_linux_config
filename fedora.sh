@@ -81,7 +81,7 @@ postgres()
 }
 theme()
 {
-   sudo dnf install gtk-murrine-engine, sassc
+   sudo dnf install gtk-murrine-engine sassc
 }
 
 
@@ -94,6 +94,7 @@ case $1 in
     "software") software;;
     "neovim") neovim;;
     "postgres") postgres;;
+    "theme") theme;;
     *) 
 	printf "invalid argument\n"
 	exit 1;;
