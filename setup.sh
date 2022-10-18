@@ -129,7 +129,8 @@ if ask_to_tun "Install theme, icons and font"; then
     rm -R from_git
     cd ..
     mkdir ~/.fonts
-    cp fonts/* ~/.fonts/
+    sudo cp -r fonts/* /usr/share/fonts
+    sudo fc-cache -f -v
 fi
 
 if ask_to_run "Move home folders to hdd"; then
