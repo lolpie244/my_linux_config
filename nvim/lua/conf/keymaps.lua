@@ -2,9 +2,11 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- Comment
-keymap("n", "<C-_>", "gcc", opts)
+keymap("n", "<C-_>", "<Plug>(comment_toggle_linewise_current)", opts)
 keymap("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)gv", {remap = true})
--- buffer size
+keymap("v", "<Leader>b", "<Plug>(comment_toggle_blockwise_visual)gv", {remap = true})
+
+--  buffersize
 keymap("n", "<C-h>", "15<C-w><", opts)
 keymap("n", "<C-j>", "15<C-w>-", opts)
 keymap("n", "<C-k>", "15<C-w>+", opts)
@@ -28,9 +30,11 @@ keymap("n", "<Leader>bn", ":bn<CR>", opts)
 keymap("n", "<Leader>bp", ":bp<CR>", opts)
 keymap("n", "<Leader>bl", ":ls<CR>", opts)
 
+-- sysym copy/past
 keymap("n", "<A-n>", "*N", opts)
 keymap("v", "<A-c>", "\"+y", {remap = true})
 keymap("n", "<A-v>", "\"+p", {remap = true})
+keymap("v", "<A-v>", "d\"+P", {remap = true})
 
 -- duplicate line
 keymap("n", "<C-d>", "yyp", opts)
@@ -62,7 +66,7 @@ keymap("n", "gpc", ":diffget //2<CR>", opts)
 keymap("n", "gpi", ":diffget //3<CR>", opts)
 
 -- Netrw
-keymap("n", "<Leader><Leader>", ":Explore<CR>", opts)
+keymap("n", "<Leader><Leader>", ":Telescope file_browser<CR>", opts)
 keymap("n", "<Leader><Tab>", ":Texplore<CR>", opts)
 
 -- LSP

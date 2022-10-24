@@ -3,9 +3,9 @@ local use = require("packer").use
 return require("packer").startup(function()
 	use "wbthomason/packer.nvim"
 
-	use "preservim/nerdtree"
+	use "nvim-telescope/telescope-file-browser.nvim"
 	use "tiagofumo/vim-nerdtree-syntax-highlight"
-	use "ryanoasis/vim-devicons"
+	use "nvim-tree/nvim-web-devicons"
 	use "Xuyuanp/nerdtree-git-plugin"
 
   use "navarasu/onedark.nvim"
