@@ -66,7 +66,7 @@ software()
 
 neovim() 
 {
-    sudo dnf install neovim go npm gcc-c++
+    sudo dnf install neovim go npm gcc-c++ fd-find
 }
 postgres() 
 {
