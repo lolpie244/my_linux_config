@@ -66,7 +66,7 @@ software()
 
 neovim() 
 {
-    sudo dnf install neovim go npm gcc-c++ fd-find
+    sudo dnf install neovim go npm gcc-c++ fd-find ripgrep
 }
 postgres() 
 {
