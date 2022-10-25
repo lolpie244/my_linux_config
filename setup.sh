@@ -77,6 +77,7 @@ fi
 
 if ask_to_run "Install neovim"; then
     sudo ./$distr_script neovim
+    pip install pynvim  
     cp -r nvim/ ${HOME}/.config
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
