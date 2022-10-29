@@ -1,8 +1,0 @@
-require("conf.plugins")
-require("conf.settings")
-require("conf.keymaps")
-require("conf.lspconfig")
-require("conf.nvimtreesitter")
-require("conf.lualine")
-require("conf.telescope")
-require("conf.themes")
