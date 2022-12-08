@@ -35,31 +35,31 @@ done
 chmod +x $distr_script
 
 if ask_to_run "Do init settings"; then
-    sudo ./$distr_script init
+    ./$distr_script init
 
 fi
 # remap keyboard
 if ask_to_run "Swap insert and z keys"; then
 
-    sudo sed -i 's/118/TO_CHANGE/g' /usr/share/X11/xkb/keycodes/evdev
-    sudo sed -i 's/52/118/g' /usr/share/X11/xkb/keycodes/evdev
-    sudo sed -i 's/TO_CHANGE/118/g' /usr/share/X11/xkb/keycodes/evdev
+    sudo sed -i 's/118;/TO_CHANGE/g' /usr/share/X11/xkb/keycodes/evdev
+    sudo sed -i 's/52;/118;/g' /usr/share/X11/xkb/keycodes/evdev
+    sudo sed -i 's/TO_CHANGE/52;/g' /usr/share/X11/xkb/keycodes/evdev
 fi
 
 if ask_to_run "Install additional package managers"; then
-    sudo ./$distr_script package_managers
+    ./$distr_script package_managers
 fi
 
 
 if ask_to_run "Install codecs"; then
-    sudo ./$distr_script codecs
+    ./$distr_script codecs
 fi
 
 
 if ask_to_run "Optimize battery life"; then
-    sudo ./$distr_script battery
+    ./$distr_script battery
     
-    yes | cp -rf tlp.conf /etc
+    yes | sudo cp -rf tlp.conf /etc
     sudo systemctl enable --now tlp.service
     sudo snap run auto-cpufreq --install
     sudo tlp start
@@ -76,7 +76,7 @@ fi
 
 
 if ask_to_run "Install neovim"; then
-    sudo ./$distr_script neovim
+    ./$distr_script neovim
     pip install pynvim  
     cp -r nvim/ ${HOME}/.config
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -85,7 +85,7 @@ if ask_to_run "Install neovim"; then
 fi
 
 if ask_to_run "Install postgresql"; then
-    sudo ./$distr_script postgres
+    ./$distr_script postgres
     
     sudo systemctl enable --now postgresql
 
@@ -112,10 +112,10 @@ if ask_to_run "Install postgresql"; then
     fi
 fi
 if ask_to_run "Install other software"; then
-    sudo ./$distr_script software
+    ./$distr_script software
 fi
-if ask_to_tun "Install theme, icons and font"; then
-    sudo ./$distr_script theme
+if ask_to_run "Install theme, icons and font"; then
+    ./$distr_script theme
     
     mkdir from_git
     cd from_git
@@ -123,6 +123,9 @@ if ask_to_tun "Install theme, icons and font"; then
     git clone https://github.com/vinceliuice/Graphite-gtk-theme.git
     ./Graphite-gtk-theme/install.sh --tweaks nord
     ./Graphite-gtk-theme/other/grub2/install.sh
+
+    git clone https://github.com/arcticicestudio/nord-gnome-terminal
+    ./nord-gnome-terminal/src/nord.sh
 
     git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git
     ./Tela-circle-icon-theme/install.sh -a
