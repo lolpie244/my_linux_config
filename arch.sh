@@ -55,7 +55,7 @@ software()
 
 neovim() 
 {
-    sudo pacman -S neovim go npm gcc fd ripgrep
+    sudo pacman -S neovim go npm gcc fd ripgrep wl-clipboard
 }
 postgres() 
 {
