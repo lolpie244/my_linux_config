@@ -97,5 +97,5 @@ return require("packer").startup(function()
 	}
 	use "catppuccin/nvim"
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-	use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+	use "kdheepak/lazygit.nvim"
 end)

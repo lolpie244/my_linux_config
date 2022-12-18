@@ -106,9 +106,9 @@ if (tsuccess) then
 	keymap("n", "<Leader>gf", telescope.git_status, opts)
 	keymap("n", "<Tab>", telescope.buffers, opts)
 end
-keymap("n", "<Leader>G", ":Neogit<CR>")
+keymap("n", "<Leader>G", ":LazyGit<CR>")
 -- Terminal
-keymap('t', "<esc>", [[<C-\><C-n>]], opts)
+-- keymap('t', "<esc>", [[<C-\><C-n>]], opts)
 keymap('t', "<Leader>q", [[<C-c><C-\><C-n>:q<CR>]], opts)
 keymap('t', "<S-Left>", [[<Cmd>wincmd h<CR>]], opts)
 keymap('t', "<S-Down>", [[<Cmd>wincmd j<CR>]], opts)
