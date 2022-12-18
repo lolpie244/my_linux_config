@@ -36,7 +36,7 @@ end
 
 function Run()
 	Build(true)
-	local command = string.format("clear; time ./build/%s/%s; echo", vim.g.cmake_state, GetCppProject(vim.fn.getcwd()))
+	local command = string.format("clear && clear; time ./build/%s/%s; echo", vim.g.cmake_state, GetCppProject(vim.fn.getcwd()))
 	require('toggleterm').exec(command, nil, nil, nil, nil, false)
 end
 

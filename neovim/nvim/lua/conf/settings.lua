@@ -17,6 +17,12 @@ set.laststatus = 3
 set.timeoutlen = 1000
 set.ttimeoutlen = 0
 set.mouse = "a"
+set.wrap = false
+
+-- persistent undo
+set.undofile = true
+set.undolevels = 1000
+set.undoreload = 10000
 
 letg.mapleader = " "
 letg.netrw_bufsettings = "noma nomod nu nowrap ro nobl"
@@ -24,12 +30,13 @@ letg.netrw_banner = 0
 letg.indent_blankline_char = "│";
 letg.vimspector_enable_mappings = "HUMAN"
 
+-- colorscheme
+-- catppuccin-frappe
+-- onedark
 vim.cmd [[
-    colorscheme onedark
+    colorscheme catppuccin-frappe
 
 		highlight ExtraWhitespace guibg=#bdae93
 		match ExtraWhitespace /\s\+$/
 ]]
-
-
 

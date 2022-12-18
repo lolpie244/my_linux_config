@@ -4,26 +4,33 @@ return require("packer").startup(function()
 
 	use "wbthomason/packer.nvim"
 
-	use "nvim-telescope/telescope-file-browser.nvim"
 	use "nvim-tree/nvim-web-devicons"
 	use "mfussenegger/nvim-dap"
-	use "cdelledonne/vim-cmake"
 
 	use "navarasu/onedark.nvim"
 	use "neovim/nvim-lspconfig"
 	use "williamboman/nvim-lsp-installer"
+
 	use "hrsh7th/nvim-cmp"
+	use "Pocco81/true-zen.nvim"
+	use "hrsh7th/cmp-path"
+	use "hrsh7th/cmp-nvim-lua"
 	use "hrsh7th/cmp-nvim-lsp"
+	use "onsails/lspkind.nvim"
+
+	use "Pocco81/auto-save.nvim"
 	use "saadparwaiz1/cmp_luasnip"
 	use "L3MON4D3/LuaSnip"
+
+	use "Vimjas/vim-python-pep8-indent"
 	use "nvim-lua/plenary.nvim"
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate"
 	}
-	use "michaeljsmith/vim-indent-object"
+	use 'nvim-treesitter/nvim-treesitter-context'
 
-
+	use "nvim-telescope/telescope-file-browser.nvim"
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
 		requires = { {'nvim-lua/plenary.nvim'} }
@@ -86,6 +93,9 @@ return require("packer").startup(function()
 				toggle = "t",
 				},
 			})
-	end
-}
+		end
+	}
+	use "catppuccin/nvim"
+	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 end)

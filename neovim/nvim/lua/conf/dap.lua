@@ -37,8 +37,14 @@ dap.adapters.codelldb = {
     args = {"--port", "13000",}
   }
 }
+dap.adapters.cppdbg = {
+  id = 'cppdbg',
+  type = 'executable',
+  command = dap_adapters .. '/debugAdapters/bin/OpenDebugAD7',
+}
 dap.configurations.cpp = {
     {
+		name = "codelldb",
         type = 'codelldb',
         request = 'launch',
         program = function()
@@ -47,6 +53,25 @@ dap.configurations.cpp = {
         --program = '${fileDirname}/${fileBasenameNoExtension}',
         cwd = '${workspaceFolder}',
         terminal = 'integrated'
-    }
+    },
+	{
+		default = true,
+		name = "cppdbg",
+		type = "cppdbg",
+		request = "launch",
+		program = function()
+				return string.format("%s/build/%s/%s", vim.fn.getcwd(), vim.g.cmake_state, GetCppProject(vim.fn.getcwd()))
+		end,
+		cwd = '${workspaceFolder}',
+		stopAtEntry = true,
+
+		setupCommands = {
+		  {
+			 text = '-enable-pretty-printing',
+			 description =  'enable pretty printing',
+			 ignoreFailures = false
+		  },
+		},
+	},
 }
 dap.configurations.h = dap.configurations.cpp
