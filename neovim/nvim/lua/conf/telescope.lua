@@ -3,7 +3,7 @@ local success, telescope = pcall(require, "telescope")
 if (not success) then
 	return
 end
-
+local actions = require("telescope.actions")
 
 telescope.setup({
 	defaults = {
@@ -11,12 +11,25 @@ telescope.setup({
 			"node_modules",
 			"venv"
 		},
+		mappings = {
+			["i"] = {
+				["<M-t>"] = actions.file_tab,
+				["<M-v>"] = actions.file_vsplit,
+				["<M-x>"] = actions.file_split
+			},
+			["n"] = {
+				["<M-t>"] = actions.file_tab,
+				["<M-v>"] = actions.file_vsplit,
+				["<M-x>"] = actions.file_split
+			},
+		},
 	},
 	pickers = {
 		find_files = {
 			hidden = true
 		}
-	}
+	},
+
 })
 
 telescope.setup({
@@ -30,10 +43,14 @@ telescope.setup({
       hijack_netrw = true,
       mappings = {
         ["i"] = {
-          -- your custom insert mode mappings
+			["<M-t>"] = actions.file_tab,
+			["<M-v>"] = actions.file_vsplit,
+			["<M-x>"] = actions.file_split
         },
         ["n"] = {
-          -- your custom normal mode mappings
+			["<M-t>"] = actions.file_tab,
+			["<M-v>"] = actions.file_vsplit,
+			["<M-x>"] = actions.file_split
         },
       },
     },

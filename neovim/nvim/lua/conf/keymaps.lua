@@ -14,35 +14,29 @@ keymap("n", "<S-C-k>", "2<C-w>-", {remap = true, silent = true})
 keymap("n", "<S-C-l>", "2<C-w><", {remap = true, silent = true})
 
 
-keymap("n", "<S-C-Left>", "2<C-w><", opts)
-keymap("n", "<S-C-Down>", "2<C-w>-", opts)
-keymap("n", "<S-C-Up>", "2<C-w>+", opts)
-keymap("n", "<S-C-Right>", "2<C-w>>", opts)
+keymap("n", "<C-Left>", require("smart-splits").resize_left, opts)
+keymap("n", "<C-Down>", require("smart-splits").resize_down, opts)
+keymap("n", "<C-Up>", require("smart-splits").resize_up, opts)
+keymap("n", "<C-Right>", require("smart-splits").resize_right, opts)
 
 
 -- select buffer
-keymap("n", "<S-Left>", "<C-w>h", opts)
-keymap("n", "<S-Down>", "<C-w>j", opts)
-keymap("n", "<S-Up>", "<C-w>k", opts)
-keymap("n", "<S-Right>", "<C-w>l", opts)
+keymap("n", "<M-Left>", require("smart-splits").move_cursor_left, opts)
+keymap("n", "<M-Down>", require("smart-splits").move_cursor_down, opts)
+keymap("n", "<M-Up>", require("smart-splits").move_cursor_up, opts)
+keymap("n", "<M-Right>", require("smart-splits").move_cursor_right, opts)
 
 keymap("n", "H", "<C-w>h", opts)
 keymap("n", "J", "<C-w>j", opts)
 keymap("n", "K", "<C-w>k", opts)
 keymap("n", "L", "<C-w>l", opts)
 
--- close buffer
-keymap("n", "<Leader>bd", ":bd<CR>", opts)
-
--- close tab
-keymap("n", "<C-t>", ":tabclose<CR>", {remap = true})
-
 
 keymap("n", "<Esc>", ":noh<CR>", opts)
 keymap("n", "<Leader>o", ":only<CR>", opts)
 keymap("n", "<Leader>q", ":q<CR>", opts)
 keymap("n", "<C-q>", ":q!<CR>", opts)
-keymap("n", "<Leader>w", ":w<CR>", opts)
+-- keymap("n", "<Leader>w", ":w<CR>", opts)
 keymap("n", "U", "<C-r>", opts)
 
 keymap("n", "<Leader>[", "<C-^>", opts)
@@ -71,6 +65,11 @@ keymap("n", ">", ">>", {remap = true})
 keymap("v", "<", "<gv", {remap = true})
 keymap("n", "<", "<<", {remap = true})
 
+-- tabs
+keymap("n", "<M-,>", ":tabprevious<CR>", opts)
+keymap("n", "<M-.>", ":tabnext<CR>", opts)
+keymap("n", "<M-<>", ":tabmove -1<CR>", opts)
+keymap("n", "<M->>", ":tabmove +1<CR>", opts)
 
 -- Git
 keymap("n", "<Leader>gg", ":Git<CR>", opts)
@@ -108,13 +107,13 @@ if (tsuccess) then
 end
 keymap("n", "<Leader>G", ":LazyGit<CR>")
 -- Terminal
--- keymap('t', "<esc>", [[<C-\><C-n>]], opts)
+keymap('t', "<Leader><Leader>", [[<C-\><C-n>]], opts)
 keymap('t', "<Leader>q", [[<C-c><C-\><C-n>:q<CR>]], opts)
 keymap('t', "<S-Left>", [[<Cmd>wincmd h<CR>]], opts)
 keymap('t', "<S-Down>", [[<Cmd>wincmd j<CR>]], opts)
 keymap('t', "<S-Up>" , [[<Cmd>wincmd k<CR>]], opts)
-keymap('t', "<C-Up>" , [[<C-\><C-n>:ToggleTerm<CR>]], opts)
-keymap('n', "<C-Up>" , ":ToggleTerm<CR>", opts)
+keymap('t', "<C-S-Up>" , [[<C-\><C-n>:ToggleTerm<CR>]], opts)
+keymap('n', "<C-S-Up>" , ":ToggleTerm<CR>", opts)
 keymap('t', "<S-Right>", [[<Cmd>wincmd l<CR>]], opts)
 
 

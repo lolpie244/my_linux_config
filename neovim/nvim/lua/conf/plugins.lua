@@ -98,4 +98,5 @@ return require("packer").startup(function()
 	use "catppuccin/nvim"
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use "kdheepak/lazygit.nvim"
+	use "mrjones2014/smart-splits.nvim"
 end)
