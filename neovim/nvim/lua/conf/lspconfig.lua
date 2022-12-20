@@ -10,7 +10,10 @@ local on_attach = function(client, bufnr)
 
 	local bufopts = { noremap=true, silent=true, buffer=bufnr }
 	keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
-	keymap("n", "gd", vim.lsp.buf.definition, bufopts)
+	keymap("n", "gdd", vim.lsp.buf.definition, bufopts)
+	keymap("n", "gdx", ":belowright split | lua vim.lsp.buf.definition()<CR>", bufopts)
+	keymap("n", "gdv", ":vsplit | lua vim.lsp.buf.definition()<CR>", bufopts)
+	keymap("n", "gdt", ":tab split | lua vim.lsp.buf.definition()<CR>", bufopts)
 	keymap("n", "K", vim.lsp.buf.hover, bufopts)
 	keymap("n", "gi", vim.lsp.buf.implementation, bufopts)
 	keymap("n", "<Leader>S", vim.lsp.buf.signature_help, bufopts)
