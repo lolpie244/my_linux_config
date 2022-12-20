@@ -23,6 +23,11 @@ telescope.setup({
 				["<M-x>"] = actions.file_split
 			},
 		},
+		layout_strategy = 'vertical',
+		layout_config = {
+			height = 0.95,
+			preview_height = 0.68
+		},
 	},
 	pickers = {
 		find_files = {
