@@ -49,7 +49,7 @@ keymap("n", "<A-n>", "*N", opts)
 keymap("v", "<A-c>", "\"+y", {remap = true})
 keymap("n", "<A-c>", "v\"+y", {remap = true})
 keymap("n", "<A-v>", "\"+p", {remap = true})
-keymap("v", "<A-v>", "s<Esc>\"+p", {remap = true})
+keymap("v", "<A-v>", "\"+p", {remap = true})
 
 -- duplicate line
 keymap("n", "<C-d>", "yyp", opts)
@@ -106,7 +106,7 @@ if (tsuccess) then
 	keymap("n", "<Leader>gf", telescope.git_status, opts)
 	keymap("n", "<Tab>", telescope.buffers, opts)
 end
-keymap("n", "<Leader>G", ":LazyGit<CR>")
+keymap("n", "<Leader>G", "<cmd> lua require('neogit').open({ kind = 'split' })<CR>")
 -- Terminal
 keymap('t', "<Leader><Leader>", [[<C-\><C-n>]], opts)
 keymap('t', "<Leader>q", [[<C-c><C-\><C-n>:q<CR>]], opts)
