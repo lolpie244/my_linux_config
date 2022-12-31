@@ -1,6 +1,6 @@
 init()
 {
-   sudo pacman -S firefox cheese evince file-roller gdm gnome-backgrounds gnome-calculator gnome-color-manager gnome-control-center gnome-disk-utility gnome-font-viewer gnome-keyring gnome-menus gnome-remote-desktop gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-text-editor gnome-user-share gvfs mutter nautilus sushi mtpfs gvfs-mtp gvfs-gphoto2 xdg-user-dirs-gtk gnome-shell-extensions gnome-terminal gnome-tweaks git nvidia nvidia-prime bluez
+   sudo pacman -S firefox cheese evince file-roller gdm gnome-backgrounds gnome-calculator gnome-color-manager gnome-control-center gnome-disk-utility gnome-font-viewer gnome-keyring gnome-menus gnome-remote-desktop gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-text-editor gnome-user-share gvfs mutter nautilus sushi mtpfs gvfs-mtp gvfs-gphoto2 xdg-user-dirs-gtk gnome-shell-extensions gnome-terminal gnome-tweaks git nvidia nvidia-prime bluez android-tools
 
    sudo systemctl enable --now gdm.service
    sudo systemctl enable --now bluetooth.service
