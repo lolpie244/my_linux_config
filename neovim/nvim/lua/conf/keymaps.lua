@@ -7,6 +7,12 @@ keymap("n", "<C-_>", "<Plug>(comment_toggle_linewise_current)", opts)
 keymap("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)gv", {remap = true})
 keymap("v", "<Leader>b", "<Plug>(comment_toggle_blockwise_visual)gv", {remap = true})
 
+
+-- Remaps
+keymap("v", "$", "g_", {remap = true})
+keymap("n", "-", "_", {remap = true})
+keymap("v", "-", "_", {remap = true})
+
 --  buffersize
 keymap("n", "<S-C-h>", "2<C-w>>", {remap = true, silent = true})
 keymap("n", "<S-C-j>", "2<C-w>+", {remap = true, silent = true})
@@ -35,8 +41,8 @@ keymap("n", "L", "<C-w>l", opts)
 keymap("n", "<Esc>", ":noh<CR>", opts)
 keymap("n", "<Leader>o", ":only<CR>", opts)
 keymap("n", "<Leader>q", ":q<CR>", opts)
+keymap("n", "<Leader>Q", ":%bd|e#<CR>", opts)
 keymap("n", "<C-q>", ":q!<CR>", opts)
--- keymap("n", "<Leader>w", ":w<CR>", opts)
 keymap("n", "U", "<C-r>", opts)
 
 keymap("n", "<Leader>[", "<C-^>", opts)
