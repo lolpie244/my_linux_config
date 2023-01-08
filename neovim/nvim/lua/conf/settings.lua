@@ -34,9 +34,7 @@ letg.vimspector_enable_mappings = "HUMAN"
 -- catppuccin-frappe
 -- onedark
 vim.cmd [[
-    colorscheme catppuccin-frappe
-
-		highlight ExtraWhitespace guibg=#bdae93
-		match ExtraWhitespace /\s\+$/
+	highlight ExtraWhitespace guibg=#bdae93
+	match ExtraWhitespace /\s\+$/
 ]]
 

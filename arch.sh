@@ -17,20 +17,19 @@ package_managers()
     yay -S snapd bauh
     sudo systemctl enable --now snapd.socket
     sudo ln -s /var/lib/snapd/snap /snap
-    
+
     printf "Installed: snap, AUR, flatpak \n\n"
 }
 
-codecs() 
+codecs()
 {
     sudo pacman -S vlc nomacs
     sudo pacman -S jasper lame libdca libdv gst-libav libtheora libvorbis libxv wavpack x264 xvidcore dvd+rw-tools dvdauthor dvgrab libmad libmpeg2 libdvdcss libdvdread libdvdnav exfat-utils fuse-exfat a52dec faac faad2 flac
-    
+
     printf "Installed: codecs\n\n"
 }
 
-
-battery() 
+battery()
 {
     sudo pacman -S tlp
     sudo systemctl enable --now tlp.service
@@ -39,37 +38,35 @@ battery()
     yay -S envycontrol auto-cpufreq switcheroo-control
     sudo systemctl enable --now switcheroo-control.service
     systemctl enable --now auto-cpufreq.service
-    
 
     printf "Installed: tlp, auto-cpufreq, envycontrol\n\n"
 }
 
-software() 
+software()
 {
-    yay -S noisetorch timeshift gnome-shell-extension-pop-shell-git 
-    sudo pacman -S gcc dotnet-sdk dotnet-runtime aspnet-runtime mono htop 
+    yay -S noisetorch timeshift gnome-shell-extension-pop-shell-git
+    sudo pacman -S gcc dotnet-sdk dotnet-runtime aspnet-runtime mono htop
 
     sudo flatpak install qbittorrent zoom teams_for_linux com.obsproject.Studio onlyoffice xournalpp org.gnome.NetworkDisplays krita md.obsidian.Obsidian typora org.telegram.desktop flatseal
     printf "Installed: additional software\n\n"
 }
 
-neovim() 
+neovim()
 {
-    sudo pacman -S neovim go npm gcc fd ripgrep wl-clipboard
+    sudo pacman -S neovim go npm gcc fd ripgrep wl-clipboard python-virtualenv
 }
-postgres() 
+postgres()
 {
     sudo pacman -S postgresql
-    sudo su - postgres 
+    sudo su - postgres
     initdb --locale en_US.UTF-8 -D /var/lib/postgres/data
     exit
 }
 theme()
 {
    sudo pacman -S gtk-murrine-engine sassc
-   yay -S gnome-browser-connector 
+   yay -S gnome-browser-connector
 }
-
 
 
 case $1 in
@@ -81,7 +78,7 @@ case $1 in
     "neovim") neovim;;
     "postgres") postgres;;
     "theme") theme;;
-    *) 
+    *)
 	printf "invalid argument\n"
 	exit 1;;
 esac
