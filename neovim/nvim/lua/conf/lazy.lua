@@ -28,7 +28,6 @@ require("lazy").setup({
 
 -- Telescope dependencies
 {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"},
-"nvim-treesitter/nvim-treesitter-context",
 "sharkdp/fd",
 "BurntSushi/ripgrep",
 {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
