@@ -40,7 +40,7 @@ keymap("n", "<M-l>", require("smart-splits").move_cursor_right, opts)
 
 keymap("n", "<Esc>", ":noh<CR>", opts)
 keymap("n", "<Leader>o", ":only<CR>", opts)
-keymap("n", "<Leader>q", ":q<CR>", opts)
+keymap("n", "<Leader>q", ":silent! q<CR>", opts)
 keymap("n", "<Leader>Q", ":%bd|e#<CR>", opts)
 keymap("n", "<C-q>", ":q!<CR>", opts)
 keymap("n", "U", "<C-r>", opts)
@@ -92,7 +92,7 @@ keymap("n", "<Leader>gs", ":DiffviewOpen<CR>", opts)
 
 
 -- Netrw
-keymap("n", "<Leader><Leader>", ":Telescope file_browser<CR>", opts)
+keymap("n", "<Leader><Leader>", ":silent! Telescope file_browser<CR>", opts)
 
 -- LSP
 keymap("n","<Leader>d", vim.diagnostic.open_float, opts) -- show diagnostic
