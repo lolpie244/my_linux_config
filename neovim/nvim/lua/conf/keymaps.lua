@@ -148,3 +148,10 @@ function TrueZenNarrowAndFocus()
 end
 keymap("n", "<C-Space>", ':<CR><cmd>lua TrueZenNarrowAndFocus()<CR>', opts)
 keymap("v", "<C-Space>", ":'<,'>TZNarrow<CR>", opts)
+
+
+-- yanky
+keymap("n", "p", "<Plug>(YankyPutAfter)", {remap = true})
+keymap("n", "P", "<Plug>(YankyPutBefore)", {remap = true})
+keymap("n", "<C-p>", "<Plug>(YankyCycleForward)", {remap = true})
+keymap("n", "<C-n>", "<Plug>(YankyCycleBackward)", {remap = true})

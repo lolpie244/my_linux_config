@@ -59,8 +59,9 @@ require("lazy").setup({
 "lukas-reineke/indent-blankline.nvim", -- lines that represent tab's start
 "mrjones2014/smart-splits.nvim", -- better buffer resizing, integration with tmux
 "winston0410/cmd-parser.nvim", -- dependencies for plugin belove
-"winston0410/range-highlight.nvim", -- highlight lines that selected
 "declancm/cinnamon.nvim", -- better scroll
+"gbprod/yanky.nvim", -- go though yank history
+
 
 -- Colorshemes
 {"catppuccin/nvim", lazy = false},

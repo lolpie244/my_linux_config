@@ -9,12 +9,15 @@ local function setup(name, data)
 	end
 end
 
+local empty_setup = {
+	"toggleterm",
+	"nvim-autopairs",
+	"yanky",
+}
 
--- Toggleterm
-setup("toggleterm")
-
--- Autopairs
-setup("nvim-autopairs")
+for _, plugin in ipairs(empty_setup) do
+	setup(plugin)
+end
 
 -- Gitsigns
 setup("gitsigns", {
@@ -28,8 +31,6 @@ setup("gitsigns", {
 -- Theme
 vim.cmd([[colorscheme catppuccin-frappe]])
 
--- Autopairs
-setup("range-highlight")
-
 -- Better scroll
 setup("cinnamon", {extended_keymaps = true})
+
