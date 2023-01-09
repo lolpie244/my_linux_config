@@ -23,8 +23,14 @@ require("lazy").setup({
 "williamboman/nvim-lsp-installer",
 
 -- Completion
-{"ms-jpq/coq_nvim", branch = "coq"},
-{"ms-jpq/coq.artifacts", branch = "artifacts"},
+"hrsh7th/nvim-cmp",
+"hrsh7th/cmp-buffer",
+"hrsh7th/cmp-path",
+"hrsh7th/cmp-nvim-lsp",
+"onsails/lspkind.nvim",
+"L3MON4D3/LuaSnip",
+"saadparwaiz1/cmp_luasnip",
+"rafamadriz/friendly-snippets",
 
 -- Telescope dependencies
 {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"},

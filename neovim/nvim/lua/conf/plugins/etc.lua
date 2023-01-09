@@ -4,6 +4,8 @@ local function setup(name, data)
 
 	if (success) then
 		instance.setup(data)
+	else
+		error("ERROR WHILE LOADING " .. name)
 	end
 end
 
@@ -12,7 +14,7 @@ end
 setup("toggleterm")
 
 -- Autopairs
-setup("autopairs")
+setup("nvim-autopairs")
 
 -- Gitsigns
 setup("gitsigns", {

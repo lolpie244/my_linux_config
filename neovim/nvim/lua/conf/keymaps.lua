@@ -96,10 +96,14 @@ keymap("n", "<Leader><Leader>", ":silent! Telescope file_browser<CR>", opts)
 
 -- LSP
 keymap("n","<Leader>d", vim.diagnostic.open_float, opts) -- show diagnostic
-keymap("n", "[d", vim.diagnostic.goto_prev, opts) -- previous diagnostic
-keymap("n", "]d", vim.diagnostic.goto_next, opts) -- next diagnostic
-keymap("n", "=d", vim.lsp.buf.code_action, opts) -- all diagnostic
-keymap("n", "gr", require('telescope.builtin').lsp_references, opts)
+keymap("n", "[d", vim.diagnostic.goto_prev, opts)
+keymap("n", "]d", vim.diagnostic.goto_next, opts)
+keymap("n", "gdd", vim.lsp.buf.definition, opts)
+keymap("n", "gdx", ":belowright split | lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "gdv", ":vsplit | lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "gdt", ":tab split | lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "K", vim.lsp.buf.hover, opts)
+keymap("n", "<Leader>R", vim.lsp.buf.rename, opts)
 
 -- Telescope
 if (tsuccess) then
