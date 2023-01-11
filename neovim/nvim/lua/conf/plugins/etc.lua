@@ -12,7 +12,6 @@ end
 local empty_setup = {
 	"toggleterm",
 	"nvim-autopairs",
-	"yanky",
 }
 
 for _, plugin in ipairs(empty_setup) do
@@ -33,4 +32,6 @@ vim.cmd([[colorscheme catppuccin-frappe]])
 
 -- Better scroll
 setup("cinnamon", {extended_keymaps = true})
+
+setup("yanky", {ring = {cancel_event = "move"}})
 

@@ -36,8 +36,6 @@ keymap("n", "<M-j>", require("smart-splits").move_cursor_down, opts)
 keymap("n", "<M-k>", require("smart-splits").move_cursor_up, opts)
 keymap("n", "<M-l>", require("smart-splits").move_cursor_right, opts)
 
-
-
 keymap("n", "<Esc>", ":noh<CR>", opts)
 keymap("n", "<Leader>o", ":only<CR>", opts)
 keymap("n", "<Leader>q", ":silent! q<CR>", opts)
@@ -151,7 +149,13 @@ keymap("v", "<C-Space>", ":'<,'>TZNarrow<CR>", opts)
 
 
 -- yanky
-keymap("n", "p", "<Plug>(YankyPutAfter)", {remap = true})
-keymap("n", "P", "<Plug>(YankyPutBefore)", {remap = true})
-keymap("n", "<C-p>", "<Plug>(YankyCycleForward)", {remap = true})
-keymap("n", "<C-n>", "<Plug>(YankyCycleBackward)", {remap = true})
+keymap("n", "<c-p>", ":Telescope yank_history<CR>", {remap = true})
+keymap("n", "p", function ()
+	local yanky = require("yanky")
+	if yanky.can_cycle() then
+		yanky.cycle(1)
+	else
+		yanky.put("p")
+	end
+end, {remap = true})
+keymap("n", "P", "<Plug>(YankyCycleBackward)", {remap = true})
