@@ -48,6 +48,10 @@ require("lazy").setup({
 "kdheepak/lazygit.nvim",
 "lewis6991/gitsigns.nvim",
 
+-- database
+"kristijanhusak/vim-dadbod-ui",
+"tpope/vim-dadbod",
+
 -- etc
 "numToStr/Comment.nvim", -- Comment
 "Pocco81/true-zen.nvim", -- Focus on buffer

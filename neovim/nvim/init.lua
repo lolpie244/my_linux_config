@@ -2,6 +2,7 @@ require("conf.settings")
 require("conf.lazy")
 require("conf.keymaps")
 
+require("conf.plugins.autosave")
 require("conf.plugins.lspconfig")
 require("conf.plugins.completion")
 require("conf.plugins.nvimtreesitter")

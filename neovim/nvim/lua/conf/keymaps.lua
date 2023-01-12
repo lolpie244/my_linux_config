@@ -38,6 +38,7 @@ keymap("n", "<M-l>", require("smart-splits").move_cursor_right, opts)
 
 keymap("n", "<Esc>", ":noh<CR>", opts)
 keymap("n", "<Leader>o", ":only<CR>", opts)
+keymap("n", "<Leader>w", ":silent! w<CR>", opts)
 keymap("n", "<Leader>q", ":silent! q<CR>", opts)
 keymap("n", "<Leader>Q", ":%bd|e#<CR>", opts)
 keymap("n", "<C-q>", ":q!<CR>", opts)
@@ -116,14 +117,15 @@ if (tsuccess) then
 end
 
 -- Terminal
+--
 keymap('t', "<Leader><Leader>", [[<C-\><C-n>]], opts)
 keymap('t', "<Leader>q", [[<C-c><C-\><C-n>:q<CR>]], opts)
-keymap('t', "<S-Left>", [[<Cmd>wincmd h<CR>]], opts)
-keymap('t', "<S-Down>", [[<Cmd>wincmd j<CR>]], opts)
-keymap('t', "<S-Up>" , [[<Cmd>wincmd k<CR>]], opts)
+keymap('t', "<M-Left>", [[<Cmd>wincmd h<CR>]], opts)
+keymap('t', "<M-Down>", [[<Cmd>wincmd j<CR>]], opts)
+keymap('t', "<M-Up>" , [[<Cmd>wincmd k<CR>]], opts)
+keymap('t', "<M-Right>", [[<Cmd>wincmd l<CR>]], opts)
 keymap('t', "<C-S-Up>" , [[<C-\><C-n>:ToggleTerm<CR>]], opts)
 keymap('n', "<C-S-Up>" , ":ToggleTerm<CR>", opts)
-keymap('t', "<S-Right>", [[<Cmd>wincmd l<CR>]], opts)
 
 
 -- dap (debuger)
