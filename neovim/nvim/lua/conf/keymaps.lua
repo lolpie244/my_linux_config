@@ -72,6 +72,7 @@ keymap("n", "<", "<<", {remap = true})
 
 -- tabs
 keymap("n", "<M-t>", ":tabnew<CR>", opts)
+keymap("n", "<C-T>", ":tabclose<CR>", opts)
 keymap("n", "<M-,>", ":tabprevious<CR>", opts)
 keymap("n", "<M-.>", ":tabnext<CR>", opts)
 keymap("n", "<M-<>", ":tabmove -1<CR>", opts)

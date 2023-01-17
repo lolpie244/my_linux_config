@@ -52,6 +52,11 @@ require("lazy").setup({
 "kristijanhusak/vim-dadbod-ui",
 "tpope/vim-dadbod",
 
+-- mini
+"echasnovski/mini.move", -- move selection
+"echasnovski/mini.ai", -- better "actions INSIDE/ALL"
+"echasnovski/mini.jump", -- better jump TO/FORWARD
+
 -- etc
 "numToStr/Comment.nvim", -- Comment
 "Pocco81/true-zen.nvim", -- Focus on buffer
