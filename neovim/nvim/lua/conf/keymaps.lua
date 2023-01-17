@@ -83,12 +83,6 @@ keymap("n", "<Leader>G", ":LazyGit<CR>")
 keymap("n", "<Leader>gf", ":DiffviewFileHistory %<CR>", opts)
 keymap("n", "<Leader>gh", ":DiffviewFileHistory<CR>", opts)
 keymap("n", "<Leader>gs", ":DiffviewOpen<CR>", opts)
--- • <leader>co: Choose the OURS version of the conflict.
--- • <leader>ct: Choose the THEIRS version of the conflict.
--- • <leader>cb: Choose the BASE version of the conflict.
--- • <leader>ca: Choose all versions of the conflict (effectively just deletes the markers, leaving all the content).
--- • dx: Choose none of the versions of the conflict (delete the
---   conflict region).
 
 
 -- Netrw
