@@ -53,7 +53,7 @@ require("lazy").setup({
 "tpope/vim-dadbod",
 
 -- mini
-"echasnovski/mini.move", -- move selection
+-- "echasnovski/mini.move", -- move selection
 "echasnovski/mini.ai", -- better "actions INSIDE/ALL"
 "echasnovski/mini.jump", -- better jump TO/FORWARD
 
@@ -67,9 +67,7 @@ require("lazy").setup({
 "nvim-lualine/lualine.nvim", -- information line
 "lukas-reineke/indent-blankline.nvim", -- lines that represent tab's start
 "mrjones2014/smart-splits.nvim", -- better buffer resizing, integration with tmux
-"winston0410/cmd-parser.nvim", -- dependencies for plugin belove
 "declancm/cinnamon.nvim", -- better scroll
-"gbprod/yanky.nvim", -- go though yank history
 
 
 -- Colorshemes

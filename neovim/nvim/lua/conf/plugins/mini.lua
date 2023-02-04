@@ -18,11 +18,3 @@ for _, plugin in ipairs(empty_setup) do
 	setup(plugin)
 end
 
-setup("mini.move", {
-	mappings = {
-		line_left = '',
-		line_right = '',
-		line_down = '',
-		line_up = '',
-	}
-})

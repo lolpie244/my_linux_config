@@ -24,6 +24,3 @@ vim.cmd([[colorscheme catppuccin-frappe]])
 
 -- Better scroll
 setup("cinnamon", {extended_keymaps = true})
-
-setup("yanky", {ring = {cancel_event = "move"}})
-

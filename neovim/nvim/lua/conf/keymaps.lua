@@ -10,8 +10,7 @@ keymap("v", "<Leader>b", "<Plug>(comment_toggle_blockwise_visual)gv", {remap = t
 
 -- Remaps
 keymap("v", "$", "g_", {remap = true})
-keymap("n", "-", "_", {remap = true})
-keymap("v", "-", "_", {remap = true})
+keymap({"n", "v"}, "-", "_", {remap = true})
 
 --  buffersize
 keymap("n", "<C-Left>", require("smart-splits").resize_left, opts)
@@ -43,18 +42,15 @@ keymap("n", "<Leader>q", ":silent! q<CR>", opts)
 keymap("n", "<Leader>Q", ":%bd|e#<CR>", opts)
 keymap("n", "<C-q>", ":q!<CR>", opts)
 keymap("n", "U", "<C-r>", opts)
+keymap("v", "p", '"_dp', opts)
 
 keymap("n", "<Leader>[", "<C-o>", opts)
 keymap("n", "<Leader>]", "<C-i>", opts)
-keymap("n", "<Leader>bl", ":ls<CR>", opts)
-
 
 -- sysym copy/past
-keymap("n", "<A-n>", "*N", opts)
 keymap("v", "<A-c>", "\"+y", {remap = true})
 keymap("n", "<A-c>", "v\"+y", {remap = true})
-keymap("n", "<A-v>", "\"+p", {remap = true})
-keymap("v", "<A-v>", "\"+p", {remap = true})
+keymap({"n", "v"}, "<A-v>", "\"+p", {remap = true})
 
 -- duplicate line
 keymap("n", "<C-d>", "yyp", opts)
@@ -145,14 +141,3 @@ keymap("n", "<C-Space>", ':<CR><cmd>lua TrueZenNarrowAndFocus()<CR>', opts)
 keymap("v", "<C-Space>", ":'<,'>TZNarrow<CR>", opts)
 
 
--- yanky
-keymap("n", "<c-p>", ":Telescope yank_history<CR>", {remap = true})
-keymap("n", "p", function ()
-	local yanky = require("yanky")
-	if yanky.can_cycle() then
-		yanky.cycle(1)
-	else
-		yanky.put("p")
-	end
-end, {remap = true})
-keymap("n", "P", "<Plug>(YankyCycleBackward)", {remap = true})
