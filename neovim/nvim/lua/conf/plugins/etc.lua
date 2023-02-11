@@ -12,6 +12,7 @@ end
 local empty_setup = {
 	"toggleterm",
 	"nvim-autopairs",
+	"spectre"
 }
 
 for _, plugin in ipairs(empty_setup) do

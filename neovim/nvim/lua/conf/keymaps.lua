@@ -141,3 +141,5 @@ keymap("n", "<C-Space>", ':<CR><cmd>lua TrueZenNarrowAndFocus()<CR>', opts)
 keymap("v", "<C-Space>", ":'<,'>TZNarrow<CR>", opts)
 
 
+-- replace
+keymap("n", "<C-R>", require('spectre').open, opts)

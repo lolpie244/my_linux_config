@@ -68,6 +68,7 @@ require("lazy").setup({
 "lukas-reineke/indent-blankline.nvim", -- lines that represent tab's start
 "mrjones2014/smart-splits.nvim", -- better buffer resizing, integration with tmux
 "declancm/cinnamon.nvim", -- better scroll
+"windwp/nvim-spectre", -- better replace
 
 
 -- Colorshemes
