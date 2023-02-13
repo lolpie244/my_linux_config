@@ -42,7 +42,6 @@ keymap("n", "<Leader>q", ":silent! q<CR>", opts)
 keymap("n", "<Leader>Q", ":%bd|e#<CR>", opts)
 keymap("n", "<C-q>", ":q!<CR>", opts)
 keymap("n", "U", "<C-r>", opts)
-keymap("v", "p", '"_dp', opts)
 
 keymap("n", "<Leader>[", "<C-o>", opts)
 keymap("n", "<Leader>]", "<C-i>", opts)
@@ -51,6 +50,8 @@ keymap("n", "<Leader>]", "<C-i>", opts)
 keymap("v", "<A-c>", "\"+y", {remap = true})
 keymap("n", "<A-c>", "v\"+y", {remap = true})
 keymap({"n", "v"}, "<A-v>", "\"+p", {remap = true})
+keymap("v", "p", '"_dp', opts)
+
 
 -- duplicate line
 keymap("n", "<C-d>", "yyp", opts)

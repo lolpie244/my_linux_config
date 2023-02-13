@@ -29,7 +29,8 @@ local servers = {
 	lspconfig.jdtls,
 	lspconfig.html,
 	lspconfig.cssls,
-	lspconfig.sumneko_lua
+	lspconfig.sumneko_lua,
+	lspconfig.rust_analyzer
 }
 
 for _, server in ipairs(servers) do

@@ -75,3 +75,4 @@ dap.configurations.cpp = {
 	},
 }
 dap.configurations.h = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
