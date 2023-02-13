@@ -47,7 +47,7 @@ software()
     yay -S noisetorch timeshift gnome-shell-extension-pop-shell-git
     sudo pacman -S gcc dotnet-sdk dotnet-runtime aspnet-runtime mono htop
 
-    sudo flatpak install qbittorrent zoom teams_for_linux com.obsproject.Studio onlyoffice xournalpp org.gnome.NetworkDisplays krita md.obsidian.Obsidian typora org.telegram.desktop flatseal
+    sudo flatpak install qbittorrent zoom teams_for_linux com.obsproject.Studio onlyoffice xournalpp org.gnome.NetworkDisplays krita typora org.telegram.desktop flatseal
     printf "Installed: additional software\n\n"
 }
 
