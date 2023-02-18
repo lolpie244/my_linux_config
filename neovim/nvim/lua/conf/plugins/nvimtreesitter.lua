@@ -1,8 +1,4 @@
-local success, treesitter = pcall(require, "nvim-treesitter.configs")
-
-if (not success) then
-	return
-end
+local treesitter = require("nvim-treesitter.configs")
 
 treesitter.setup({
 	ensure_installed = {

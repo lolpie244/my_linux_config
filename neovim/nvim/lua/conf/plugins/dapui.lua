@@ -1,10 +1,4 @@
-local success, dapui = pcall(require, "dapui")
-
-if (not success) then
-	return
-end
-
-dapui.setup({
+require("dapui").setup({
 	mappings = {
 		expand = { "<CR>", "<2-LeftMouse>" },
 		open = "o",
@@ -15,11 +9,4 @@ dapui.setup({
 	},
 })
 
-local virtual_text
-success, virtual_text = pcall(require, "nvim-dap-virtual-text")
-
-if (not success) then
-	return
-end
-
-virtual_text.setup({})
+require("nvim-dap-virtual-text").setup({})

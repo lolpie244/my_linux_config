@@ -1,14 +1,9 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-local cmp_lsp_success, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-local luasnip_success, luasnip = pcall(require, "luasnip")
-local cmp_success, cmp = pcall(require, "cmp")
-local lspkind_success, lspkind = pcall(require, "lspkind")
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local luasnip = require("luasnip")
+local cmp = require("cmp")
+local lspkind = require("lspkind")
 
-
-if (not (cmp_lsp_success and cmp_success and
-		luasnip_success and lspkind_success and cmp ~= nil)) then
-	return
-end
 
 require("luasnip.loaders.from_vscode").lazy_load()
 

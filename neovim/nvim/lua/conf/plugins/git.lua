@@ -1,17 +1,5 @@
-local function setup(name, data)
-	data = data or {}
-	local success, instance = pcall(require, name)
-
-	if (success) then
-		instance.setup(data)
-	else
-		error("ERROR WHILE LOADING " .. name)
-	end
-end
-
-
 -- Gitsigns
-setup("gitsigns", {
+require("gitsigns").setup({
 	signs = {
 		add    = { hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'    },
 		change = { hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn' },
@@ -19,7 +7,7 @@ setup("gitsigns", {
 	}
 })
 
-setup("diffview", {
+require("diffview").setup({
 	view = {
 		merge_tool = {
 			layout = "diff3_mixed"

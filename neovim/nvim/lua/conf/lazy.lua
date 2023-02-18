@@ -18,9 +18,13 @@ require("lazy").setup({
 {"rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}},
 "theHamsta/nvim-dap-virtual-text",
 
--- LSP
+-- LSP and formatter
 "neovim/nvim-lspconfig",
-"williamboman/nvim-lsp-installer",
+"williamboman/mason.nvim",
+"williamboman/mason-lspconfig.nvim",
+"jose-elias-alvarez/null-ls.nvim",
+"jay-babu/mason-null-ls.nvim",
+
 
 -- Completion
 "hrsh7th/nvim-cmp",
@@ -53,7 +57,6 @@ require("lazy").setup({
 "tpope/vim-dadbod",
 
 -- mini
--- "echasnovski/mini.move", -- move selection
 "echasnovski/mini.ai", -- better "actions INSIDE/ALL"
 "echasnovski/mini.jump", -- better jump TO/FORWARD
 
@@ -61,7 +64,6 @@ require("lazy").setup({
 "numToStr/Comment.nvim", -- Comment
 "Pocco81/true-zen.nvim", -- Focus on buffer
 "Pocco81/auto-save.nvim", -- Autosave
-"Vimjas/vim-python-pep8-indent", -- in brackets lines for python
 "akinsho/toggleterm.nvim", -- better inside vim terminal
 "windwp/nvim-autopairs", -- brackets autopairs
 "nvim-lualine/lualine.nvim", -- information line

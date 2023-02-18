@@ -1,6 +1,7 @@
 local files = {
 	"autosave",
 	"lspconfig",
+	"formatters",
 	"completion",
 	"nvimtreesitter",
 	"lualine",

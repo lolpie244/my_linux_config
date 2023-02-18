@@ -49,9 +49,9 @@ keymap("n", "<Leader>]", "<C-i>", opts)
 -- sysym copy/past
 keymap("v", "<A-c>", "\"+y", {remap = true})
 keymap("n", "<A-c>", "v\"+y", {remap = true})
-keymap({"n", "v"}, "<A-v>", "\"+p", {remap = true})
+keymap("n", "<A-v>", "\"+p", {remap = true})
+keymap("v", "<A-v>", "\"+P", {remap = true})
 keymap("v", "p", '"_dp', opts)
-
 
 -- duplicate line
 keymap("n", "<C-d>", "yyp", opts)
@@ -86,6 +86,7 @@ keymap("n", "<Leader>gs", ":DiffviewOpen<CR>", opts)
 keymap("n", "<Leader><Leader>", ":silent! Telescope file_browser<CR>", opts)
 
 -- LSP
+keymap("n", "<Leader>F", vim.lsp.buf.format, opts) -- format file
 keymap("n","<Leader>d", vim.diagnostic.open_float, opts) -- show diagnostic
 keymap("n", "[d", vim.diagnostic.goto_prev, opts)
 keymap("n", "]d", vim.diagnostic.goto_next, opts)
