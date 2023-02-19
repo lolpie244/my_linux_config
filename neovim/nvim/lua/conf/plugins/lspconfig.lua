@@ -1,7 +1,6 @@
 local lsp_servers = {
 	"clangd",
 	"pyright",
-	"omnisharp",
 	"cmake",
 	"jsonls",
 	"sqls",
@@ -13,6 +12,7 @@ local lsp_servers = {
 	"html",
 	"cssls",
 	"rust_analyzer",
+	"omnisharp"
 }
 
 -- INSTALL LSP

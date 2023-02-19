@@ -1,6 +1,7 @@
 local formatters = {
 	"black",
-	"sql-formatter"
+	"sql-formatter",
+	"rustfmt"
 }
 
 

@@ -37,24 +37,25 @@ telescope.setup({
 telescope.setup({
   extensions = {
     file_browser = {
-	  respect_gitignore = false,
-      theme = "ivy",
+		respect_gitignore = false,
+		theme = "ivy",
 		path = "%:p:h",
 		cwd_to_path = true,
-      -- disables netrw and use telescope-file-browser in its place
-      hijack_netrw = true,
-      mappings = {
-        ["i"] = {
-			["<M-t>"] = actions.file_tab,
-			["<M-v>"] = actions.file_vsplit,
-			["<M-x>"] = actions.file_split
-        },
-        ["n"] = {
-			["<M-t>"] = actions.file_tab,
-			["<M-v>"] = actions.file_vsplit,
-			["<M-x>"] = actions.file_split
-        },
-      },
+		hijack_netrw = true,
+		quite=true,
+		git_status=false,
+		mappings = {
+			["i"] = {
+				["<M-t>"] = actions.file_tab,
+				["<M-v>"] = actions.file_vsplit,
+				["<M-x>"] = actions.file_split
+			},
+			["n"] = {
+				["<M-t>"] = actions.file_tab,
+				["<M-v>"] = actions.file_vsplit,
+				["<M-x>"] = actions.file_split
+			},
+		},
     },
 	fzf = {
       fuzzy = true,
