@@ -71,6 +71,7 @@ require("lazy").setup({
 "mrjones2014/smart-splits.nvim", -- better buffer resizing, integration with tmux
 "declancm/cinnamon.nvim", -- better scroll
 "windwp/nvim-spectre", -- better replace
+"michaeljsmith/vim-indent-object",
 
 
 -- Colorshemes

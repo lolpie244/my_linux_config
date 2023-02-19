@@ -41,5 +41,6 @@
   "toggleterm.nvim": { "branch": "main", "commit": "557664818f6af78de6192f0ce8bc2e887bf4943a" },
   "true-zen.nvim": { "branch": "main", "commit": "98740c76254c65576ec294551028b65081053588" },
   "vim-dadbod": { "branch": "master", "commit": "389a2b0120f82b13d51ff7c07f5c13f9bc9f412f" },
-  "vim-dadbod-ui": { "branch": "master", "commit": "caf45f54dad6150970331ac115e531524e418c7c" }
+  "vim-dadbod-ui": { "branch": "master", "commit": "caf45f54dad6150970331ac115e531524e418c7c" },
+  "vim-indent-object": { "branch": "master", "commit": "5c5b24c959478929b54a9e831a8e2e651a465965" }
 }
