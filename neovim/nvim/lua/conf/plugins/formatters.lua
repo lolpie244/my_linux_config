@@ -20,8 +20,6 @@ null_ls.setup({
 			extra_args = {
 				"--style=kr",
 				"--indent=tab",
-				"--attach-namespaces",
-				"--attach-classes"
 			}
 		})
 	}

@@ -13,12 +13,14 @@ end
 
 function Build(silent)
 	local state = vim.g.cmake_state
-	local command = string.format("cmake -S . -B build/%s -D CMAKE_BUILD_TYPE=%s; cd build/%s; make; cd -", state, state, state)
+	local command = string.format("cmake -S . -B build/%s -D CMAKE_BUILD_TYPE=%s -DCMAKE_EXPORT_COMPILE_COMMANDS=1; cd build/%s; make; cd -", state, state, state)
   	if silent then
   		vim.api.nvim_command(":silent !" .. command)
 	else
 		vim.api.nvim_command("! " .. command)
-	 end
+	end
+	command = string.format("ln -nsfr build/%s/compile_commands.json build/compile_commands.json", state)
+	os.execute(command)
 end
 
 function SwitchState()
@@ -41,6 +43,6 @@ function Run()
 end
 
 
-keymap("n", "<Leader>br", ":wa<CR><cmd>lua Build(false)<CR>", opts)
+keymap("n", "<Leader>bb", ":wa<CR><cmd>lua Build(false)<CR>", opts)
 keymap("n", "<Leader>r", ":wa<CR><cmd>lua Run()<CR>", opts)
 keymap("n", "<Leader>bs", ":wa<CR><cmd>lua SwitchState()<CR>", opts)

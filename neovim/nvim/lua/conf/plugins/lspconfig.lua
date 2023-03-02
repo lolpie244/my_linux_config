@@ -23,7 +23,7 @@ mason.setup()
 lspconfig.setup {
 	ensure_installed = lsp_servers
 }
-
+--
 -- SETUP LSP
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local lspconfig = require("lspconfig")
@@ -34,6 +34,8 @@ local on_attach = function(client, bufnr)
 	vim.diagnostic.config({ virtual_text = false })
 end
 capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+
+
 for _, server in ipairs(lsp_servers) do
 	lspconfig[server].setup({ on_attach = on_attach, capabilities = capabilities })
 end

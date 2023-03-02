@@ -15,8 +15,8 @@ keymap({"n", "v"}, "-", "_", {remap = true})
 --  buffersize
 keymap("n", "<C-Left>", require("smart-splits").resize_left, opts)
 keymap("n", "<C-Down>", require("smart-splits").resize_down, opts)
-keymap("n", "<C-Up>", require("smart-splits").resize_up, opts)
-keymap("n", "<C-Right>", require("smart-splits").resize_right, opts)
+keymap("n", "<C-Up>", require("smart-splits").resize_up, {remap = true})
+keymap("n", "<C-Right>", require("smart-splits").resize_right, {remap = true})
 
 keymap("n", "<C-h>", require("smart-splits").resize_left, opts)
 keymap("n", "<C-j>", require("smart-splits").resize_down, opts)
@@ -68,7 +68,8 @@ keymap("v", "<", "<gv", {remap = true})
 keymap("n", "<", "<<", {remap = true})
 
 -- tabs
-keymap("n", "<M-t>", ":tabnew<CR>", opts)
+keymap("n", "<M-t>", ":tabe %<CR>", opts)
+keymap("n", "<M-T>", ":tabnew<CR>", opts)
 keymap("n", "<C-T>", ":tabclose<CR>", opts)
 keymap("n", "<M-,>", ":tabprevious<CR>", opts)
 keymap("n", "<M-.>", ":tabnext<CR>", opts)
@@ -88,9 +89,11 @@ keymap("n", "<Leader><Leader>", ":silent! Telescope file_browser<CR>", opts)
 -- LSP
 keymap("n", "<Leader>F", vim.lsp.buf.format, opts) -- format file
 keymap("n","<Leader>d", vim.diagnostic.open_float, opts) -- show diagnostic
+keymap("n", "=d", vim.lsp.buf.code_action, opts)
 keymap("n", "[d", vim.diagnostic.goto_prev, opts)
 keymap("n", "]d", vim.diagnostic.goto_next, opts)
 keymap("n", "gdd", vim.lsp.buf.definition, opts)
+keymap("n", "gr", vim.lsp.buf.references, opts)
 keymap("n", "gdx", ":belowright split | lua vim.lsp.buf.definition()<CR>", opts)
 keymap("n", "gdv", ":vsplit | lua vim.lsp.buf.definition()<CR>", opts)
 keymap("n", "gdt", ":tab split | lua vim.lsp.buf.definition()<CR>", opts)
