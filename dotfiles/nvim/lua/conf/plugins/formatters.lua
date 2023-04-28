@@ -9,10 +9,7 @@ local formatters = {
 local mason_null_ls = require("mason-null-ls")
 local null_ls = require("null-ls")
 
-mason_null_ls.setup({
-    ensure_installed = formatters,
-	automatic_setup = true,
-})
+
 
 null_ls.setup({
 	sources = {
@@ -25,5 +22,9 @@ null_ls.setup({
 	}
 })
 
-
-mason_null_ls.setup_handlers()
+mason_null_ls.setup({
+    ensure_installed = formatters,
+	automatic_setup = true,
+	handlers = {}
+})
+-- mason_null_ls.setup_handlers()

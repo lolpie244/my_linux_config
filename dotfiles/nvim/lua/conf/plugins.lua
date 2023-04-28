@@ -7,7 +7,6 @@ local files = {
 	"lualine",
 	"telescope",
 	"dap",
-	"true_zen",
 	"comment",
 	"dapui",
 	"etc",

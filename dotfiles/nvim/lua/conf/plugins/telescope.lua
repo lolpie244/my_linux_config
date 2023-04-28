@@ -8,6 +8,8 @@ telescope.setup({
 			"node_modules",
 			"venv",
 			"build",
+			"__pycache__",
+			".git",
 		},
 		mappings = {
 			["i"] = {
@@ -29,7 +31,7 @@ telescope.setup({
 	},
 	pickers = {
 		find_files = {
-			hidden = true
+			hidden = true,
 		}
 	},
 

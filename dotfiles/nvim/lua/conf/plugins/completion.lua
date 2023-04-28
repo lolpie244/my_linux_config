@@ -5,6 +5,12 @@ local cmp = require("cmp")
 local lspkind = require("lspkind")
 
 
+luasnip.setup({
+	region_check_events = "InsertEnter",
+	delete_check_events = "TextChanged,InsertLeave"
+})
+
+
 require("luasnip.loaders.from_vscode").lazy_load()
 
 capabilities = cmp_nvim_lsp.default_capabilities(capabilities)

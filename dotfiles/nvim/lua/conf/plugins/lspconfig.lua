@@ -3,7 +3,7 @@ local lsp_servers = {
 	"pyright",
 	"cmake",
 	"jsonls",
-	"sqls",
+	"sqlls",
 	"yamlls",
 	"dockerls",
 	"bashls",

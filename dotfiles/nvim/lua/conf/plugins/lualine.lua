@@ -8,7 +8,7 @@ require("lualine").setup({
 	sections = {
 		lualine_a = {'mode'},
 		lualine_b = {'branch', 'diff', 'diagnostics'},
-		lualine_c = {{'filename', path = 1}},
+		lualine_c = {{'filename', path = 1}, "vim.fn['zoom#statusline']()"},
 		lualine_x = {'encoding', 'fileformat', {'filetype', padding = { left = 2, right = 3}}},
 		lualine_y = {'progress'},
 		lualine_z = {'location'}

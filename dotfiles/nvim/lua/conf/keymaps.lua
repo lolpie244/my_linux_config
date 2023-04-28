@@ -3,8 +3,8 @@ local opts = { noremap = true, silent = true }
 local tsuccess, telescope = pcall(require, "telescope.builtin");
 
 -- Comments
-keymap("n", "<C-_>", "<Plug>(comment_toggle_linewise_current)", opts)
-keymap("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)gv", {remap = true})
+keymap("n", "<M-/>", "<Plug>(comment_toggle_linewise_current)", opts)
+keymap("v", "<M-/>", "<Plug>(comment_toggle_linewise_visual)gv", {remap = true})
 keymap("v", "<Leader>b", "<Plug>(comment_toggle_blockwise_visual)gv", {remap = true})
 
 
@@ -60,6 +60,9 @@ keymap("v", "<C-d>", "y'>o<Esc>p", {remap = true})
 -- select all
 keymap("n", "<A-a>", "ggVG", opts)
 
+-- select line
+keymap("n", "V", "V0", opts)
+
 -- tab
 keymap("v", ">", ">gv", {remap = true})
 keymap("n", ">", ">>", {remap = true})
@@ -108,7 +111,6 @@ if (tsuccess) then
 	keymap("n", "<Leader>h", telescope.resume, opts)
 	keymap("n", "<Leader>t", telescope.treesitter, opts)
 	keymap("n", "<Leader>ad", telescope.diagnostics, opts)
-	keymap("n", "<Leader>gb", telescope.git_branches, opts)
 	keymap("n", "<Tab>", telescope.buffers, opts)
 end
 
@@ -134,16 +136,8 @@ keymap("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>", opts)
 
 
 
--- True zen
-function TrueZenNarrowAndFocus()
-	if (vim.b.tz_narrowed_buffer) then
-		pcall(require("true-zen.narrow").off)
-	else
-		pcall(require("true-zen.focus").toggle)
-	end
-end
-keymap("n", "<C-Space>", ':<CR><cmd>lua TrueZenNarrowAndFocus()<CR>', opts)
-keymap("v", "<C-Space>", ":'<,'>TZNarrow<CR>", opts)
+-- zoom
+keymap("n", "<C-Space>", '<Plug>(zoom-toggle)', opts)
 
 
 -- replace

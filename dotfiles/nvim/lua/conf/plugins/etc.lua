@@ -11,6 +11,3 @@ end
 
 -- Theme
 vim.cmd([[colorscheme catppuccin-frappe]])
-
--- Better scroll
-require("cinnamon").setup({extended_keymaps = true})

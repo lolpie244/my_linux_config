@@ -32,19 +32,22 @@ chmod +x $distr_script
 if ask_to_run "Do init settings"; then
     ./$distr_script init
 
-fi
-# remap keyboard
-if ask_to_run "Swap insert and z keys"; then
-
-    sudo sed -i 's/118;/TO_CHANGE/g' /usr/share/X11/xkb/keycodes/evdev
-    sudo sed -i 's/52;/118;/g' /usr/share/X11/xkb/keycodes/evdev
-    sudo sed -i 's/TO_CHANGE/52;/g' /usr/share/X11/xkb/keycodes/evdev
+	echo "
+        if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+            export MOZ_ENABLE_WAYLAND=1
+        fi" | sudo tee /etc/environment
 fi
 
 if ask_to_run "Install additional package managers"; then
     ./$distr_script package_managers
 fi
 
+# remap keyboard
+if ask_to_run "install remapper"; then
+	yay -S input-remapper-git
+	sudo systemctl restart input-remapper
+	sudo systemctl enable input-remapper
+fi
 
 if ask_to_run "Install codecs"; then
     ./$distr_script codecs
@@ -72,11 +75,11 @@ fi
 
 if ask_to_run "Install neovim"; then
     ./$distr_script neovim
-    pip install pynvim
-    cp -r nvim/ ${HOME}/.config
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    nvim -c PackerSync
+	sudo ln -s /usr/bin/kitty /usr/bin/gnome-terminal
+    cp -r neovim/nvim/ ${HOME}/.config
+
+	echo 'eval "$(oh-my-posh init zsh --config ~/.config/oh_my_posh_config.json)"'>>~/.zshrc
+	chsh -s $(which zsh)
 fi
 
 if ask_to_run "Install postgresql"; then
@@ -119,7 +122,7 @@ if ask_to_run "Install theme, icons and font"; then
     ./Graphite-gtk-theme/install.sh --tweaks nord
     ./Graphite-gtk-theme/other/grub2/install.sh
 
-	THEME_DIR="/usr/share/themes/Graphite-nord"
+	THEME_DIR="${HOME}/.themes/Graphite-nord"
 	mkdir -p                                       "${HOME}/.config/gtk-4.0"
 	ln -sf "${THEME_DIR}/gtk-4.0/assets"           "${HOME}/.config/gtk-4.0/assets"
 	ln -sf "${THEME_DIR}/gtk-4.0/gtk.css"          "${HOME}/.config/gtk-4.0/gtk.css"
@@ -130,7 +133,7 @@ if ask_to_run "Install theme, icons and font"; then
     ./nord-gnome-terminal/src/nord.sh
 
     git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git
-    ./Tela-circle-icon-theme/install.sh -a
+    ./Tela-circle-icon-theme/install.sh
 
     rm -R from_git
     cd ..

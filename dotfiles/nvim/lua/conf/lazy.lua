@@ -62,14 +62,13 @@ require("lazy").setup({
 
 -- etc
 "numToStr/Comment.nvim", -- Comment
-"Pocco81/true-zen.nvim", -- Focus on buffer
+"dhruvasagar/vim-zoom", -- Focus on buffer
 "Pocco81/auto-save.nvim", -- Autosave
 "akinsho/toggleterm.nvim", -- better inside vim terminal
 "windwp/nvim-autopairs", -- brackets autopairs
 "nvim-lualine/lualine.nvim", -- information line
 "lukas-reineke/indent-blankline.nvim", -- lines that represent tab's start
-"mrjones2014/smart-splits.nvim", -- better buffer resizing, integration with tmux
-"declancm/cinnamon.nvim", -- better scroll
+{ "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" }, -- better buffer resizing, integration with kitty
 "windwp/nvim-spectre", -- better replace
 "michaeljsmith/vim-indent-object",
 
