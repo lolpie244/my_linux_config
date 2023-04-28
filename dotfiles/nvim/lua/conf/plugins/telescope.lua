@@ -47,6 +47,7 @@ telescope.setup({
 		hijack_netrw = true,
 		quite=true,
 		git_status=false,
+		hidden=true,
 		mappings = {
 			["i"] = {
 				["<M-t>"] = actions.file_tab,
