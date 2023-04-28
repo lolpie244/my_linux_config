@@ -56,7 +56,8 @@ software()
 
 neovim()
 {
-    sudo pacman -S zsh neovim go npm gcc fd ripgrep wl-clipboard python-virtualenv kitty lazygit
+    sudo pacman -S zsh neovim go npm gcc fd ripgrep wl-clipboard python-virtualenv kitty
+	sudo pacman -S lazygit astyle
     sudo pacman -Rsn gnome-terminal
 	yay -S oh-my-posh=git
 }

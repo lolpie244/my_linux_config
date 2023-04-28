@@ -76,7 +76,9 @@ fi
 if ask_to_run "Install neovim"; then
     ./$distr_script neovim
 	sudo ln -s /usr/bin/kitty /usr/bin/gnome-terminal
-    cp -r neovim/nvim/ ${HOME}/.config
+    cp -r dotfiles/nvim/ ${HOME}/.config
+    cp -r dotfiles/kitty/ ${HOME}/.config
+    cp -r dotfiles/oh_my_posh_config.json ${HOME}/.config
 
 	echo 'eval "$(oh-my-posh init zsh --config ~/.config/oh_my_posh_config.json)"'>>~/.zshrc
 	chsh -s $(which zsh)
