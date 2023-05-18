@@ -15,8 +15,17 @@
 				{
 					"foreground": "p:blue",
 					"style": "plain",
-					"template": "{{ .UserName }}@{{ .HostName }} ",
+					"template": "{{ .UserName }}@{{ .HostName }}",
 					"type": "session"
+				},
+				{
+					"foreground": "green",
+					"properties": {
+						"fetch_version": true
+					},
+					"style": "plain",
+					"template": "({{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }}{{ end }}{{ end }})",
+					"type": "python"
 				},
 				{
 					"foreground": "p:pink",
@@ -25,7 +34,7 @@
 						"style": "full"
 					},
 					"style": "plain",
-					"template": "{{ .Path }} ",
+					"template": " {{ .Path }} ",
 					"type": "path"
 				},
 				{

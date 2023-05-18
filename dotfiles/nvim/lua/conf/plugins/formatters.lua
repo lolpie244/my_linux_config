@@ -18,6 +18,11 @@ null_ls.setup({
 				"--style=kr",
 				"--indent=tab",
 			}
+		}),
+		null_ls.builtins.formatting.black.with({
+			extra_args = {
+				"-l 120",
+			}
 		})
 	}
 })
@@ -27,4 +32,3 @@ mason_null_ls.setup({
 	automatic_setup = true,
 	handlers = {}
 })
--- mason_null_ls.setup_handlers()

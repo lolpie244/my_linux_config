@@ -54,8 +54,8 @@ keymap("v", "<A-v>", "\"+P", {remap = true})
 keymap("v", "p", '"_dp', opts)
 
 -- duplicate line
-keymap("n", "<C-d>", "yyp", opts)
-keymap("v", "<C-d>", "y'>o<Esc>p", {remap = true})
+keymap("n", "<M-d>", "yyp", opts)
+keymap("v", "<M-d>", "y'>o<Esc>p", {remap = true})
 
 -- select all
 keymap("n", "<A-a>", "ggVG", opts)
@@ -71,7 +71,7 @@ keymap("v", "<", "<gv", {remap = true})
 keymap("n", "<", "<<", {remap = true})
 
 -- tabs
-keymap("n", "<M-T>", ":tabe %<CR>", opts)
+keymap("n", "<M-T>", "<C-w>T", opts)
 keymap("n", "<M-t>", ":tabnew<CR>", opts)
 keymap("n", "<C-T>", ":tabclose<CR>", opts)
 keymap("n", "<M-,>", ":tabprevious<CR>", opts)
@@ -87,7 +87,7 @@ keymap("n", "<Leader>gs", ":DiffviewOpen<CR>", opts)
 
 
 -- Netrw
-keymap("n", "<Leader><Leader>", ":silent! Telescope file_browser<CR>", opts)
+keymap("n", "<Leader><Leader>", ":Oil<CR>", opts)
 
 -- LSP
 keymap("n", "<Leader>F", vim.lsp.buf.format, opts) -- format file
@@ -142,3 +142,8 @@ keymap("n", "<C-Space>", '<Plug>(zoom-toggle)', opts)
 
 -- replace
 keymap("n", "<C-R>", require('spectre').open, opts)
+
+
+-- language
+keymap("i", "<C-z>", "<C-^>")
+

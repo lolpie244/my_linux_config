@@ -12,6 +12,8 @@ local files = {
 	"etc",
 	"mini",
 	"git",
+	"oil",
+	"spellcheking",
 }
 
 for _, file in ipairs(files) do

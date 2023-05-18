@@ -24,6 +24,11 @@ set.virtualedit="block"
 set.undofile = true
 set.undolevels = 1000
 set.undoreload = 10000
+set.keymap="ukrainian-jcuken"
+set.iminsert=0
+set.imsearch=0
+
+
 
 letg.mapleader = " "
 letg.netrw_bufsettings = "noma nomod nu nowrap ro nobl"

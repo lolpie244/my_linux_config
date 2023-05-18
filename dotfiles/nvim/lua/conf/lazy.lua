@@ -71,10 +71,10 @@ require("lazy").setup({
 { "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" }, -- better buffer resizing, integration with kitty
 "windwp/nvim-spectre", -- better replace
 "michaeljsmith/vim-indent-object",
+"stevearc/oil.nvim",
 
 
 -- Colorshemes
-{"catppuccin/nvim", lazy = false},
-
+{ "catppuccin/nvim", name = "catppuccin" }
 })
 
