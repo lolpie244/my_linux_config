@@ -52,12 +52,12 @@ end
 
 function RunSelected()
 	local filename = SaveSelectedInFile()
-	local command = string.format("clear; python %s", filename)
+	local command = string.format("printf '%%.0s\\n' {1..10}; python %s", filename)
 	require('toggleterm').exec(command, nil, nil, nil, nil, false)
 end
 
 function Run()
-	local command = string.format("clear; python %s", vim.fn.expand('%:p'))
+	local command = string.format("printf '%%.0s\\n' {1..10}; python %s", vim.fn.expand('%:p'))
 	require('toggleterm').exec(command, nil, nil, nil, nil, false)
 end
 

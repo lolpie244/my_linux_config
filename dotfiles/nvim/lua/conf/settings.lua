@@ -19,6 +19,7 @@ set.ttimeoutlen = 0
 set.mouse = "a"
 set.wrap = false
 set.virtualedit="block"
+set.shortmess="A"
 
 -- persistent undo
 set.undofile = true

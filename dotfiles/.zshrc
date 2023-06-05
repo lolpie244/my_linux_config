@@ -19,3 +19,4 @@ eval "$(oh-my-posh init zsh --config ~/.config/oh_my_posh_config.json)"
 alias ls="ls --color=auto"
 alias icat="kitty icat"
 alias ssh_add='eval "$(ssh-agent -s)";ssh-add'
+

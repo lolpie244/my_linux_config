@@ -6,7 +6,8 @@ telescope.setup({
 	defaults = {
 		file_ignore_patterns = {
 			"node_modules/",
-			"*venv/",
+			"venv",
+			".venv",
 			"build/",
 			"__pycache__/",
 			".git/",
