@@ -40,28 +40,6 @@ telescope.setup({
 
 telescope.setup({
   extensions = {
-    file_browser = {
-		respect_gitignore = false,
-		theme = "ivy",
-		path = "%:p:h",
-		cwd_to_path = true,
-		hijack_netrw = true,
-		quite=true,
-		git_status=false,
-		hidden=true,
-		mappings = {
-			["i"] = {
-				["<M-t>"] = actions.file_tab,
-				["<M-v>"] = actions.file_vsplit,
-				["<M-x>"] = actions.file_split
-			},
-			["n"] = {
-				["<M-t>"] = actions.file_tab,
-				["<M-v>"] = actions.file_vsplit,
-				["<M-x>"] = actions.file_split
-			},
-		},
-    },
 	fzf = {
       fuzzy = true,
       override_generic_sorter = true,
@@ -70,5 +48,4 @@ telescope.setup({
     }
   },
 })
-require("telescope").load_extension("file_browser")
 require('telescope').load_extension("fzf")

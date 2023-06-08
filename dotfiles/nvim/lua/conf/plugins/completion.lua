@@ -46,6 +46,7 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
+		{ name = "vim-dadbod-completion"}
 	},
 	snippet = {
 		expand = function(args)
@@ -65,6 +66,10 @@ cmp.setup({
 				gh_issues = "[issues]",
 			}
 		})
+	},
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 	experimental = {
 		native_menu = false,

@@ -12,6 +12,7 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
+
 -- DAP debuger
 "nvim-tree/nvim-web-devicons",
 "mfussenegger/nvim-dap",
@@ -25,7 +26,6 @@ require("lazy").setup({
 "jose-elias-alvarez/null-ls.nvim",
 "jay-babu/mason-null-ls.nvim",
 
-
 -- Completion
 "hrsh7th/nvim-cmp",
 "hrsh7th/cmp-buffer",
@@ -37,15 +37,14 @@ require("lazy").setup({
 "rafamadriz/friendly-snippets",
 
 -- Telescope dependencies
-{"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"},
+{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 "sharkdp/fd",
 "BurntSushi/ripgrep",
-{"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
+{"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
 "nvim-lua/plenary.nvim",
 
 -- Telescope
 {"nvim-telescope/telescope.nvim", requires = { {"nvim-lua/plenary.nvim"} }},
-"nvim-telescope/telescope-file-browser.nvim",
 
 -- Git
 "sindrets/diffview.nvim",
@@ -55,6 +54,7 @@ require("lazy").setup({
 -- database
 "kristijanhusak/vim-dadbod-ui",
 "tpope/vim-dadbod",
+"kristijanhusak/vim-dadbod-completion",
 
 -- mini
 "echasnovski/mini.ai", -- better "actions INSIDE/ALL"
@@ -70,7 +70,6 @@ require("lazy").setup({
 "lukas-reineke/indent-blankline.nvim", -- lines that represent tab's start
 { "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" }, -- better buffer resizing, integration with kitty
 "windwp/nvim-spectre", -- better replace
-"michaeljsmith/vim-indent-object",
 "stevearc/oil.nvim",
 
 
