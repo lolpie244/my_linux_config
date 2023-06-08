@@ -108,7 +108,7 @@ if (tsuccess) then
 	keymap("n", "<Leader>f", telescope.find_files, opts)
 	keymap("n", "<Leader>p", telescope.live_grep, opts)
 	keymap("n", "<Leader>s", telescope.current_buffer_fuzzy_find, opts)
-	keymap("n", "<Leader>h", telescope.resume, opts)
+	keymap("n", "<Leader>H", telescope.resume, opts)
 	keymap("n", "<Leader>t", telescope.treesitter, opts)
 	keymap("n", "<Leader>ad", telescope.diagnostics, opts)
 	keymap("n", "<Tab>", telescope.buffers, opts)
@@ -134,16 +134,13 @@ keymap("n", "N", "<Cmd>lua require'dap'.step_over()<CR>", opts)
 keymap("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
 keymap("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>", opts)
 
+-- harpoon (file marker)
+keymap("n", "<Leader>a", require("harpoon.mark").add_file, opts)
+keymap("n", "<Leader>h", ":Telescope harpoon marks<CR>", opts)
 
 
--- zoom
-keymap("n", "<C-Space>", '<Plug>(zoom-toggle)', opts)
-
-
--- replace
-keymap("n", "<C-R>", require('spectre').open, opts)
-
-
--- language
-keymap("i", "<C-z>", "<C-^>")
-
+-- ETC
+keymap("n", "<C-Space>", '<Plug>(zoom-toggle)', opts) -- zoom
+keymap("n", "<C-R>", require('spectre').open, opts) -- replace
+keymap("n", "<Leader>u", vim.cmd.UndotreeToggle, opts) -- undotree
+keymap("i", "<C-z>", "<C-^>") -- language

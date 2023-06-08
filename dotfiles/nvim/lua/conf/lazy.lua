@@ -13,7 +13,7 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
 
--- DAP debuger
+-- "DAP" debuger
 "nvim-tree/nvim-web-devicons",
 "mfussenegger/nvim-dap",
 {"rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}},
@@ -59,6 +59,7 @@ require("lazy").setup({
 -- mini
 "echasnovski/mini.ai", -- better "actions INSIDE/ALL"
 "echasnovski/mini.jump", -- better jump TO/FORWARD
+"echasnovski/mini.surround", -- change surrounding
 
 -- etc
 "numToStr/Comment.nvim", -- Comment
@@ -70,8 +71,9 @@ require("lazy").setup({
 "lukas-reineke/indent-blankline.nvim", -- lines that represent tab's start
 { "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" }, -- better buffer resizing, integration with kitty
 "windwp/nvim-spectre", -- better replace
-"stevearc/oil.nvim",
-
+"stevearc/oil.nvim", -- file browser
+"mbbill/undotree", -- undotree
+"theprimeagen/harpoon", -- marks for file
 
 -- Colorshemes
 { "catppuccin/nvim", name = "catppuccin" }
