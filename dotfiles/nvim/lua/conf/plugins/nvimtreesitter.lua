@@ -33,5 +33,5 @@ treesitter.setup({
 			node_incremental = '<C-s>',
 			node_decremental = '<c-backspace>',
 		}
-	}
+	},
 })

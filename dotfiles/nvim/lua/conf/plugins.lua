@@ -14,6 +14,7 @@ local files = {
 	"git",
 	"oil",
 	"spellcheking",
+	"big_files",
 }
 
 for _, file in ipairs(files) do

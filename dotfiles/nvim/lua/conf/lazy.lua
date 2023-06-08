@@ -74,6 +74,7 @@ require("lazy").setup({
 "stevearc/oil.nvim", -- file browser
 "mbbill/undotree", -- undotree
 "theprimeagen/harpoon", -- marks for file
+"LunarVim/bigfile.nvim", -- bigfiles
 
 -- Colorshemes
 { "catppuccin/nvim", name = "catppuccin" }
