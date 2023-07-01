@@ -14,10 +14,11 @@ end
 function Build(silent)
 	local state = vim.g.cmake_state
 	local command = string.format("cmake -S . -B build/%s -D CMAKE_BUILD_TYPE=%s -DCMAKE_EXPORT_COMPILE_COMMANDS=1; cd build/%s; make; cd -", state, state, state)
+	print(command)
   	if silent then
   		vim.api.nvim_command(":silent !" .. command)
 	else
-		vim.api.nvim_command("! " .. command)
+		require("kitty-runner").launch(command)
 	end
 	command = string.format("ln -nsfr build/%s/compile_commands.json build/compile_commands.json", state)
 	os.execute(command)
@@ -38,11 +39,11 @@ end
 
 function Run()
 	Build(true)
-	local command = string.format("clear && clear; time ./build/%s/%s; echo", vim.g.cmake_state, GetCppProject(vim.fn.getcwd()))
-	require('toggleterm').exec(command, nil, nil, nil, nil, false)
+	local command = string.format("time (./build/%s/%s; echo; echo)", vim.g.cmake_state, GetCppProject(vim.fn.getcwd()))
+	require("kitty-runner").send_to_runner(command)
 end
 
 
-keymap("n", "<Leader>bb", ":wa<CR><cmd>lua Build(false)<CR>", opts)
-keymap("n", "<Leader>r", ":wa<CR><cmd>lua Run()<CR>", opts)
-keymap("n", "<Leader>bs", ":wa<CR><cmd>lua SwitchState()<CR>", opts)
+keymap("n", "<Leader>rb", ":wa<CR><cmd>lua Build(false)<CR>", opts)
+keymap("n", "<Leader>rr", ":wa<CR><cmd>lua Run()<CR>", opts)
+keymap("n", "<Leader>rs", ":wa<CR><cmd>lua SwitchState()<CR>", opts)

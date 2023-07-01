@@ -12,7 +12,8 @@ local lsp_servers = {
 	"html",
 	"cssls",
 	"rust_analyzer",
-	"omnisharp"
+	"omnisharp",
+	"lua_ls",
 }
 
 -- INSTALL LSP

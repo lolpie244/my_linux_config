@@ -4,7 +4,6 @@ vim.g.cmake_state = "Debug";
 
 
 function Build(silent)
-	local state = vim.g.cmake_state
   	if silent then
   		vim.api.nvim_command(":silent ! cargo build")
 	else
@@ -14,10 +13,9 @@ end
 
 function Run()
 	Build(true)
-	require('toggleterm').exec("clear; cargo run", nil, nil, nil, nil, false)
+	require("kitty-runner").send_to_runner("clear; cargo run")
 end
 
 
-keymap("n", "<Leader>br", ":wa<CR><cmd>lua Build(false)<CR>", opts)
-keymap("n", "<Leader>r", ":wa<CR><cmd>lua Run()<CR>", opts)
--- keymap("n", "<Leader>bs", ":wa<CR><cmd>lua SwitchState()<CR>", opts)
+keymap("n", "<Leader>rb", ":wa<CR><cmd>lua Build(false)<CR>", opts)
+keymap("n", "<Leader>rr", ":wa<CR><cmd>lua Run()<CR>", opts)

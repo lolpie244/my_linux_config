@@ -61,22 +61,29 @@ require("lazy").setup({
 "echasnovski/mini.jump", -- better jump TO/FORWARD
 "echasnovski/mini.surround", -- change surrounding
 
+-- kitty integration
+{ "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" }, -- better buffer resizing, integration with kitty
+
 -- etc
 "numToStr/Comment.nvim", -- Comment
 "dhruvasagar/vim-zoom", -- Focus on buffer
 "Pocco81/auto-save.nvim", -- Autosave
-"akinsho/toggleterm.nvim", -- better inside vim terminal
 "windwp/nvim-autopairs", -- brackets autopairs
 "nvim-lualine/lualine.nvim", -- information line
 "lukas-reineke/indent-blankline.nvim", -- lines that represent tab's start
-{ "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" }, -- better buffer resizing, integration with kitty
 "windwp/nvim-spectre", -- better replace
 "stevearc/oil.nvim", -- file browser
 "mbbill/undotree", -- undotree
 "theprimeagen/harpoon", -- marks for file
 "LunarVim/bigfile.nvim", -- bigfiles
 
+
+-- own plugins
+-- {dir="/mnt/1/projects/lua/kitty_runner.nvim/"},
+"lolpie244/simple-kitty-runner.nvim",
+
 -- Colorshemes
 { "catppuccin/nvim", name = "catppuccin" }
+
 })
 

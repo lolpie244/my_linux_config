@@ -1,13 +1,14 @@
 local etc_disable = {
 	name = "etc_disable", -- name
-  	opts = {
-    	defer = false, -- set to true if `disable` should be called on `BufReadPost` and not `BufReadPre`
-  	},
+  	-- opts = {
+   --  	defer = false, -- set to true if `disable` should be called on `BufReadPost` and not `BufReadPre`
+  	-- },
   	disable = function() -- called to disable the feature
 		require("auto-save").off()
 		require("cmp").setup.buffer {
 			sources = {}
 		}
+		vim.api.nvim_command("set nospell")
   	end,
 }
 

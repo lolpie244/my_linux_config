@@ -3,12 +3,12 @@ local opts = { remap = true, silent = true }
 
 
 local function get_visual_selection()
-    vim.cmd('noau normal! "vy"')
-    return vim.fn.getreg('v')
+	vim.cmd('noau normal! "vy"')
+	return vim.fn.getreg('v')
 end
 
 local function left_trim(s)
-   return (s:gsub("^%s*(.-)", "%1"))
+	return (s:gsub("^%s*(.-)", "%1"))
 end
 
 local function format_text(text)
@@ -52,13 +52,13 @@ end
 
 function RunSelected()
 	local filename = SaveSelectedInFile()
-	local command = string.format("printf '%%.0s\\n' {1..10}; python %s", filename)
-	require('toggleterm').exec(command, nil, nil, nil, nil, false)
+	local command = string.format("python %s", filename)
+	require("kitty-runner").send_to_runner(command)
 end
 
 function Run()
-	local command = string.format("printf '%%.0s\\n' {1..10}; python %s", vim.fn.expand('%:p'))
-	require('toggleterm').exec(command, nil, nil, nil, nil, false)
+	local command = string.format("python %s", vim.fn.expand('%:p'))
+	require("kitty-runner").send_to_runner(command)
 end
 
 function DjangoRun()
@@ -76,6 +76,6 @@ django.setup()
 	require('toggleterm').exec(command, nil, nil, nil, nil, false)
 end
 
-keymap("v", "<Leader>r", "<cmd>lua RunSelected()<CR>", opts)
-keymap("v", "<Leader>dr", "<cmd>lua DjangoRun()<CR>", opts)
-keymap("n", "<Leader>r", "<cmd>lua Run()<CR>", opts)
+keymap("v", "<Leader>rr", "<cmd>lua RunSelected()<CR>", opts)
+keymap("v", "<Leader>rd", "<cmd>lua DjangoRun()<CR>", opts)
+keymap("n", "<Leader>rr", "<cmd>lua Run()<CR>", opts)
