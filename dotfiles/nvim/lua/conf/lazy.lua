@@ -61,6 +61,13 @@ require("lazy").setup({
 "echasnovski/mini.jump", -- better jump TO/FORWARD
 "echasnovski/mini.surround", -- change surrounding
 
+-- markdown
+{ "iamcco/markdown-preview.nvim", ft = {"markdown"}, build = function() vim.fn["mkdp#util#install"]() end,},
+{ "postfen/clipboard-image.nvim", ft = {"markdown"}},
+{ "dhruvasagar/vim-table-mode", ft = {"markdown"}},
+{ "jbyuki/nabla.nvim", ft = {"markdown"}},
+
+
 -- kitty integration
 { "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" }, -- better buffer resizing, integration with kitty
 

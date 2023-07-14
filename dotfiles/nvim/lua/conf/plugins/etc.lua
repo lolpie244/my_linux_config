@@ -9,7 +9,7 @@ end
 
 require("kitty-runner").setup({
 	runner = {
-		delay = 100
+		delay = 100,
 	},
 	launch = {
 		extra_launch_args = { "--copy_env" }

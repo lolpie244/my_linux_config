@@ -14,6 +14,7 @@ local lsp_servers = {
 	"rust_analyzer",
 	"omnisharp",
 	"lua_ls",
+	"marksman"
 }
 
 -- INSTALL LSP

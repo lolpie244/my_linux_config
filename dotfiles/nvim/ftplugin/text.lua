@@ -10,4 +10,3 @@ keymap("i", "<Down>", "<C-o>gj", {silent = true, remap = true})
 
 keymap({"n", "v"}, "<Up>", "gk", {silent = true, remap = true})
 keymap("i", "<Up>", "<C-o>gk", {silent = true, remap = true})
-

@@ -46,7 +46,7 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
-		{ name = "vim-dadbod-completion"}
+		{ name = "vim-dadbod-completion"},
 	},
 	snippet = {
 		expand = function(args)

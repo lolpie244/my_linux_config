@@ -14,3 +14,4 @@ require("diffview").setup({
 		}
 	},
 })
+

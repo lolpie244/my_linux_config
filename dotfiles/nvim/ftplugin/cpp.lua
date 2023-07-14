@@ -14,7 +14,6 @@ end
 function Build(silent)
 	local state = vim.g.cmake_state
 	local command = string.format("cmake -S . -B build/%s -D CMAKE_BUILD_TYPE=%s -DCMAKE_EXPORT_COMPILE_COMMANDS=1; cd build/%s; make; cd -", state, state, state)
-	print(command)
   	if silent then
   		vim.api.nvim_command(":silent !" .. command)
 	else
