@@ -139,7 +139,12 @@ if ask_to_run "Install theme, icons and font"; then
 
     rm -R from_git
     cd ..
-    mkdir ~/.fonts
+
+	mkdir fonts/jetbrains
+	wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip -O jetbrains.zip
+	unzip jetbrains.zip -d fonts/jetbrains/
+	rm -r jetbrains.zip
+
     sudo cp -r fonts/* /usr/share/fonts
     sudo fc-cache -f -v
 fi
