@@ -46,3 +46,4 @@ end
 keymap("n", "<Leader>rb", ":wa<CR><cmd>lua Build(false)<CR>", opts)
 keymap("n", "<Leader>rr", ":wa<CR><cmd>lua Run()<CR>", opts)
 keymap("n", "<Leader>rs", ":wa<CR><cmd>lua SwitchState()<CR>", opts)
+

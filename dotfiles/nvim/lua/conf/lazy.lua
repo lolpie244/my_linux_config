@@ -25,6 +25,7 @@ require("lazy").setup({
 "williamboman/mason-lspconfig.nvim",
 "jose-elias-alvarez/null-ls.nvim",
 "jay-babu/mason-null-ls.nvim",
+"nvimdev/lspsaga.nvim",
 
 -- Completion
 "hrsh7th/nvim-cmp",
@@ -67,7 +68,6 @@ require("lazy").setup({
 { "dhruvasagar/vim-table-mode", ft = {"markdown"}},
 { "jbyuki/nabla.nvim", ft = {"markdown"}},
 
-
 -- kitty integration
 { "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" }, -- better buffer resizing, integration with kitty
 
@@ -83,6 +83,7 @@ require("lazy").setup({
 "mbbill/undotree", -- undotree
 "theprimeagen/harpoon", -- marks for file
 "LunarVim/bigfile.nvim", -- bigfiles
+"junegunn/vim-easy-align", -- align
 
 
 -- own plugins

@@ -56,3 +56,30 @@ for _, server in ipairs(lsp_servers) do
 	lspconfig[server].setup({ on_attach = on_attach, capabilities = capabilities })
 end
 
+
+require("lspconfig").clangd.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {
+    "clangd",
+    "--offset-encoding=utf-16",
+  },
+}
+
+require('lspsaga').setup({
+	outline = {
+		-- auto_preview = false,
+		close_after_jump = true,
+		layout = "float",
+		keys = {
+			toggle_or_jump = "<Leader>",
+			jump = "<Enter>"
+		}
+	},
+	lightbulb = {
+		enable = false
+	},
+	symbol_in_winbar = {
+		show_file = false
+	},
+})

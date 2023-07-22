@@ -88,10 +88,7 @@ keymap("n", "<Leader><Leader>", ":Oil<CR>", opts)
 
 -- LSP
 keymap("n", "<Leader>F", vim.lsp.buf.format, opts) -- format file
-keymap("n","<Leader>d", vim.diagnostic.open_float, opts) -- show diagnostic
-keymap("n", "=d", vim.lsp.buf.code_action, opts)
-keymap("n", "[d", vim.diagnostic.goto_prev, opts)
-keymap("n", "]d", vim.diagnostic.goto_next, opts)
+keymap("n","<Leader>d", ":Lspsaga diagnostic_jump_next<CR>", opts) -- show diagnostic
 keymap("n", "gdd", vim.lsp.buf.definition, opts)
 keymap("n", "gr", vim.lsp.buf.references, opts)
 keymap("n", "gdx", ":belowright split | lua vim.lsp.buf.definition()<CR>", opts)
@@ -99,6 +96,8 @@ keymap("n", "gdv", ":vsplit | lua vim.lsp.buf.definition()<CR>", opts)
 keymap("n", "gdt", ":tab split | lua vim.lsp.buf.definition()<CR>", opts)
 keymap("n", "K", vim.lsp.buf.hover, opts)
 keymap("n", "<Leader>R", vim.lsp.buf.rename, opts)
+keymap("n", "<Leader>o", ":Lspsaga outline<CR>", opts)
+
 
 -- Telescope
 if (tsuccess) then
