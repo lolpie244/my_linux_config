@@ -11,6 +11,7 @@ keymap("v", "<Leader>b", "<Plug>(comment_toggle_blockwise_visual)gv", {remap = t
 -- Remaps
 keymap("v", "$", "g_", {remap = true})
 keymap({"n", "v"}, "-", "_", {remap = true})
+keymap("i", "<C-Space>", "<Space>", {remap = true})
 
 --  buffersize
 keymap("n", "<C-Left>", require("smart-splits").resize_left, opts)
@@ -129,6 +130,11 @@ keymap("n", "<Leader>h", require("harpoon.ui").toggle_quick_menu, opts)
 -- kitty runner
 keymap("n", "<Leader>rc", require("kitty-runner").clear, opts)
 
+-- surround
+keymap({"n", "v"}, "Sd", "<Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)")
+keymap({"n", "v"}, "Sr", "<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)")
+keymap({"n", "v"}, "Sa", "<Plug>(operator-sandwich-add)")
+keymap("o", "Sa", "<Plug>(operator-sandwich-g@)")
 
 -- ETC
 keymap("n", "<C-Space>", '<Plug>(zoom-toggle)', opts) -- zoom
