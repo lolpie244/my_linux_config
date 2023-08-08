@@ -30,12 +30,13 @@ set.iminsert=0
 set.imsearch=0
 
 
-
 letg.mapleader = " "
-letg.netrw_bufsettings = "noma nomod nu nowrap ro nobl"
-letg.netrw_banner = 0
+
+-- plugins
 letg.indent_blankline_char = "│";
-letg.vimspector_enable_mappings = "HUMAN"
+letg.sandwich_no_default_key_mappings = 1
+letg.operator_sandwich_no_default_key_mappings = 1
+letg.textobj_sandwich_no_default_key_mappings = 1
 
 -- colorscheme
 -- catppuccin-frappe
