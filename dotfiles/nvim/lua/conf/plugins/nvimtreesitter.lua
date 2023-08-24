@@ -16,15 +16,15 @@ treesitter.setup({
 		"latex",
 		"html",
 		"css",
-		-- "markdown",
-		-- "markdown_inline"
+		"markdown",
+		"markdown_inline"
 	},
 	sync_install = false,
 	auto_install = true,
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
-		disable = { "markdown" },
+		-- disable = { "markdown" },
 	},
 	indent = {
 		enable = false,

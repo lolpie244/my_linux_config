@@ -131,8 +131,10 @@ keymap("n", "<Leader>h", require("harpoon.ui").toggle_quick_menu, opts)
 keymap("n", "<Leader>rc", require("kitty-runner").clear, opts)
 
 -- surround
-keymap({"n", "v"}, "Sd", "<Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)")
-keymap({"n", "v"}, "Sr", "<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)")
+keymap("n", "Sd", "<Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)", {remap = true})
+keymap("v", "Sd", "<Plug>(operator-sandwich-delete)", {remap = true})
+keymap("n", "Sr", "<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)")
+keymap("v", "Sr", "<Plug>(operator-sandwich-replace)")
 keymap({"n", "v"}, "Sa", "<Plug>(operator-sandwich-add)")
 keymap("o", "Sa", "<Plug>(operator-sandwich-g@)")
 

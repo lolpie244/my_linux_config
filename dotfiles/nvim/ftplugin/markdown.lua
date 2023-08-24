@@ -1,6 +1,15 @@
 local keymap = vim.keymap.set
 local current_filetype = "markdown"
+local current_nabla_virtual = false
 
+
+local function update_nabla_virtual()
+	if current_nabla_virtual == false then
+		require("nabla").enable_virt({ align_center = true, autogen = true })
+	else
+		require("nabla").disable_virt()
+	end
+end
 
 local function switch_filetype()
 	if current_filetype == "markdown" then
@@ -8,15 +17,22 @@ local function switch_filetype()
 		require("nabla").disable_virt()
 	else
 		current_filetype = "markdown"
-		require("nabla").enable_virt({ align_center = true, autogen = true })
+		update_nabla_virtual();
 	end
-
 	vim.cmd(":set filetype=" .. current_filetype)
 	print(current_filetype)
 end
 
 
+local function switch_virtual_preview()
+	current_nabla_virtual = not current_nabla_virtual
+	update_nabla_virtual()
+end
+
+
 keymap("n", "<leader>ms", switch_filetype, { silent = true, remap = true })
+keymap("n", "<leader>mv", switch_virtual_preview, { silent = true, remap = true })
+keymap("n", "<leader>mp", require("nabla").popup, { silent = true, remap = true })
 keymap("n", "<leader>mt", ':TableModeRealign<CR>', { silent = true, remap = true })
 
 
