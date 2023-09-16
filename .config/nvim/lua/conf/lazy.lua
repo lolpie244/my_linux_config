@@ -26,6 +26,8 @@ require("lazy").setup({
 	"jose-elias-alvarez/null-ls.nvim",
 	"jay-babu/mason-null-ls.nvim",
 	"nvimdev/lspsaga.nvim",
+	"barreiroleo/ltex_extra.nvim", -- english lsp
+
 
 	-- Completion
 	"hrsh7th/nvim-cmp",

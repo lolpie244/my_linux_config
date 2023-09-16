@@ -46,3 +46,7 @@ vim.cmd [[
 	match ExtraWhitespace /\s\+$/
 ]]
 
+
+-- filetypes
+vim.filetype.add({ extension = { pro = 'prolog' } }) 
+

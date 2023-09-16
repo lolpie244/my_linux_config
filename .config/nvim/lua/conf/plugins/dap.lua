@@ -4,7 +4,6 @@ local dap_adapters = string.format("%s/.local/share/nvim/mason/bin", os.getenv("
 local foldername = vim.fn.getcwd():match("[^/]*$")
 
 
-
 -- C#
 dap.adapters.coreclr = {
 	type = 'executable',
@@ -51,7 +50,7 @@ dap.configurations.cpp = {
 		type = 'codelldb',
 		request = 'launch',
 		program = function()
-			return string.format("%s/build/%s/%s", vim.fn.getcwd(), vim.g.cmake_state, GetCppProject(vim.fn.getcwd()))
+			return vim.fn.input("Path to executable: ", string.format("%s/build/%s/", vim.fn.getcwd(), vim.g.cmake_state), "file")
 		end,
 		--program = '${fileDirname}/${fileBasenameNoExtension}',
 		cwd = '${workspaceFolder}',
@@ -78,4 +77,5 @@ dap.configurations.cpp = {
 	},
 }
 dap.configurations.h = dap.configurations.cpp
+dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp

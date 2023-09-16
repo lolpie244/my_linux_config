@@ -3,14 +3,6 @@ local opts = { remap = true, silent = true }
 vim.g.cmake_state = "Debug";
 
 
-function GetCppProject(working_folder)
-	local cmake_file = working_folder .. "/CMakeLists.txt"
-	local opened_file = assert(io.open(cmake_file, "rb"))
-	local project_name = opened_file:read("*all"):match(".*project%(([^%(%)]*)%).*")
-	opened_file:close()
-	return project_name;
-end
-
 function Build(silent)
 	local state = vim.g.cmake_state
 	local command = string.format("cmake -S . -B build/%s -D CMAKE_BUILD_TYPE=%s -DCMAKE_EXPORT_COMPILE_COMMANDS=1; cd build/%s; make; cd -", state, state, state)
@@ -38,7 +30,8 @@ end
 
 function Run()
 	Build(true)
-	local command = string.format("time (./build/%s/%s; echo; echo)", vim.g.cmake_state, GetCppProject(vim.fn.getcwd()))
+	local file_path = vim.fn.input("Path to executable: ", string.format("%s/build/%s/", vim.fn.getcwd(), vim.g.cmake_state), "file")
+	local command = string.format("time (%s; echo; echo)", file_path)
 	require("kitty-runner").send_to_runner(command)
 end
 
