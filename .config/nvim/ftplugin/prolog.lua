@@ -23,3 +23,7 @@ keymap("n", "<Leader>rr", ":wa<CR><cmd>lua Run()<CR>", opts)
 keymap("n", "<Leader>re", exit, opts)
 keymap("v", "<Leader>rs", visual_send, opts)
 
+
+vim.api.nvim_create_autocmd("BufRead", { pattern = ".pro", callback = function ()
+vim.cmd("set omnifunc=syntaxcomplete#Complete")
+end })

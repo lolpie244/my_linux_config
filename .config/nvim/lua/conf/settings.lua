@@ -18,6 +18,7 @@ set.timeoutlen = 1000
 set.ttimeoutlen = 0
 set.mouse = "a"
 set.wrap = false
+set.linebreak = true
 set.virtualedit="block"
 set.shortmess="A"
 

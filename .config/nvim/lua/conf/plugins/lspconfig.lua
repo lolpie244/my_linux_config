@@ -77,7 +77,7 @@ for _, server in ipairs(lsp_servers) do
 end
 
 
-require("lspconfig").clangd.setup {
+lspconfig.clangd.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	cmd = {
@@ -94,7 +94,7 @@ require("lspconfig").ltex.setup {
 	end
 }
 
-require('lspconfig').prolog_ls.setup({ on_attach = on_attach, capabilities = capabilities })
+lspconfig.prolog_ls.setup({ on_attach = on_attach, capabilities = capabilities })
 
 require('lspsaga').setup({
 	outline = {

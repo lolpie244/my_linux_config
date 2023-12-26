@@ -62,11 +62,13 @@ require("lazy").setup({
 	-- mini
 	"echasnovski/mini.ai",   -- better "actions INSIDE/ALL"
 	"echasnovski/mini.jump", -- better jump TO/FORWARD
+	"junegunn/vim-easy-align", -- align
 
 	-- markdown
-	{ "iamcco/markdown-preview.nvim", ft = { "markdown" }, build = function() vim.fn ["mkdp#util#install"]() end },
+	{ "iamcco/markdown-preview.nvim",  ft = { "markdown" }, build = function() vim.fn ["mkdp#util#install"]() end },
 	{ "postfen/clipboard-image.nvim",  ft = { "markdown" } },
 	{ "dhruvasagar/vim-table-mode",    ft = { "markdown" } },
+	-- { "Myzel394/easytables.nvim",    ft = { "markdown" } },
 	{ "jbyuki/nabla.nvim",             ft = { "markdown" } },
 
 	-- kitty integration
