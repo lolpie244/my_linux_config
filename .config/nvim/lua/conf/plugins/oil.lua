@@ -33,4 +33,5 @@ require("oil").setup({
 		["~"] = "actions.tcd",
 		["g."] = "actions.toggle_hidden",
 	},
+	delete_to_trash = true
 })
