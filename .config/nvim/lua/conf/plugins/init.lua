@@ -8,7 +8,6 @@ local files = {
 	"telescope",
 	"dap",
 	"comment",
-	"dapui",
 	"etc",
 	"mini",
 	"git",

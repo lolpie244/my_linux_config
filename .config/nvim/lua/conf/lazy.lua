@@ -60,7 +60,7 @@ require("lazy").setup({
 	"kristijanhusak/vim-dadbod-completion",
 
 	-- mini
-	"echasnovski/mini.ai",   -- better "actions INSIDE/ALL"
+	"echasnovski/mini.ai",  -- better "actions INSIDE/ALL"
 	"echasnovski/mini.jump", -- better jump TO/FORWARD
 	"junegunn/vim-easy-align", -- align
 
@@ -68,32 +68,33 @@ require("lazy").setup({
 	{ "iamcco/markdown-preview.nvim",  ft = { "markdown" }, build = function() vim.fn ["mkdp#util#install"]() end },
 	{ "postfen/clipboard-image.nvim",  ft = { "markdown" } },
 	{ "dhruvasagar/vim-table-mode",    ft = { "markdown" } },
-	-- { "Myzel394/easytables.nvim",    ft = { "markdown" } },
 	{ "jbyuki/nabla.nvim",             ft = { "markdown" } },
 
 	-- kitty integration
 	{ "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" }, -- better buffer resizing, integration with kitty
 
+	-- languages
+	{ "kiyoon/jupynium.nvim", build = "pip install --break-system-packages --user ." }, -- jupiter
+
 	-- etc
-	"numToStr/Comment.nvim",                -- Comment
-	"dhruvasagar/vim-zoom",                 -- Focus on buffer
-	"Pocco81/auto-save.nvim",               -- Autosave
-	"windwp/nvim-autopairs",                -- brackets autopairs
-	"nvim-lualine/lualine.nvim",            -- information line
-	"lukas-reineke/indent-blankline.nvim",  -- lines that represent tab's start
-	"windwp/nvim-spectre",                  -- better replace
-	"stevearc/oil.nvim",                    -- file browser
-	"mbbill/undotree",                      -- undotree
-	"theprimeagen/harpoon",                 -- marks for file
-	"LunarVim/bigfile.nvim",                -- bigfiles
+	"numToStr/Comment.nvim",                 -- Comment
+	"dhruvasagar/vim-zoom",                  -- Focus on buffer
+	"Pocco81/auto-save.nvim",                -- Autosave
+	"windwp/nvim-autopairs",                 -- brackets autopairs
+	"nvim-lualine/lualine.nvim",             -- information line
+	"lukas-reineke/indent-blankline.nvim",   -- lines that represent tab's start
+	"windwp/nvim-spectre",                   -- better replace
+	"stevearc/oil.nvim",                     -- file browser
+	"mbbill/undotree",                       -- undotree
+	"theprimeagen/harpoon",                  -- marks for file
+	"LunarVim/bigfile.nvim",                 -- bigfiles
 	{ "kevinhwang91/nvim-bqf", ft = { "qf" } }, -- better quick fix
-	"machakann/vim-sandwich", -- surround
+	"machakann/vim-sandwich",                -- surround
 
 	-- own plugins
 	-- { dir = "/mnt/1/projects/lua/kitty_runner.nvim/" },
 	"lolpie244/simple-kitty-runner.nvim",
 
 	-- Colorshemes
-	{ "catppuccin/nvim",                           name = "catppuccin" }
-
+	{ "catppuccin/nvim",       name = "catppuccin" }
 })

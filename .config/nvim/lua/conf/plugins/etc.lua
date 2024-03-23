@@ -1,6 +1,6 @@
 local empty_setup = {
 	"nvim-autopairs",
-	"spectre"
+	"spectre",
 }
 
 for _, plugin in ipairs(empty_setup) do
@@ -19,3 +19,11 @@ require("kitty-runner").setup({
 
 -- Theme
 vim.cmd([[colorscheme catppuccin-frappe]])
+
+
+
+-- jupyter
+require("jupynium").setup({
+	auto_download_ipynb = false,
+	firefox_profiles_ini_path = "~/.mozilla/firefox/profiles.ini"
+})
