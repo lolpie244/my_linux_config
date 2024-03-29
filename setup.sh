@@ -80,6 +80,8 @@ if ask_to_run "Install neovim"; then
     cp -r .config/kitty/ ${HOME}/.config
     cp -r .config/oh_my_posh_config.json ${HOME}/.config
 
+	git clone https://github.com/joshskidmore/zsh-fzf-history-search.git ${HOME}/.config/zsh-fzf-history-search
+
 	echo 'eval "$(oh-my-posh init zsh --config ~/.config/oh_my_posh_config.json)"'>>~/.zshrc
 	chsh -s $(which zsh)
 fi
