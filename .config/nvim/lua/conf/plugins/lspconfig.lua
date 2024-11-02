@@ -16,7 +16,7 @@ local lsp_servers = {
 	"lua_ls",
 	"marksman",
 	"ltex",
-	"gopls"
+	"gopls",
 }
 
 -- INSTALL LSP
@@ -67,6 +67,9 @@ require("lspconfig").ltex.setup {
 }
 
 lspconfig.prolog_ls.setup({ on_attach = on_attach, capabilities = capabilities })
+lspconfig.glslls.setup {
+    cmd = { 'glslls', '--stdin', '--target-env', 'opengl' },
+}
 
 require('lspsaga').setup({
 	outline = {

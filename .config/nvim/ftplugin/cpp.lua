@@ -35,8 +35,16 @@ function Run()
 	require("kitty-runner").send_to_runner(command)
 end
 
+function ToUml()
+	local full_path = vim.fn.expand('%')
+
+	local command = string.format("hpp2plantuml -i %s > ~/Documents/labs/4.2/diplom_text/uml/%s.puml", full_path, vim.fn.fnamemodify(full_path, ':t:r'))
+	require("kitty-runner").launch(command)
+end
+
 
 keymap("n", "<Leader>rb", ":wa<CR><cmd>lua Build(false)<CR>", opts)
 keymap("n", "<Leader>rr", ":wa<CR><cmd>lua Run()<CR>", opts)
 keymap("n", "<Leader>rs", ":wa<CR><cmd>lua SwitchState()<CR>", opts)
+keymap("n", "<Leader>ru", ":wa<CR><cmd>lua ToUml()<CR>", opts)
 

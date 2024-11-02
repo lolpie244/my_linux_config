@@ -1,5 +1,15 @@
+local oil = require("oil")
+
+function get_current_file()
+	local cwd = oil.get_current_dir()
+	local entry = oil.get_cursor_entry()
+	if cwd and entry then
+		return string.format("%s/%s", cwd, entry.name)
+	end
+	return nil
+end
+
 local select = function(params)
-	local oil = require("oil")
 	oil.select(params)
 	vim.cmd.wincmd({ args = { "p" } })
 	oil.close()
@@ -14,6 +24,13 @@ local split = function()
 	select({ horizontal = true })
 end
 
+local xdg_open = function ()
+	local file = get_current_file()
+	if file then
+		vim.fn.jobstart({ "xdg-open", file })
+	end
+end
+
 
 require("oil").setup({
 	view_options = {
@@ -23,10 +40,11 @@ require("oil").setup({
 		["<CR>"] = "actions.select",
 		["<C-v>"] = vertical_split,
 		["<C-x>"] = split,
+		["gx"] = xdg_open,
 		["<Leader>v"] = "actions.select_vsplit",
 		["<Leader>x"] = "actions.select_split",
 		["<C-p>"] = "actions.preview",
-		["<Esc>"] = "actions.close",
+		["q"] = "actions.close",
 		["-"] = "actions.parent",
 		["_"] = "actions.open_cwd",
 		["`"] = "actions.cd",

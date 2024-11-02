@@ -49,5 +49,5 @@ vim.cmd [[
 
 
 -- filetypes
-vim.filetype.add({ extension = { pro = 'prolog' } }) 
+vim.filetype.add({ extension = { pro = 'prolog', vert = 'glsl', frag = 'glsl' } })
 

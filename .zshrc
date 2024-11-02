@@ -20,6 +20,8 @@ alias ls="ls --color=auto"
 alias icat="kitty icat"
 alias ssh_add='eval "$(ssh-agent -s)";ssh-add'
 alias ssh="kitty +kitten ssh -R /tmp/forwarded:$(echo ${KITTY_LISTEN_ON} | sed "s/.*://g")"
+alias screenkey="GDK_BACKEND=x11 screenkey"
+
 eval "$(oh-my-posh init zsh --config ~/.config/oh_my_posh_config.json)"
 
 # Created by `pipx` on 2024-02-25 20:02:47

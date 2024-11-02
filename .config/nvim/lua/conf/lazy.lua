@@ -16,7 +16,8 @@ require("lazy").setup({
 	-- "DAP" debuger
 	"nvim-tree/nvim-web-devicons",
 	"mfussenegger/nvim-dap",
-	{ "rcarriga/nvim-dap-ui",            requires = { "mfussenegger/nvim-dap" } },
+	"nvim-neotest/nvim-nio",
+	{ "rcarriga/nvim-dap-ui",            requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 	"theHamsta/nvim-dap-virtual-text",
 
 	-- LSP and formatter
@@ -55,9 +56,23 @@ require("lazy").setup({
 	"lewis6991/gitsigns.nvim",
 
 	-- database
-	"kristijanhusak/vim-dadbod-ui",
-	"tpope/vim-dadbod",
-	"kristijanhusak/vim-dadbod-completion",
+	{
+		'kristijanhusak/vim-dadbod-ui',
+		dependencies = {
+			{ 'tpope/vim-dadbod',                     lazy = true },
+			{ 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+		},
+		cmd = {
+			'DBUI',
+			'DBUIToggle',
+			'DBUIAddConnection',
+			'DBUIFindBuffer',
+		},
+		init = function()
+			-- Your DBUI configuration
+			vim.g.db_ui_use_nerd_fonts = 1
+		end,
+	},
 
 	-- mini
 	"echasnovski/mini.ai",  -- better "actions INSIDE/ALL"
@@ -65,8 +80,9 @@ require("lazy").setup({
 	"junegunn/vim-easy-align", -- align
 
 	-- markdown
-	{ "iamcco/markdown-preview.nvim",  ft = { "markdown" }, build = function() vim.fn ["mkdp#util#install"]() end },
-	{ "postfen/clipboard-image.nvim",  ft = { "markdown" } },
+	{ "iamcco/markdown-preview.nvim",  ft = { "markdown" },                                   build = function() vim.fn
+			["mkdp#util#install"]() end },
+	{ "HakonHarnes/img-clip.nvim",     ft = { "markdown" } },
 	{ "dhruvasagar/vim-table-mode",    ft = { "markdown" } },
 	{ "jbyuki/nabla.nvim",             ft = { "markdown" } },
 
@@ -74,7 +90,7 @@ require("lazy").setup({
 	{ "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" }, -- better buffer resizing, integration with kitty
 
 	-- languages
-	{ "kiyoon/jupynium.nvim", build = "pip install --break-system-packages --user ." }, -- jupiter
+	{ "kiyoon/jupynium.nvim",          build = "pip install --break-system-packages --user ." }, -- jupiter
 
 	-- etc
 	"numToStr/Comment.nvim",                 -- Comment
