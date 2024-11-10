@@ -3,17 +3,14 @@ local opts = { remap = true, silent = true }
 vim.g.cmake_state = "Debug";
 
 
-function Build(silent)
+function BuildCommand()
 	local state = vim.g.cmake_state
-	local command = string.format("cmake -S . -B build/%s -D CMAKE_BUILD_TYPE=%s -DCMAKE_EXPORT_COMPILE_COMMANDS=1; cd build/%s; make; cd -", state, state, state)
-  	if silent then
-  		vim.api.nvim_command(":silent !" .. command)
-	else
-		require("kitty-runner").launch(command)
-	end
-	command = string.format("ln -nsfr build/%s/compile_commands.json build/compile_commands.json", state)
-	os.execute(command)
+	local build_command = string.format("cmake -S . -B build/%s -D CMAKE_BUILD_TYPE=%s -DCMAKE_EXPORT_COMPILE_COMMANDS=1 && make -C build/%s", state, state, state)
+	local copy_command = string.format("ln -nsfr build/%s/compile_commands.json build/compile_commands.json", state)
+
+	return string.format("%s && %s", build_command, copy_command)
 end
+
 
 function SwitchState()
 	local state = vim.fn.input("0: Release, 1: Debug, or custom: ")
@@ -28,11 +25,13 @@ function SwitchState()
 	print("Current CMake type: " .. vim.g.cmake_state)
 end
 
+function Build()
+	require("kitty-runner").launch(BuildCommand())
+end
+
 function Run()
-	Build(true)
 	local file_path = vim.fn.input("Path to executable: ", string.format("%s/build/%s/", vim.fn.getcwd(), vim.g.cmake_state), "file")
-	local command = string.format("time (%s; echo; echo)", file_path)
-	require("kitty-runner").send_to_runner(command)
+	require("kitty-runner").send_to_runner(string.format("%s && clear && %s", BuildCommand(), file_path))
 end
 
 function ToUml()
@@ -43,7 +42,7 @@ function ToUml()
 end
 
 
-keymap("n", "<Leader>rb", ":wa<CR><cmd>lua Build(false)<CR>", opts)
+keymap("n", "<Leader>rb", ":wa<CR><cmd>lua Build()<CR>", opts)
 keymap("n", "<Leader>rr", ":wa<CR><cmd>lua Run()<CR>", opts)
 keymap("n", "<Leader>rs", ":wa<CR><cmd>lua SwitchState()<CR>", opts)
 keymap("n", "<Leader>ru", ":wa<CR><cmd>lua ToUml()<CR>", opts)
