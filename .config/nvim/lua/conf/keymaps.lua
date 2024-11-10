@@ -88,7 +88,7 @@ keymap("n", "<Leader>gs", ":DiffviewOpen<CR>", opts)
 keymap("n", "<Leader><Leader>", ":Oil<CR>", opts)
 
 -- LSP
-keymap("n", "<Leader>F", vim.lsp.buf.format, opts) -- format file
+keymap("n", "<Leader>F", require("conform").format, opts) -- format file
 keymap("n","<Leader>d", ":Lspsaga diagnostic_jump_next<CR>", opts) -- show diagnostic
 keymap("n", "gdd", vim.lsp.buf.definition, opts)
 keymap("n", "gr", vim.lsp.buf.references, opts)

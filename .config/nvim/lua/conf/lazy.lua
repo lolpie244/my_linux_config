@@ -24,8 +24,8 @@ require("lazy").setup({
 	"neovim/nvim-lspconfig",
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
-	"jose-elias-alvarez/null-ls.nvim",
-	"jay-babu/mason-null-ls.nvim",
+	"stevearc/conform.nvim",
+	"zapling/mason-conform.nvim",
 	"nvimdev/lspsaga.nvim",
 	"barreiroleo/ltex_extra.nvim", -- english lsp
 

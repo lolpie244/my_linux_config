@@ -1,28 +1,16 @@
-local formatters = {
-	"black",
-	"sql-formatter",
-	"clang-format"
+require("conform").setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+    python = { "isort", "black" },
+    cpp = { "clang-format" },
+	sql = { "sql_formatter" },
+    ["*"] = { "codespell" },
+    ["_"] = { "trim_whitespace" },
+  },
+})
+
+require("conform").formatters.black = {
+  prepend_args = { "-l", "120" },
 }
 
-
--- INSTALL LSP
-local mason_null_ls = require("mason-null-ls")
-local null_ls = require("null-ls")
-
-
-
-null_ls.setup({
-	sources = {
-		null_ls.builtins.formatting.black.with({
-			extra_args = {
-				"-l 120",
-			}
-		})
-	}
-})
-
-mason_null_ls.setup({
-    ensure_installed = formatters,
-	automatic_setup = true,
-	handlers = {}
-})
+require("mason-conform").setup()
