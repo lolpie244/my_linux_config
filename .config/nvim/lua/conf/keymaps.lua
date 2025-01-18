@@ -140,6 +140,6 @@ keymap("o", "Sa", "<Plug>(operator-sandwich-g@)")
 
 -- ETC
 keymap("n", "<C-Space>", '<Plug>(zoom-toggle)', opts) -- zoom
-keymap("n", "<C-R>", require('spectre').open, opts) -- replace
+keymap("n", "<C-R>", require('grug-far').open, opts) -- replace
 keymap("n", "<Leader>u", vim.cmd.UndotreeToggle, opts) -- undotree
 keymap("i", "<C-z>", "<C-^>") -- language

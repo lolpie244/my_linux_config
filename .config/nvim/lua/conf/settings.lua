@@ -32,6 +32,7 @@ set.imsearch=0
 
 
 letg.mapleader = " "
+letg.maplocalleader = ','
 
 -- plugins
 letg.indent_blankline_char = "│";

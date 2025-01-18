@@ -4,6 +4,7 @@ require("conform").setup({
     python = { "isort", "black" },
     cpp = { "clang-format" },
 	sql = { "sql_formatter" },
+	json = { "jq" },
     ["*"] = { "codespell" },
     ["_"] = { "trim_whitespace" },
   },

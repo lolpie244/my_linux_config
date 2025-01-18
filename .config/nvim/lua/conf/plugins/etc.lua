@@ -1,6 +1,6 @@
 local empty_setup = {
 	"nvim-autopairs",
-	"spectre",
+	"grug-far",
 }
 
 for _, plugin in ipairs(empty_setup) do

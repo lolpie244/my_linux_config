@@ -47,3 +47,6 @@ keymap("n", "<Leader>rr", ":wa<CR><cmd>lua Run()<CR>", opts)
 keymap("n", "<Leader>rs", ":wa<CR><cmd>lua SwitchState()<CR>", opts)
 keymap("n", "<Leader>ru", ":wa<CR><cmd>lua ToUml()<CR>", opts)
 
+local set = vim.opt_local
+set.tabstop = 4
+set.shiftwidth = 4

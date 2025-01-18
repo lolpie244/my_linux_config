@@ -99,7 +99,7 @@ require("lazy").setup({
 	"windwp/nvim-autopairs",                 -- brackets autopairs
 	"nvim-lualine/lualine.nvim",             -- information line
 	"lukas-reineke/indent-blankline.nvim",   -- lines that represent tab's start
-	"windwp/nvim-spectre",                   -- better replace
+	"MagicDuck/grug-far.nvim",               -- better replace
 	"stevearc/oil.nvim",                     -- file browser
 	"mbbill/undotree",                       -- undotree
 	"theprimeagen/harpoon",                  -- marks for file
