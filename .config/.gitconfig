@@ -1,0 +1,15 @@
+[user]
+	name = Volodymyr Zvarun
+	email = lolpie2651@gmail.com
+[core]
+	editor = nvim
+
+[include]
+	path = ~/.config/git-delta/catppuccin-theme/catppuccin.gitconfig
+
+[delta]
+	navigate = true
+	light = false
+	side-by-side = false
+	line-numbers = true
+	features = catppuccin-frappe

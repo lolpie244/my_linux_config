@@ -79,8 +79,12 @@ if ask_to_run "Install neovim"; then
     cp -r .config/nvim/ ${HOME}/.config
     cp -r .config/kitty/ ${HOME}/.config
     cp -r .config/oh_my_posh_config.json ${HOME}/.config
+    cp -r .config/.gitconfig ${HOME}/.gitconfig
 
 	git clone https://github.com/joshskidmore/zsh-fzf-history-search.git ${HOME}/.config/zsh-fzf-history-search
+
+	mkdir -p ${HOME}/.config/git-delta
+	git clone https://github.com/catppuccin/delta.git ${HOME}/.config/git-delta/catppuccin-theme
 
 	echo 'eval "$(oh-my-posh init zsh --config ~/.config/oh_my_posh_config.json)"'>>~/.zshrc
 	chsh -s $(which zsh)
