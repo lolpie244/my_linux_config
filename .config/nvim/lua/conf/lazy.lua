@@ -84,7 +84,20 @@ require("lazy").setup({
 			["mkdp#util#install"]() end },
 	{ "HakonHarnes/img-clip.nvim",     ft = { "markdown" } },
 	{ "dhruvasagar/vim-table-mode",    ft = { "markdown" } },
-	{ "jbyuki/nabla.nvim",             ft = { "markdown" } },
+
+
+	-- snacks
+	{ "folke/snacks.nvim",
+		opts = {
+			image = {
+				doc = {
+					inline = false,
+					float = false,
+					max_width = 80,
+				}
+			}
+		}
+	},
 
 	-- kitty integration
 	{ "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" }, -- better buffer resizing, integration with kitty

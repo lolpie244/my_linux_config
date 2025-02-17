@@ -38,7 +38,7 @@ end
 
 keymap("n", "<leader>ms", switch, { silent = true, remap = true })
 keymap("n", "<leader>mv", switch_virtual_preview, { silent = true, remap = true })
-keymap("n", "<leader>mp", require("nabla").popup, { silent = true, remap = true })
+keymap("n", "<leader>mp", require("snacks.image").hover, { silent = true, remap = true }) -- show image
 keymap("n", "<leader>mt", ':TableModeRealign<CR>', { silent = true, remap = true })
 keymap("v", "<Leader>b", "2<Plug>(sandwich-add)**", {silent = true, remap = true})
 

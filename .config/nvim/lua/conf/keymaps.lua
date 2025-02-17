@@ -81,6 +81,7 @@ keymap("n", "<M->>", ":tabmove +1<CR>", opts)
 keymap("n", "<Leader>G", ":LazyGit<CR>")
 keymap("n", "<Leader>gf", ":DiffviewFileHistory %<CR>", opts)
 keymap("n", "<Leader>gh", ":DiffviewFileHistory<CR>", opts)
+keymap("n", "<leader>gb", require("snacks.git").blame_line, opts)
 keymap("n", "<Leader>gs", ":DiffviewOpen<CR>", opts)
 
 
