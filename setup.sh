@@ -78,13 +78,20 @@ if ask_to_run "Install neovim"; then
 	sudo ln -s /usr/bin/kitty /usr/bin/gnome-terminal
     cp -r .config/nvim/ ${HOME}/.config
     cp -r .config/kitty/ ${HOME}/.config
+    cp -r .config/lazygit ${HOME}/.config
     cp -r .config/oh_my_posh_config.json ${HOME}/.config
     cp -r .config/.gitconfig ${HOME}/.gitconfig
 
 	git clone https://github.com/joshskidmore/zsh-fzf-history-search.git ${HOME}/.config/zsh-fzf-history-search
 
+	# fancy lazygit
 	mkdir -p ${HOME}/.config/git-delta
 	git clone https://github.com/catppuccin/delta.git ${HOME}/.config/git-delta/catppuccin-theme
+	mkdir -p "$(bat --config-dir)/themes"
+	wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme
+	bat cache --build
+
+	# end
 
 	echo 'eval "$(oh-my-posh init zsh --config ~/.config/oh_my_posh_config.json)"'>>~/.zshrc
 	chsh -s $(which zsh)
