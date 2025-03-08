@@ -1,5 +1,4 @@
-local lsp_servers = {
-	"clangd",
+local lsp_servers_mason = {
 	"pyright",
 	"cmake",
 	"jsonls",
@@ -15,8 +14,12 @@ local lsp_servers = {
 	"omnisharp",
 	"lua_ls",
 	"marksman",
-	"ltex",
 	"gopls",
+	"mesonlsp",
+}
+
+local lsp_servers_local = {
+	"clangd"
 }
 
 -- INSTALL LSP
@@ -25,8 +28,10 @@ local lspconfig = require("mason-lspconfig")
 
 mason.setup()
 lspconfig.setup {
-	ensure_installed = lsp_servers
+	ensure_installed = lsp_servers_mason
 }
+
+local lsp_servers = vim.list_extend(lsp_servers_local, lsp_servers_mason)
 
 -- SETUP LSP
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -56,14 +61,6 @@ lspconfig.clangd.setup {
 		"clangd",
 		"--offset-encoding=utf-16",
 	},
-}
-
-require("lspconfig").ltex.setup {
-	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		on_attach(client, bufnr)
-		require("ltex_extra").setup()
-	end
 }
 
 lspconfig.prolog_ls.setup({ on_attach = on_attach, capabilities = capabilities })

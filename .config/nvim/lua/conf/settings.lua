@@ -19,23 +19,24 @@ set.ttimeoutlen = 0
 set.mouse = "a"
 set.wrap = false
 set.linebreak = true
-set.virtualedit="block"
-set.shortmess="A"
+set.virtualedit = "block"
+set.shortmess = "A"
 
 -- persistent undo
 set.undofile = true
 set.undolevels = 1000
 set.undoreload = 10000
-set.keymap="ukrainian-jcuken"
-set.iminsert=0
-set.imsearch=0
+set.keymap = "ukrainian-jcuken"
+set.iminsert = 0
+set.imsearch = 0
 
+set.shortmess = "F"
 
 letg.mapleader = " "
-letg.maplocalleader = ','
+letg.maplocalleader = ","
 
 -- plugins
-letg.indent_blankline_char = "│";
+letg.indent_blankline_char = "│"
 letg.sandwich_no_default_key_mappings = 1
 letg.operator_sandwich_no_default_key_mappings = 1
 letg.textobj_sandwich_no_default_key_mappings = 1
@@ -43,12 +44,10 @@ letg.textobj_sandwich_no_default_key_mappings = 1
 -- colorscheme
 -- catppuccin-frappe
 -- onedark
-vim.cmd [[
+vim.cmd([[
 	highlight ExtraWhitespace guibg=#bdae93
 	match ExtraWhitespace /\s\+$/
-]]
-
+]])
 
 -- filetypes
-vim.filetype.add({ extension = { pro = 'prolog', vert = 'glsl', frag = 'glsl' } })
-
+vim.filetype.add({ extension = { pro = "prolog", vert = "glsl", frag = "glsl", puml = "puml" } })

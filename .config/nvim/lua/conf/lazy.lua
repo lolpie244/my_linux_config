@@ -27,7 +27,6 @@ require("lazy").setup({
 	"stevearc/conform.nvim",
 	"zapling/mason-conform.nvim",
 	"nvimdev/lspsaga.nvim",
-	"barreiroleo/ltex_extra.nvim", -- english lsp
 
 
 	-- Completion
@@ -80,10 +79,11 @@ require("lazy").setup({
 	"junegunn/vim-easy-align", -- align
 
 	-- markdown
-	{ "iamcco/markdown-preview.nvim",  ft = { "markdown" },                                   build = function() vim.fn
-			["mkdp#util#install"]() end },
 	{ "HakonHarnes/img-clip.nvim",     ft = { "markdown" } },
 	{ "dhruvasagar/vim-table-mode",    ft = { "markdown" } },
+	-- diagrams
+	"aklt/plantuml-syntax",
+	{ "https://gitlab.com/itaranto/preview.nvim", ft = { "puml" }, version = "*" },
 
 
 	-- snacks
@@ -93,7 +93,6 @@ require("lazy").setup({
 				doc = {
 					inline = false,
 					float = false,
-					max_width = 80,
 				}
 			}
 		}
@@ -107,11 +106,9 @@ require("lazy").setup({
 
 	-- etc
 	"numToStr/Comment.nvim",                 -- Comment
-	"dhruvasagar/vim-zoom",                  -- Focus on buffer
 	"Pocco81/auto-save.nvim",                -- Autosave
 	"windwp/nvim-autopairs",                 -- brackets autopairs
 	"nvim-lualine/lualine.nvim",             -- information line
-	"lukas-reineke/indent-blankline.nvim",   -- lines that represent tab's start
 	"MagicDuck/grug-far.nvim",               -- better replace
 	"stevearc/oil.nvim",                     -- file browser
 	"mbbill/undotree",                       -- undotree

@@ -22,14 +22,6 @@ dap.configurations.cs = {
 }
 
 -- C++
-function GetCppProject(working_folder)
-	local cmake_file = working_folder .. "/CMakeLists.txt"
-	local opened_file = assert(io.open(cmake_file, "rb"))
-	local project_name = opened_file:read("*all"):match(".*project%(([^%(%)]*)%).*")
-	opened_file:close()
-	return project_name;
-end
-
 dap.adapters.codelldb = {
 	type = 'server',
 	port = "13000",
@@ -50,7 +42,7 @@ dap.configurations.cpp = {
 		type = 'codelldb',
 		request = 'launch',
 		program = function()
-			return vim.fn.input("Path to executable: ", string.format("%s/build/%s/", vim.fn.getcwd(), vim.g.cmake_state), "file")
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd(), "file")
 		end,
 		--program = '${fileDirname}/${fileBasenameNoExtension}',
 		cwd = '${workspaceFolder}',
@@ -62,7 +54,7 @@ dap.configurations.cpp = {
 		type = "cppdbg",
 		request = "launch",
 		program = function()
-			return string.format("%s/build/%s/%s", vim.fn.getcwd(), vim.g.cmake_state, GetCppProject(vim.fn.getcwd()))
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd(), "file")
 		end,
 		cwd = '${workspaceFolder}',
 		stopAtEntry = true,

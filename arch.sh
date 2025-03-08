@@ -46,7 +46,7 @@ battery()
 software()
 {
     yay -S noisetorch timeshift gnome-shell-extension-pop-shell-git tlpui
-    sudo pacman -S gcc dotnet-sdk dotnet-runtime aspnet-runtime mono htop
+    sudo pacman -S gcc dotnet-sdk dotnet-runtime aspnet-runtime mono htop feh
 
     cp /usr/share/icons ~/.icons -r
     flatpak --user override --filesystem=/home/$USER/.icons/:ro
