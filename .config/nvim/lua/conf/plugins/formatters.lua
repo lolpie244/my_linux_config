@@ -16,7 +16,7 @@ require("conform").formatters.black = {
 
 require("conform").formatters = {
 	["clang-format"] = {
-		prepend_args = { "--style", "{IndentWidth: 4, ColumnLimit: 120}" },
+		-- prepend_args = { "--style", "{IndentWidth: 4, ColumnLimit: 120}" },
 	},
 }
 

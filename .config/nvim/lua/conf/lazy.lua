@@ -116,6 +116,7 @@ require("lazy").setup({
 	"LunarVim/bigfile.nvim",                 -- bigfiles
 	{ "kevinhwang91/nvim-bqf", ft = { "qf" } }, -- better quick fix
 	"machakann/vim-sandwich",                -- surround
+	"chrisgrieser/nvim-scissors",            -- snippets
 
 	-- own plugins
 	-- { dir = "/mnt/1/projects/lua/kitty_runner.nvim/" },

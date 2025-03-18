@@ -1,0 +1,1 @@
+{"debug-print":{"prefix":"debug-print","body":"print(\"*\" * 100, ${1:text}, \"*\" * 100, sep='\\n')"}}
