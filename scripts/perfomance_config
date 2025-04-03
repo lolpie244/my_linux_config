@@ -1,0 +1,80 @@
+#!/bin/bash
+
+CONFIG_FILE="${HOME}/.local/share/$(basename "$0")/current_mode"
+
+__usage="Usage: $(basename "$0") [-h] [-c] [-p [VALUE]] [-b [VALUE]]
+  -h      display help
+  -p      change performance mode. Available choices: 0(battery), 1(ac)
+  -b      limit battery. Available choices: 0(fullcharge), 1(limit 80%)
+  -c      current mode
+"
+
+if [ ! -e $CONFIG_FILE ]; then
+	mkdir -p "$(dirname "$CONFIG_FILE")"
+	echo "CURRENT_BATTERY_LIMIT=0
+CURRENT_PERFORMANCE_MODE=1
+	" > $CONFIG_FILE
+fi
+
+source $CONFIG_FILE
+
+function usage {
+    echo "${__usage}"
+    exit 1
+}
+
+while getopts "hcp:b:" o; do
+    case "${o}" in
+        h)
+			usage
+            ;;
+        b)
+            battery_limit=${OPTARG}
+			((battery_limit == 0 || battery_limit == 1)) || usage
+            ;;
+        p)
+            performance_mode=${OPTARG}
+			((performance_mode == 0 || performance_mode == 1)) || usage
+            ;;
+		c)
+			battery_str=$([[ ${CURRENT_BATTERY_LIMIT} == 0 ]] && echo "fullcharge" || echo "80%")
+			performance_str=$([[ ${CURRENT_PERFORMANCE_MODE} == 0 ]] && echo "battery" || echo "ac")
+			cat <<- EOF
+			Battery limit: ${battery_str}
+			Performance mode: ${performance_str}
+			EOF
+			exit 0
+			;;
+        *)
+            usage
+            ;;
+    esac
+done
+
+if [ -z "${battery_limit}" ] && [ -z "${performance_mode}" ]; then
+	usage
+fi
+
+if [ ! -z "${battery_limit}" ] && [ "${battery_limit}" -ne "${CURRENT_BATTERY_LIMIT}" ]; then
+	sudo echo ${battery_limit} | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
+
+	CURRENT_BATTERY_LIMIT=${battery_limit}
+fi
+
+if [ ! -z "${performance_mode}" ] && [ "${performance_mode}" -ne "${CURRENT_PERFORMANCE_MODE}" ]; then
+
+	if [[ ${performance_mode} == 0 ]]; then
+		sudo sed -i 's/nvidia-drm.modeset=1/nvidia-drm.modeset=0/g' /boot/loader/entries/*_linux.conf
+		sudo envycontrol --switch integrated
+	else
+		sudo sed -i 's/nvidia-drm.modeset=0/nvidia-drm.modeset=1/g' /boot/loader/entries/*_linux.conf
+		sudo envycontrol --switch hybrid
+	fi
+
+	CURRENT_PERFORMANCE_MODE=${performance_mode}
+fi
+
+echo "
+CURRENT_BATTERY_LIMIT=${CURRENT_BATTERY_LIMIT}
+CURRENT_PERFORMANCE_MODE=${CURRENT_PERFORMANCE_MODE}
+" > $CONFIG_FILE

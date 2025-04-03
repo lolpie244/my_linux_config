@@ -36,6 +36,8 @@ if ask_to_run "Do init settings"; then
         if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
             export MOZ_ENABLE_WAYLAND=1
         fi" | sudo tee /etc/environment
+
+	cp scripts/* "${HOME}/.local/bin/"
 fi
 
 if ask_to_run "Install additional package managers"; then
