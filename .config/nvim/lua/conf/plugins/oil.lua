@@ -31,6 +31,26 @@ local xdg_open = function ()
 	end
 end
 
+local compress = function ()
+    local cwd = oil.get_current_dir()
+    local entry = oil.get_cursor_entry()
+
+    if not cwd or not entry then
+        return
+    end
+
+    local cmd = string.format("cd %s; zip -r %s.zip %s", cwd, entry.name, entry.name)
+
+    local loading = require("oil.loading")
+    local bufnr = vim.api.nvim_get_current_buf()
+    loading.set_loading(bufnr, true)
+
+    require("oil.shell").run(cmd, {}, function ()
+        loading.set_loading(bufnr, false)
+        vim.cmd [[silent! edit]]
+    end)
+end
+
 
 require("oil").setup({
 	view_options = {
@@ -43,6 +63,7 @@ require("oil").setup({
 		["Gv"] = "actions.select_vsplit",
 		["Gs"] = "actions.select_split",
 		["gx"] = xdg_open,
+        ["<C-z>"] = compress,
 		["<C-p>"] = "actions.preview",
 		["q"] = "actions.close",
 		["-"] = "actions.parent",

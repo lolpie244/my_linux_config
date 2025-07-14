@@ -59,7 +59,7 @@ end
 function Run()
 	local command = string.format("python %s", vim.fn.expand('%:p'))
 	require("kitty-runner").send_to_runner(command)
-	-- require("kitty-runner").send_to_runner('~/temp/awrit/build/awrit/Release/awrit "https://youtu.be/dQw4w9WgXcQ?si=U_bUGvgRsW9eApAT"')
+	-- require("kitty-runner").send_to_runner('~/temp/awrit/awrit "https://youtu.be/dQw4w9WgXcQ?si=U_bUGvgRsW9eApAT"')
 end
 
 function DjangoRun()

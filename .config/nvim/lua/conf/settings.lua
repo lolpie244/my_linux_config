@@ -21,7 +21,8 @@ set.wrap = false
 set.linebreak = true
 set.expandtab = true
 set.virtualedit = "block"
-set.shortmess = "A"
+set.shortmess = "F"
+set.foldmethod = "manual"
 
 -- persistent undo
 set.undofile = true
@@ -30,8 +31,6 @@ set.undoreload = 10000
 set.keymap = "ukrainian-jcuken"
 set.iminsert = 0
 set.imsearch = 0
-
-set.shortmess = "F"
 
 letg.mapleader = " "
 letg.maplocalleader = ","
