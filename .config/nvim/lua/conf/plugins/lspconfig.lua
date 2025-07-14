@@ -19,7 +19,7 @@ local lsp_servers_mason = {
 }
 
 local lsp_servers_local = {
-	"clangd"
+	"clangd",
 }
 
 -- INSTALL LSP

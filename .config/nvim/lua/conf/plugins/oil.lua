@@ -46,9 +46,8 @@ require("oil").setup({
 		["<C-p>"] = "actions.preview",
 		["q"] = "actions.close",
 		["-"] = "actions.parent",
-		["_"] = "actions.open_cwd",
-		["`"] = "actions.cd",
-		["~"] = "actions.tcd",
+		["~"] = "actions.cd",
+		["`"] = "actions.tcd",
 		["g."] = "actions.toggle_hidden",
 	},
 	delete_to_trash = true

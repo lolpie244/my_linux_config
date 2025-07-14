@@ -22,7 +22,7 @@ dap.configurations.cs = {
 }
 
 -- C++
-dap.adapters.codelldb = {
+dap.adapters.lldb = {
 	type = 'server',
 	port = "13000",
 	executable = {
@@ -38,8 +38,8 @@ dap.adapters.cppdbg = {
 }
 dap.configurations.cpp = {
 	{
-		name = "codelldb",
-		type = 'codelldb',
+		name = "lldb",
+		type = 'lldb',
 		request = 'launch',
 		program = function()
 			return vim.fn.input("Path to executable: ", vim.fn.getcwd(), "file")

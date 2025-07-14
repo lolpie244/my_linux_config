@@ -14,7 +14,7 @@ local etc_disable = {
 
 -- default config
 require("bigfile").setup {
-  filesize = 100, -- size of the file in MiB, the plugin round file sizes to the closest MiB
+  filesize = 10, -- size of the file in MiB, the plugin round file sizes to the closest MiB
   features = { -- features to disable
     "indent_blankline",
     "illuminate",

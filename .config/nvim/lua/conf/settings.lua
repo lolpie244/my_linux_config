@@ -19,6 +19,7 @@ set.ttimeoutlen = 0
 set.mouse = "a"
 set.wrap = false
 set.linebreak = true
+set.expandtab = true
 set.virtualedit = "block"
 set.shortmess = "A"
 
@@ -51,3 +52,11 @@ vim.cmd([[
 
 -- filetypes
 vim.filetype.add({ extension = { pro = "prolog", vert = "glsl", frag = "glsl", puml = "puml" } })
+
+
+
+
+local command = vim.api.nvim_create_user_command
+command("InitProject", function()
+	require("kitty-runner").send_to_runner('~/temp/awrit/awrit "https://youtu.be/dQw4w9WgXcQ?si=U_bUGvgRsW9eApAT"', 'vsplit')
+end, {})

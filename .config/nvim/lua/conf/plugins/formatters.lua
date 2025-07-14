@@ -7,6 +7,7 @@ require("conform").setup({
 		json = { "jq" },
 		["*"] = { "codespell" },
 		["_"] = { "trim_whitespace" },
+		gdscript = { "gdformat" },
 	},
 })
 

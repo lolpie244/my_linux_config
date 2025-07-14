@@ -1,83 +1,95 @@
 {
-	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-	"palette": {
-		"os": "#ACB0BE",
-		"closer": "p:os",
-		"pink": "#F4B8E4",
-		"lavender": "#BABBF1",
-		"blue": "#8CAAEE"
-	},
-	"blocks": [
-		{
-			"alignment": "left",
-			"newline": true,
-			"segments": [
-				{
-					"foreground": "p:blue",
-					"style": "plain",
-					"template": "{{ .UserName }}@{{ .HostName }}",
-					"type": "session"
-				},
-				{
-					"foreground": "green",
-					"properties": {
-						"fetch_version": true
-					},
-					"style": "plain",
-					"template": "({{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }}{{ end }}{{ end }})",
-					"type": "python"
-				},
-				{
-					"foreground": "p:pink",
-					"properties": {
-						"folder_separator_icon": "/",
-						"style": "full"
-					},
-					"style": "plain",
-					"template": " {{ .Path }} ",
-					"type": "path"
-				},
-				{
-					"foreground": "p:lavender",
-					"properties": {
-						"branch_icon": "\ue725 ",
-						"cherry_pick_icon": "\ue29b ",
-						"commit_icon": "\uf417 ",
-						"fetch_status": false,
-						"fetch_upstream_icon": false,
-						"merge_icon": "\ue727 ",
-						"no_commits_icon": "\uf594 ",
-						"rebase_icon": "\ue728 ",
-						"revert_icon": "\uf0e2 ",
-						"tag_icon": "\uf412 "
-					},
-					"template": "{{ .HEAD }} ",
-					"style": "plain",
-					"type": "git"
-				}
-			],
-			"type": "prompt"
-		},
-		{
-			"alignment": "left",
-			"newline": true,
-			"segments": [
-				{
-					"foreground": "#cd5e42",
-					"style": "plain",
-					"template": "\ue3bf ",
-					"type": "root"
-				},
-				{
-					"style": "plain",
-					"foreground": "p:closer",
-					"template": "\uf105",
-					"type": "text"
-				}
-			],
-			"type": "prompt"
-		}
-	],
-	"final_space": true,
-	"version": 2
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "blue": "#8CAAEE",
+    "closer": "p:os",
+    "lavender": "#BABBF1",
+    "os": "#ACB0BE",
+    "pink": "#F4B8E4"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{ .UserName }}@{{ .HostName }}",
+          "foreground": "p:blue",
+          "type": "session",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "fetch_version": true
+          },
+          "template": "({{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }}{{ end }}{{ end }})",
+          "foreground": "green",
+          "type": "python",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "folder_separator_icon": "/",
+            "style": "full"
+          },
+          "template": " {{ .Path }} ",
+          "foreground": "p:pink",
+          "type": "path",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "branch_icon": "\ue725 ",
+            "cache_duration": "none",
+            "cherry_pick_icon": "\ue29b ",
+            "commit_icon": "\uf417 ",
+            "fetch_status": false,
+            "fetch_upstream_icon": false,
+            "merge_icon": "\ue727 ",
+            "no_commits_icon": "\uf594 ",
+            "rebase_icon": "\ue728 ",
+            "revert_icon": "\uf0e2 ",
+            "tag_icon": "\uf412 "
+          },
+          "template": "{{ .HEAD }} ",
+          "foreground": "p:lavender",
+          "type": "git",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "\ue3bf ",
+          "foreground": "#cd5e42",
+          "type": "root",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "\uf105",
+          "foreground": "p:closer",
+          "type": "text",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    }
+  ],
+  "version": 3,
+  "final_space": true
 }

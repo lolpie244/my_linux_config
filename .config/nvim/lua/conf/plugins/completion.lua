@@ -10,7 +10,7 @@ luasnip.setup({
 	delete_check_events = "TextChanged,InsertLeave"
 })
 
-
+require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load( {
 	paths = {vim.fn.stdpath("config") .. "/snippets"}
 })
