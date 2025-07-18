@@ -36,6 +36,8 @@ fi
 if ask_to_run "Do init settings"; then
     ./$distr_script init
 
+    cp -r .config/* ${HOME}/.config
+
 	echo "
         if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
             export MOZ_ENABLE_WAYLAND=1
@@ -96,8 +98,7 @@ if ask_to_run "Install neovim"; then
 
 	# end
 
-	echo 'eval "$(oh-my-posh init zsh --config ~/.config/oh_my_posh_config.json)"'>>~/.zshrc
-	chsh -s $(which zsh)
+    cp .zshrc ${HOME}
 fi
 
 if ask_to_run "Install postgresql"; then

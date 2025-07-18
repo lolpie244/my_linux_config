@@ -4,9 +4,9 @@ DESKTOP_ENV_LIST=([0]=hypr [1]=gnome)
 current_env()
 {
     if [ -z "$DESKTOP_ENV" ]; then
-        echo "Available desktop environments:"
+        printf "Available desktop environments:\n" >&2
         for i in "${!DESKTOP_ENV_LIST[@]}"; do
-            echo "  [$i] = ${DESKTOP_ENV_LIST[$i]}"
+            printf "  [$i] = ${DESKTOP_ENV_LIST[$i]}\n" >&2
         done
 
         while true; do
@@ -15,7 +15,7 @@ current_env()
                 DESKTOP_ENV=${DESKTOP_ENV_LIST[$var]}
                 break
             fi
-            echo "Invalid number, try again"
+            printf "Invalid number, try again" >&2
         done
     fi
     echo $DESKTOP_ENV
@@ -23,26 +23,23 @@ current_env()
 
 init-base()
 {
-   sudo pacman -S firefox cheese evince file-roller gnome-calculator gparted gnome-keyring gnome-user-share gvfs nautilus sushi mtpfs gvfs-mtp gvfs-gphoto2 git nvidia nvidia-prime bluez android-tools xdg-utils qt5-wayland qt6-wayland
-   yay -S gnome-shell-extension-pop-shell-git
+   sudo pacman -S firefox gdm cheese evince file-roller gnome-calculator gnome-disk-utility gnome-keyring gnome-user-share gvfs nautilus sushi mtpfs gvfs-mtp gvfs-gphoto2 git nvidia nvidia-prime bluez android-tools xdg-utils qt5-wayland qt6-wayland
 
    sudo systemctl enable --now bluetooth.service
    sudo ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
+   sudo systemctl enable --now gdm.service
 }
 
 init-gnome()
 {
-   sudo pacman -Sy gdm gnome-backgrounds gnome-color-manager gnome-control-center gnome-font-viewer gnome-terminal gnome-menus gnome-remote-desktop gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-text-editor mutter gnome-shell-extensions gnome-tweaks
-   sudo systemctl enable --now gdm.service
+   sudo pacman -Sy gnome-backgrounds gnome-color-manager gnome-control-center gnome-font-viewer gnome-terminal gnome-menus gnome-remote-desktop gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-text-editor mutter gnome-shell-extensions gnome-tweaks
+   yay -S gnome-shell-extension-pop-shell-git
 }
 
 init-hypr()
 {
-   sudo pacman -Sy hyprland sddm kitty xdg-desktop-portal-hyprland polkit-kde-agent mako nwg-look qt5ct qt6ct kvantum waybar cliphist swww hyprlock network-manager-applet blueman pavucontrol
+   sudo pacman -Sy hyprland kitty xdg-desktop-portal-hyprland polkit-gnome mako nwg-look wg-displays qt5ct qt6ct kvantum waybar cliphist swww hyprlock network-manager-applet blueman pavucontrol brightnessctl pamixer xorg-xhost kdeconnect
    yay -S tofi hypridle wlogout grimblast
-
-
-   systemctl enable --now sddm.service
 }
 
 init()
@@ -103,17 +100,29 @@ software()
     sudo pacman -S gcc dotnet-sdk dotnet-runtime aspnet-runtime mono htop feh
 
     cp /usr/share/icons ~/.icons -r
+    flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak --user override --filesystem=/home/$USER/.icons/:ro
-    sudo flatpak install --user qbittorrent zoom teams_for_linux com.obsproject.Studio onlyoffice xournalpp org.gnome.NetworkDisplays krita typora org.telegram.desktop flatseal
+    flatpak install --user -y \
+        org.qbittorrent.qBittorrent \
+        us.zoom.Zoom \
+        com.github.IsmaelMartinez.teams_for_linux \
+        com.obsproject.Studio \
+        org.onlyoffice.desktopeditors \
+        com.github.xournalpp.xournalpp \
+        org.gnome.NetworkDisplays \
+        org.kde.krita \
+        io.typora.Typora \
+        org.telegram.desktop \
+        com.github.tchx84.Flatseal
     printf "Installed: additional software\n\n"
 }
 
 neovim()
 {
     sudo pacman -S zsh neovim go npm gcc fd ripgrep wl-clipboard python-virtualenv kitty
-	sudo pacman -S lazygit wget bat git-delta
+	sudo pacman -S lazygit wget bat git-delta tree-sitter-cli
     sudo pacman -Rsn gnome-terminal
-	yay -S oh-my-posh=git
+	yay -S oh-my-posh=git zsh-fzf-plugin-git
 }
 postgres()
 {
