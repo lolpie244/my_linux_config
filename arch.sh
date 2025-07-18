@@ -1,10 +1,64 @@
-init()
-{
-   sudo pacman -S firefox cheese evince file-roller gdm gnome-backgrounds gnome-calculator gnome-color-manager gnome-control-center gnome-disk-utility gnome-font-viewer gnome-keyring gnome-menus gnome-remote-desktop gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-text-editor gnome-user-share gvfs mutter nautilus sushi mtpfs gvfs-mtp gvfs-gphoto2 xdg-user-dirs-gtk gnome-shell-extensions gnome-terminal gnome-tweaks git nvidia nvidia-prime bluez android-tools xdg-utils
+DESKTOP_ENV=
+DESKTOP_ENV_LIST=([0]=hypr [1]=gnome)
 
-   sudo systemctl enable --now gdm.service
+current_env()
+{
+    if [ -z "$DESKTOP_ENV" ]; then
+        echo "Available desktop environments:"
+        for i in "${!DESKTOP_ENV_LIST[@]}"; do
+            echo "  [$i] = ${DESKTOP_ENV_LIST[$i]}"
+        done
+
+        while true; do
+            read -p "Please choose your desktop env: [0-${#DESKTOP_ENV_LIST[@]}): " var
+            if [ "${DESKTOP_ENV_LIST[$var]+abc}" ]; then
+                DESKTOP_ENV=${DESKTOP_ENV_LIST[$var]}
+                break
+            fi
+            echo "Invalid number, try again"
+        done
+    fi
+    echo $DESKTOP_ENV
+}
+
+init-base()
+{
+   sudo pacman -S firefox cheese evince file-roller gnome-calculator gparted gnome-keyring gnome-user-share gvfs nautilus sushi mtpfs gvfs-mtp gvfs-gphoto2 git nvidia nvidia-prime bluez android-tools xdg-utils qt5-wayland qt6-wayland
+   yay -S gnome-shell-extension-pop-shell-git
+
    sudo systemctl enable --now bluetooth.service
    sudo ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
+}
+
+init-gnome()
+{
+   sudo pacman -Sy gdm gnome-backgrounds gnome-color-manager gnome-control-center gnome-font-viewer gnome-terminal gnome-menus gnome-remote-desktop gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-text-editor mutter gnome-shell-extensions gnome-tweaks
+   sudo systemctl enable --now gdm.service
+}
+
+init-hypr()
+{
+   sudo pacman -Sy hyprland sddm kitty xdg-desktop-portal-hyprland polkit-kde-agent mako nwg-look qt5ct qt6ct kvantum waybar cliphist swww hyprlock network-manager-applet blueman pavucontrol
+   yay -S tofi hypridle wlogout grimblast
+
+
+   systemctl enable --now sddm.service
+}
+
+init()
+{
+    init-base
+    case $(current_env) in
+        "gnome")
+            init-gnome
+            ;;
+        "hypr")
+            init-hypr
+            ;;
+        *)
+            echo "No init"
+            ;;
+    esac
 }
 
 package_managers()
@@ -45,12 +99,12 @@ battery()
 
 software()
 {
-    yay -S noisetorch timeshift gnome-shell-extension-pop-shell-git tlpui
+    yay -S noisetorch timeshift
     sudo pacman -S gcc dotnet-sdk dotnet-runtime aspnet-runtime mono htop feh
 
     cp /usr/share/icons ~/.icons -r
     flatpak --user override --filesystem=/home/$USER/.icons/:ro
-    sudo flatpak install qbittorrent zoom teams_for_linux com.obsproject.Studio onlyoffice xournalpp org.gnome.NetworkDisplays krita typora org.telegram.desktop flatseal
+    sudo flatpak install --user qbittorrent zoom teams_for_linux com.obsproject.Studio onlyoffice xournalpp org.gnome.NetworkDisplays krita typora org.telegram.desktop flatseal
     printf "Installed: additional software\n\n"
 }
 
@@ -69,8 +123,8 @@ postgres()
 }
 theme()
 {
-   sudo pacman -S gtk-murrine-engine sassc
-   yay -S gnome-browser-connector
+    sudo pacman -S gtk-murrine-engine sassc
+    yay -S gnome-browser-connector
 }
 
 

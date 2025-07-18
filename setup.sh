@@ -29,6 +29,10 @@ done
 
 chmod +x $distr_script
 
+if ask_to_run "Install additional package managers"; then
+    ./$distr_script package_managers
+fi
+
 if ask_to_run "Do init settings"; then
     ./$distr_script init
 
@@ -40,9 +44,6 @@ if ask_to_run "Do init settings"; then
 	cp scripts/* "${HOME}/.local/bin/"
 fi
 
-if ask_to_run "Install additional package managers"; then
-    ./$distr_script package_managers
-fi
 
 # remap keyboard
 if ask_to_run "install remapper"; then
