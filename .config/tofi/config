@@ -1,0 +1,12 @@
+border-width = 5
+outline-width = 5
+
+font = JetBrainsMono Nerd Font
+font-size = 24
+
+text-color = #4e4e5f
+
+background-color = #11111bd9
+selection-color =  #83A4E7
+border-color = #b7bdf8
+
