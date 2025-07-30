@@ -6,6 +6,8 @@ text-color=#cad3f5
 border-color=#f0c6c6
 progress-color=over #363a4f
 
+default-timeout=2000
+
 [urgency=high]
 border-color=#f5a97f
 
@@ -13,8 +15,6 @@ border-color=#f5a97f
 invisible=1
 
 [actionable]
-on-notify=exec makoctl menu -n "$id" -- tofi --prompt-text "Choose action:"
-
-[desktop-entry="org.kde.kdeconnect.daemon"]
-actions=0
-on-notify=none
+on-button-middle=exec makoctl menu -n "$id" -- tofi --prompt-text "Choose action:"
+default-timeout=0
+border-color=#fcf258

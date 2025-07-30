@@ -156,6 +156,7 @@
     "custom/notifications": {
         "exec": "~/.config/waybar/scripts/mako.sh",
         "on-click": "makoctl mode -t mute",
+        "on-click-right": "while makoctl history | grep -q .; do makoctl restore; done",
         "restart-interval": 1
     }
 }
