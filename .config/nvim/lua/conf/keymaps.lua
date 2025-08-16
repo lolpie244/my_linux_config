@@ -85,8 +85,17 @@ keymap("n", "<leader>gb", require("snacks.git").blame_line, opts)
 keymap("n", "<Leader>gs", ":DiffviewOpen<CR>", opts)
 
 
--- Netrw
+-- Peekers
 keymap("n", "<Leader><Leader>", ":Oil<CR>", opts)
+keymap("n", "<Leader>P", ':lua require("snacks.picker")()<CR>', opts)
+keymap("n", "<Leader>f", telescope.find_files, opts)
+keymap("n", "<Leader>p", telescope.live_grep, opts)
+keymap("n", "<Leader>s", telescope.current_buffer_fuzzy_find, opts)
+keymap("n", "<Leader>H", telescope.resume, opts)
+keymap("n", "<Leader>t", telescope.treesitter, opts)
+keymap("n", "<Leader>ad", telescope.diagnostics, opts)
+keymap("n", "<Tab>", telescope.buffers, opts)
+
 
 -- LSP
 keymap("n", "<Leader>F", require("conform").format, opts) -- format file
@@ -100,17 +109,6 @@ keymap("n", "K", vim.lsp.buf.hover, opts)
 keymap("n", "<Leader>R", vim.lsp.buf.rename, opts)
 keymap("n", "<Leader>o", ":Lspsaga outline<CR>", opts)
 
-
--- Telescope
-if (tsuccess) then
-	keymap("n", "<Leader>f", telescope.find_files, opts)
-	keymap("n", "<Leader>p", telescope.live_grep, opts)
-	keymap("n", "<Leader>s", telescope.current_buffer_fuzzy_find, opts)
-	keymap("n", "<Leader>H", telescope.resume, opts)
-	keymap("n", "<Leader>t", telescope.treesitter, opts)
-	keymap("n", "<Leader>ad", telescope.diagnostics, opts)
-	keymap("n", "<Tab>", telescope.buffers, opts)
-end
 
 -- Terminal
 keymap('t', "<Leader><Leader>", [[<C-\><C-n>]], opts)

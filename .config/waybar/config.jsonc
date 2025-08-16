@@ -8,20 +8,21 @@
     "height": 0,
     "modules-left": [
         "custom/notifications",
-        "clock",
-        "hyprland/workspaces"
-    ],
-    "modules-center": ["hyprland/window"],
-    "modules-right": [
-        "tray",
+        "custom/power",
         "memory",
         "cpu",
+        "hyprland/workspaces"
+    ],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "tray",
         "network",
         "battery",
         "hyprland/language",
         "backlight",
         "pulseaudio",
-        "pulseaudio#microphone"
+        "pulseaudio#microphone",
+        "custom/logout"
     ],
 
     "hyprland/window": {
@@ -32,7 +33,7 @@
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate"
-        //"format": "{icon}",
+        // "format": "{icon}",
     },
 
      "hyprland/language": {
@@ -63,7 +64,8 @@
                 "today": "<span color='#a6adc8'><b>{}</b></span>",
                 "days": "<span color='#555869'><b>{}</b></span>"
             }
-        }
+        },
+        "on-click": "gnome-calendar"
     },
 
     "backlight": {
@@ -144,7 +146,7 @@
 
     "network": {
         "tooltip": true,
-        "format-wifi": "  {essid}",
+        "format-wifi": " ",
         "format-ethernet": "󰈀 ",
         "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
         "format-linked": "󰈀 {ifname} (No IP)",
@@ -153,10 +155,18 @@
         "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
         "interval": 2
     },
+    "custom/power": {
+        "exec": "~/.config/waybar/scripts/power.sh",
+        "restart-interval": 10
+    },
     "custom/notifications": {
         "exec": "~/.config/waybar/scripts/mako.sh",
         "on-click": "makoctl mode -t mute",
         "on-click-right": "while makoctl history | grep -q .; do makoctl restore; done",
         "restart-interval": 1
+    },
+    "custom/logout": {
+        "format": "",
+        "on-click": "wlogout"
     }
 }

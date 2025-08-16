@@ -23,7 +23,7 @@ current_env()
 
 init-base()
 {
-   sudo pacman -S firefox gdm cheese evince file-roller gnome-calculator gnome-disk-utility gnome-keyring gnome-user-share gvfs nautilus sushi mtpfs gvfs-mtp gvfs-gphoto2 git nvidia nvidia-prime bluez android-tools xdg-utils qt5-wayland qt6-wayland
+   sudo pacman -S firefox gdm cheese evince file-roller gnome-calculator gnome-disk-utility gnome-keyring gnome-user-share gvfs nautilus sushi mtpfs gvfs-mtp gvfs-gphoto2 git nvidia nvidia-prime bluez android-tools xdg-utils qt5-wayland qt6-wayland gnome-calendar
 
    sudo systemctl enable --now bluetooth.service
    sudo ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
@@ -64,7 +64,7 @@ package_managers()
     cd yay
     makepkg -si
 
-    sudo pacman -S flatpak
+    sudo pacman -S flatpak python-pipx
     yay -S snapd
     sudo systemctl enable --now snapd.socket
     sudo ln -s /var/lib/snapd/snap /snap
@@ -113,7 +113,8 @@ software()
         org.kde.krita \
         io.typora.Typora \
         org.telegram.desktop \
-        com.github.tchx84.Flatseal
+        com.github.tchx84.Flatseal \
+        io.github.f3d_app.f3d
     printf "Installed: additional software\n\n"
 }
 

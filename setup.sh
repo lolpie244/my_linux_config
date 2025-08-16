@@ -71,10 +71,8 @@ if ask_to_run "Optimize battery life"; then
     sudo systemctl mask systemd-rfkill.socket
 
 
-    cp -r scripts "$HOME"
-    cd
-    chmod +x scripts/config
-    cd -
+    chmod +x ./scripts/*
+    sudo cp ./scripts/* /usr/local/bin/
 fi
 
 
