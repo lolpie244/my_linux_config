@@ -1,0 +1,92 @@
+#!/bin/bash
+
+PROFILES_PATH=${HOME}/.config/hypr/.monitors
+CONFIG_PATH=${HOME}/.config/hypr
+
+mkdir -p ${PROFILES_PATH}
+
+__usage="Usage: $(basename "$0") [-h] [-l] [-c [VALUE]] [-r [VALUE]] [-s [VALUE]]
+  -h      display help
+  -c      create new profile
+  -r      remove profile
+  -s      switch to profile
+  -l      list profiles
+"
+
+
+if [ ! -e "$PROFILES_PATH}" ]; then
+	mkdir -p "$PROFILES_PATH"
+fi
+
+function usage {
+    echo "${__usage}"
+    exit 1
+}
+
+
+function create_profile {
+    touch "${PROFILES_PATH}/${1}.monitors"
+    touch "${PROFILES_PATH}/${1}.workspaces"
+
+    switch_profile "${1}"
+}
+
+function remove_profile {
+    rm "${PROFILES_PATH}/${1}".*
+}
+
+function switch_profile {
+    if [ -z "${1}" ]; then
+        exit 0
+    fi
+
+    ln -sf "${PROFILES_PATH}/${1}.monitors" "${CONFIG_PATH}/monitors.conf"
+    ln -sf "${PROFILES_PATH}/${1}.workspaces" "${CONFIG_PATH}/workspaces.conf"
+
+    hyprctl reload
+}
+
+function list_profiles {
+    find ${PROFILES_PATH} -maxdepth 1 -type f -name "*.monitors" -exec basename {} .monitors \;
+}
+
+function tofi_select {
+    switch_profile "$(list_profiles | tofi -c ~/.config/tofi/configA 2>/dev/null)"
+}
+
+
+
+while getopts "hc:r:s:l" o; do
+    case "${o}" in
+        h)
+			usage
+            ;;
+        c)
+            name=${OPTARG}
+			[ ! -z ${name} ] || usage
+            create_profile "${name}"
+            exit 0
+            ;;
+        r)
+            name=${OPTARG}
+			[ ! -z ${name} ] || usage
+            remove_profile "${name}"
+            exit 0
+            ;;
+        s)
+            name=${OPTARG}
+			[ ! -z ${name} ] || usage
+            switch_profile "${name}"
+            exit 0
+            ;;
+        l)
+            list_profiles
+            exit 0
+            ;;
+        *)
+            usage
+            ;;
+    esac
+done
+
+tofi_select
