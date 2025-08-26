@@ -3,3 +3,4 @@ git:
         colorArg: always
         pager: delta --dark --paging=never
         useConfig: false
+    localBranchSortOrder: recency

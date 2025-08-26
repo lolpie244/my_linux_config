@@ -5,6 +5,7 @@ cp -rf ~/.config/kitty .
 cp -rf ~/.config/oh_my_posh_config.json .
 cp -rf ~/.config/local-makefile .
 cp -rf ~/.config/git .
+cp -rf ~/.config/lazygit .
 
 # hypr
 cp -rf ~/.config/assets/ .
