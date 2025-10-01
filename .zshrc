@@ -1,19 +1,12 @@
-
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+# settings
 setopt extendedglob
 unsetopt beep
+
+export PATH="$PATH:/home/lolpie/.local/bin"
+export SUDO_EDITOR=/usr/bin/nvim
+
+# bindings
 bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/lolpie/.zshrc'
-
-autoload -Uz compinit
-compinit
-eval "$(oh-my-posh init zsh --config ~/.config/oh_my_posh_config.json)"
-
 bindkey '^[n' up-line-or-history
 bindkey '^[N' down-line-or-history
 
@@ -27,8 +20,17 @@ alias screenkey="GDK_BACKEND=x11 screenkey"
 alias make_local="make -f local.Makefile"
 alias make_local_create="cp ~/.config/local-makefile/local.Makefile ."
 
+# HISTORY
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+
+source ${HOME}/.config/zsh-fzf-history-search/zsh-fzf-history-search.zsh
+
+zstyle :compinstall filename '/home/lolpie/.zshrc'
+autoload -Uz compinit
+compinit
 eval "$(oh-my-posh init zsh --config ~/.config/oh_my_posh_config.json)"
 
-# Created by `pipx` on 2024-02-25 20:02:47
-export PATH="$PATH:/home/lolpie/.local/bin"
-source ${HOME}/.config/zsh-fzf-history-search/zsh-fzf-history-search.zsh
+
+
