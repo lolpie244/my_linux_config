@@ -32,8 +32,20 @@
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "on-click": "activate"
-        // "format": "{icon}",
+        "on-click": "activate",
+        "format": "{icon} {windows}",
+        "window-rewrite-default": "",
+        "window-rewrite": {
+          "empty": ".",
+          "class<firefox>": "",
+          "kitty": "",
+          "godot": "",
+          "blender": "",
+          "inkscape": "",
+          "nautilus": "",
+          "obs": "󰕧",
+          "telegram": ""
+        }
     },
 
      "hyprland/language": {

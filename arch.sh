@@ -74,7 +74,7 @@ package_managers()
 
 codecs()
 {
-    sudo pacman -S vlc
+    sudo pacman -S mpv
     yay -S nomacs
     sudo pacman -S jasper lame libdca libdv gst-libav libtheora libvorbis libxv wavpack x264 xvidcore dvd+rw-tools dvdauthor dvgrab libmad libmpeg2 libdvdcss libdvdread libdvdnav exfat-utils fuse-exfat a52dec faac faad2 flac
 

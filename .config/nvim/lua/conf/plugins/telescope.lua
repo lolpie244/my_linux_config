@@ -8,7 +8,7 @@ telescope.setup({
 			"node_modules/",
 			"venv",
 			".venv",
-			"build/",
+			"^build/",
 			"__pycache__/",
 			".git/",
 		},

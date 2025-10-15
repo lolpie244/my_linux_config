@@ -14,12 +14,18 @@ window#waybar {
 
 #workspaces button {
     padding: 5px;
+    padding-right: 10px;
     color: #555869;
     margin-right: 5px;
 }
 
 #workspaces button.active {
     color: #a6adc8;
+}
+
+#workspaces button.empty {
+    color: #a6adc8;
+    padding-right: 0px;
 }
 
 #workspaces button.focused {
