@@ -1,6 +1,5 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
-local tsuccess, telescope = pcall(require, "telescope.builtin");
 
 -- Comments
 keymap("n", "<M-/>", "<Plug>(comment_toggle_linewise_current)", opts)
@@ -88,13 +87,13 @@ keymap("n", "<Leader>gs", ":DiffviewOpen<CR>", opts)
 -- Peekers
 keymap("n", "<Leader><Leader>", ":Oil<CR>", opts)
 keymap("n", "<Leader>P", ':lua require("snacks.picker")()<CR>', opts)
-keymap("n", "<Leader>f", telescope.find_files, opts)
-keymap("n", "<Leader>p", telescope.live_grep, opts)
-keymap("n", "<Leader>s", telescope.current_buffer_fuzzy_find, opts)
-keymap("n", "<Leader>H", telescope.resume, opts)
-keymap("n", "<Leader>t", telescope.treesitter, opts)
-keymap("n", "<Leader>ad", telescope.diagnostics, opts)
-keymap("n", "<Tab>", telescope.buffers, opts)
+keymap("n", "<Leader>f", Snacks.picker.files, opts)
+keymap("n", "<Leader>p", Snacks.picker.grep, opts)
+keymap("n", "<Leader>s", Snacks.picker.lines, opts)
+keymap("n", "<Leader>H", Snacks.picker.resume, opts)
+keymap("n", "<Leader>t", Snacks.picker.treesitter, opts)
+keymap("n", "<Leader>ad", Snacks.picker.diagnostics, opts)
+keymap("n", "<Tab>", Snacks.picker.buffers, opts)
 
 
 -- LSP

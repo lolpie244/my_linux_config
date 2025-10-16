@@ -5,7 +5,6 @@ local files = {
 	"completion",
 	"nvimtreesitter",
 	"lualine",
-	"telescope",
 	"dap",
 	"comment",
 	"etc",
@@ -14,6 +13,7 @@ local files = {
 	"oil",
 	"spellcheking",
 	"big_files",
+    "snacks"
 }
 
 for _, file in ipairs(files) do
