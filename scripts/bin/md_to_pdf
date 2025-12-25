@@ -66,6 +66,10 @@ function format {
     # add new line before table
     perl -0777 -pe 's/^([^|\n][^\n]*)\n\|/$1\n\n|/gm' -i $result_file
 
+    # set local path for assets
+    markdown_dir="$(cd "$(dirname "$1")" && pwd)"
+    sed -Ezi "s|!\[([^]]*)\]\(([^/][^)]*)\)|![\1](${markdown_dir}/\2)|g" "$result_file"
+
     echo $result_file
 }
 
@@ -78,9 +82,9 @@ for markdown_path in "$@"; do
     base_name="$(basename "${markdown_path}" .md)"
 
     if [[ -n "${OUTPUT_DIR}" ]]; then
-    output_pdf="${OUTPUT_DIR}/${base_name}.pdf"
+        output_pdf="${OUTPUT_DIR}/${base_name}.pdf"
     else
-    output_pdf="${markdown_dir}/${base_name}.pdf"
+        output_pdf="${markdown_dir}/${base_name}.pdf"
     fi
 
     pandoc $(format $markdown_path) \
@@ -94,5 +98,4 @@ for markdown_path in "$@"; do
         --pdf-engine-opt=--quiet
 
 done
-
 rm -r "${TMPDIR}"

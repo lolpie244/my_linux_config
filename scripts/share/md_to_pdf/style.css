@@ -48,18 +48,6 @@ body {
     padding-bottom: 100px;
 }
 
-/* @media only screen and (min-width: 1400px) { */
-/* 	#body { */
-/* 		max-width: 1024px; */
-/* 	} */
-/* } */
-/**/
-/* @media only screen and (min-width: 1800px) { */
-/* 	#body { */
-/* 		max-width: 1200px; */
-/* 	} */
-/* } */
-
 #body > ul:first-child,
 #body > ol:first-child{
     margin-top: 30px;
@@ -257,6 +245,22 @@ code {
         page-break-inside: avoid;
         word-wrap: break-word;
     }
+
+  #body {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0mm !important;
+    box-sizing: border-box !important;
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
 }
 
 .md-fences {
@@ -310,7 +314,7 @@ code {
     opacity: 1;
 }
 
-.md-toc { 
+.md-toc {
     margin-top:20px;
     padding-bottom:20px;
 }
@@ -332,6 +336,7 @@ div.sourceCode > pre.sourceCode > code.sourceCode {
   display: block;
   width: 100%;
   box-sizing: border-box;
+  page-break-inside: auto;
 
   /* undo your inline-code styling inside blocks */
   background: transparent;
@@ -339,3 +344,14 @@ div.sourceCode > pre.sourceCode > code.sourceCode {
   padding: 0;
 }
 
+div.sourceCode,
+pre.sourceCode {
+  break-inside: auto !important;
+  page-break-inside: auto !important;
+}
+
+pre.sourceCode,
+pre.sourceCode code.sourceCode {
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+}
