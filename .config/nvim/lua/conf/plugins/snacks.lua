@@ -10,13 +10,12 @@ return {
 	opts = {
 		image = {
 			doc = {
-				inline = true,
+				inline = false,
 				float = false,
 			},
 		},
 		picker = {
 			hidden = true,
-			-- ignored = true,
 			exclude = {
 				"**/.git/*",
 				"**/node_modules/*",
@@ -39,32 +38,39 @@ return {
 			sources = {
 				files = {
 					hidden = true,
-					ignored = true,
+					ignored = false,
+				},
+				lsp_symbols = {
+					layout = "default",
 				},
 			},
-
 			layout = {
-				layout = {
-					box = "vertical",
-					backdrop = false,
-					width = 0.8,
-					height = 0.95,
-					border = "none",
+				preset = "treesitter",
+			},
+			layouts = {
+				treesitter = {
+					layout = {
+						box = "vertical",
+						backdrop = false,
+						width = 0.8,
+						height = 0.95,
+						border = "none",
 
-					{
-						win = "preview",
-						title = "{preview:Preview}",
-						border = "rounded",
-						title_pos = "center",
-						height = 0.68,
-					},
-					{ win = "list", title = " Results ", title_pos = "center", border = "rounded" },
-					{
-						win = "input",
-						height = 1,
-						border = "rounded",
-						title = "{title} {live} {flags}",
-						title_pos = "center",
+						{
+							win = "preview",
+							title = "{preview:Preview}",
+							border = "rounded",
+							title_pos = "center",
+							height = 0.68,
+						},
+						{ win = "list", title = " Results ", title_pos = "center", border = "rounded" },
+						{
+							win = "input",
+							height = 1,
+							border = "rounded",
+							title = "{title} {live} {flags}",
+							title_pos = "center",
+						},
 					},
 				},
 			},

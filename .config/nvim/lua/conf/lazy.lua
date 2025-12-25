@@ -76,6 +76,8 @@ require("lazy").setup({
 	-- markdown
 	{ "HakonHarnes/img-clip.nvim", ft = { "markdown" } },
 	{ "dhruvasagar/vim-table-mode", ft = { "markdown" } },
+    -- { "OXY2DEV/markview.nvim", ft = { "markdown", "html", "latex" }},
+
 	-- diagrams
 	"aklt/plantuml-syntax",
 	{ "https://gitlab.com/itaranto/preview.nvim", ft = { "puml" }, version = "*" },
@@ -85,6 +87,7 @@ require("lazy").setup({
 
 	-- kitty integration
 	{ "mrjones2014/smart-splits.nvim", build = "./kitty/install-kittens.bash" }, -- better buffer resizing, integration with kitty
+	"lolpie244/simple-kitty-runner.nvim",
 
 	-- languages
 	{ "kiyoon/jupynium.nvim", build = "pip install --break-system-packages --user ." }, -- jupiter
@@ -97,7 +100,6 @@ require("lazy").setup({
 	"MagicDuck/grug-far.nvim", -- better replace
 	"stevearc/oil.nvim", -- file browser
 	"mbbill/undotree", -- undotree
-	"theprimeagen/harpoon", -- marks for file
 	"LunarVim/bigfile.nvim", -- bigfiles
 	{ "kevinhwang91/nvim-bqf", ft = { "qf" } }, -- better quick fix
 	"machakann/vim-sandwich", -- surround
@@ -105,7 +107,6 @@ require("lazy").setup({
 
 	-- own plugins
 	-- { dir = "/mnt/1/projects/lua/kitty_runner.nvim/" },
-	"lolpie244/simple-kitty-runner.nvim",
 
 	-- Colorshemes
 	{ "catppuccin/nvim", name = "catppuccin" },

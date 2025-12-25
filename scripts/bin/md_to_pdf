@@ -1,0 +1,98 @@
+#!/bin/bash
+set -euo pipefail
+
+DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/md_to_pdf"
+OUTPUT_DIR=""
+TMPDIR=$(mktemp -d)
+
+
+__usage="Usage: $(basename "$0") [-o OUTPUT_DIR] file1.md [file2.md ...]
+  -h              Display help
+  -o OUTPUT_DIR   Directory to write PDFs to. If omitted, each PDF is written next to its .md file
+"
+
+function usage {
+    echo "${__usage}"
+    exit 1
+}
+
+
+while getopts ":o:h" option; do
+  case "$option" in
+    o)
+      OUTPUT_DIR="${OPTARG}"
+      ;;
+    h)
+      usage
+      ;;
+    :)
+      echo "Error: Option -${OPTARG} requires an argument." >&2
+      usage
+      ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+if [[ $# -eq 0 ]]; then
+    usage
+fi
+
+function setup {
+    mkdir -p "$TMPDIR"
+
+    if [[ -z $DATA_DIR/katex.min.css ]]; then
+        KATEX_CSS_URL="https://cdn.jsdelivr.net/npm/katex@$(pandoc-katex --katex-version)/dist/katex.min.css"
+        curl -L "$KATEX_CSS_URL" -o "$DATA_DIR/katex.min.css"
+    fi
+
+    if [[ -n "${OUTPUT_DIR}" ]]; then
+        mkdir -p "${OUTPUT_DIR}"
+    fi
+}
+
+function format {
+    result_file="$TMPDIR/$(basename $1)"
+    cp $1 $result_file
+
+    # fix --- and - - - spacing
+    sed -Ezi 's/([^\n])\n(-[ ]*-[ ]*-[ ]*\n)/\1\n\n\2/g; s/(-[ ]*-[ ]*-[ ]*)\n([^\n])/\1\n\n\2/g' $result_file
+
+    # fix codeblock spacing
+    sed -Ezi 's/([^\n])\n([ \t]*```)/\1\n\n\2/g' $result_file
+
+    # add new line before first element in list
+    sed -zi 's/\n\([^*\n][^\n]*\)\n\(\* \)/\n\1\n\n\2/g' $result_file
+
+    # add new line before table
+    perl -0777 -pe 's/^([^|\n][^\n]*)\n\|/$1\n\n|/gm' -i $result_file
+
+    echo $result_file
+}
+
+setup
+
+for markdown_path in "$@"; do
+    [[ "$markdown_path" == *.md ]] || continue
+
+    markdown_dir="$(cd "$(dirname "${markdown_path}")" && pwd)"
+    base_name="$(basename "${markdown_path}" .md)"
+
+    if [[ -n "${OUTPUT_DIR}" ]]; then
+    output_pdf="${OUTPUT_DIR}/${base_name}.pdf"
+    else
+    output_pdf="${markdown_dir}/${base_name}.pdf"
+    fi
+
+    pandoc $(format $markdown_path) \
+        --filter pandoc-katex \
+        --css $DATA_DIR/katex.min.css \
+        --css $DATA_DIR/style.css \
+        --highlight-style=pygments \
+        --metadata title="${base_name}" \
+        -o "${output_pdf}" \
+        --pdf-engine=weasyprint \
+        --pdf-engine-opt=--quiet
+
+done
+
+rm -r "${TMPDIR}"

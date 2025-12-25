@@ -75,7 +75,9 @@ require('lspsaga').setup({
 		keys = {
 			toggle_or_jump = "<Leader>",
 			jump = "<Enter>"
-		}
+		},
+        max_height = 0.7,
+        left_width = 0.4
 	},
 	lightbulb = {
 		enable = false

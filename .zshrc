@@ -2,7 +2,7 @@
 setopt extendedglob
 unsetopt beep
 
-export PATH="$PATH:/home/lolpie/.local/bin"
+export PATH="$PATH:${HOME}/.local/bin:${HOME}/.cargo/bin"
 export SUDO_EDITOR=/usr/bin/nvim
 
 # bindings
@@ -27,7 +27,7 @@ SAVEHIST=1000
 
 source ${HOME}/.config/zsh-fzf-history-search/zsh-fzf-history-search.zsh
 
-zstyle :compinstall filename '/home/lolpie/.zshrc'
+zstyle :compinstall filename "${HOME}/.zshrc"
 autoload -Uz compinit
 compinit
 eval "$(oh-my-posh init zsh --config ~/.config/oh_my_posh_config.json)"

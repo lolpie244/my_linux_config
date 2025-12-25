@@ -38,8 +38,8 @@ init-gnome()
 
 init-hypr()
 {
-   sudo pacman -Sy hyprland kitty xdg-desktop-portal-hyprland polkit-gnome mako nwg-look wg-displays qt5ct qt6ct kvantum waybar cliphist swww hyprlock network-manager-applet blueman pavucontrol brightnessctl pamixer xorg-xhost kdeconnect
-   yay -S tofi hypridle wlogout grimblast hyprland-per-window-layout
+   sudo pacman -Sy hyprland kitty xdg-desktop-portal-hyprland polkit-gnome mako nwg-look qt5ct qt6ct kvantum waybar cliphist swww hyprlock network-manager-applet blueman pavucontrol brightnessctl pamixer xorg-xhost kdeconnect
+   yay -S tofi hypridle wlogout grimblast hyprland-per-window-layout hyprdynamicmonitors-bin
 }
 
 init()
@@ -64,7 +64,7 @@ package_managers()
     cd yay
     makepkg -si
 
-    sudo pacman -S flatpak python-pipx
+    sudo pacman -S flatpak python-pipx cargo
     yay -S snapd
     sudo systemctl enable --now snapd.socket
     sudo ln -s /var/lib/snapd/snap /snap
@@ -77,6 +77,10 @@ codecs()
     sudo pacman -S mpv
     yay -S nomacs
     sudo pacman -S jasper lame libdca libdv gst-libav libtheora libvorbis libxv wavpack x264 xvidcore dvd+rw-tools dvdauthor dvgrab libmad libmpeg2 libdvdcss libdvdread libdvdnav exfat-utils fuse-exfat a52dec faac faad2 flac
+
+    sudo pacman -S pandoc-cli python-weasyprint
+
+    cargo install pandoc-katex
 
     printf "Installed: codecs\n\n"
 }

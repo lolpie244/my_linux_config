@@ -107,6 +107,7 @@ keymap("n", "gdt", ":tab split | lua vim.lsp.buf.definition()<CR>", opts)
 keymap("n", "K", vim.lsp.buf.hover, opts)
 keymap("n", "<Leader>R", vim.lsp.buf.rename, opts)
 keymap("n", "<Leader>o", ":Lspsaga outline<CR>", opts)
+keymap("n", "<Leader>O", Snacks.picker.lsp_symbols, opts)
 
 
 -- Terminal
@@ -120,10 +121,6 @@ keymap("n", "<C-b>", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
 keymap("n", "<C-n>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
 keymap("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
 keymap("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>", opts)
-
--- harpoon (file marker)
-keymap("n", "<Leader>a", require("harpoon.mark").add_file, opts)
-keymap("n", "<Leader>h", require("harpoon.ui").toggle_quick_menu, opts)
 
 -- kitty runner
 keymap("n", "<Leader>rc", require("kitty-runner").clear, opts)

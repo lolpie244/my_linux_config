@@ -1,25 +1,9 @@
 local keymap = vim.keymap.set
 local set = vim.opt_local
-local current_nabla_virtual = false
-
-vim.cmd.runtime({"ftplugin/text.lua",  bang = true })
-
-local function update_nabla_virtual()
-	if current_nabla_virtual == true then
-		require("nabla").enable_virt({ align_center = true, autogen = true })
-	else
-		require("nabla").disable_virt()
-	end
-end
-
-local function switch_virtual_preview()
-	current_nabla_virtual = not current_nabla_virtual
-	update_nabla_virtual()
-end
+vim.cmd.runtime({ "ftplugin/text.lua", bang = true })
 
 local function switch_to_markdown()
 	vim.cmd(":set filetype=markdown")
-	update_nabla_virtual();
 end
 
 local function switch_to_tex()
@@ -35,17 +19,21 @@ local function switch()
 	end
 end
 
+local function Build()
+	local command = string.format("md_to_pdf %s; echo 'Result in %s.pdf'", vim.fn.expand("%:p"), vim.fn.expand("%:p:r"))
+	require("kitty-runner").launch(command)
+end
 
 keymap("n", "<leader>ms", switch, { silent = true, remap = true })
-keymap("n", "<leader>mv", switch_virtual_preview, { silent = true, remap = true })
 keymap("n", "<leader>mp", require("snacks.image").hover, { silent = true, remap = true }) -- show image
-keymap("n", "<leader>mt", ':TableModeRealign<CR>', { silent = true, remap = true })
-keymap("v", "<Leader>b", "2<Plug>(sandwich-add)**", {silent = true, remap = true})
+keymap("n", "<leader>mt", ":TableModeRealign<CR>", { silent = true, remap = true })
+keymap("v", "<Leader>b", "2<Plug>(sandwich-add)**", { silent = true, remap = true })
+keymap("n", "<Leader>rr", Build, opts)
+keymap("n", "<Leader>rb", Build, opts)
 
 vim.g.table_mode_always_active = true
 
-vim.cmd(
-	[[
+vim.cmd([[
   function! OpenMarkdownPreview (url)
     execute "silent ! firefox --new-window " . a:url
   endfunction
