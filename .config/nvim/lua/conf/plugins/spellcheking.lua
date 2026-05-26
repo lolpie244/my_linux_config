@@ -1,6 +1,6 @@
 local set = vim.opt
 
-set.spell = true
+set.spell = false
 set.spelllang = "uk,en"
 
 

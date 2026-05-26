@@ -35,38 +35,42 @@ local lsp_servers = vim.list_extend(lsp_servers_local, lsp_servers_mason)
 
 -- SETUP LSP
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-local on_attach = function(client, bufnr)
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	vim.diagnostic.config({ virtual_text = false })
-
-	if client.name == "prolog_ls" then
-		client.server_capabilities.semanticTokensProvider = nil
-	end
-end
 capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
+vim.diagnostic.config({ virtual_text = false })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client and client.name == "prolog_ls" then
+			client.server_capabilities.semanticTokensProvider = nil
+		end
+	end,
+})
+
+local default_config = { capabilities = capabilities }
 
 for _, server in ipairs(lsp_servers) do
-	lspconfig[server].setup({ on_attach = on_attach, capabilities = capabilities })
+	vim.lsp.config(server, default_config)
 end
 
-
-lspconfig.clangd.setup {
-	on_attach = on_attach,
+vim.lsp.config('clangd', {
 	capabilities = capabilities,
 	cmd = {
 		"clangd",
 		"--offset-encoding=utf-16",
 	},
-}
+})
 
-lspconfig.prolog_ls.setup({ on_attach = on_attach, capabilities = capabilities })
-lspconfig.glslls.setup {
-    cmd = { 'glslls', '--stdin', '--target-env', 'opengl' },
-}
+vim.lsp.config('prolog_ls', default_config)
+vim.lsp.config('glslls', {
+	capabilities = capabilities,
+	cmd = { 'glslls', '--stdin', '--target-env', 'opengl' },
+})
+
+vim.lsp.enable(lsp_servers)
+vim.lsp.enable({ 'prolog_ls', 'glslls' })
 
 require('lspsaga').setup({
 	outline = {

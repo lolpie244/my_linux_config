@@ -31,9 +31,6 @@ require("preview").setup({
 	render_on_write = true,
 })
 
--- Theme
-vim.cmd([[colorscheme catppuccin-frappe]])
-
 -- jupyter
 require("jupynium").setup({
 	auto_download_ipynb = false,

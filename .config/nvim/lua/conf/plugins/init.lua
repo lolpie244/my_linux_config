@@ -7,17 +7,16 @@ local files = {
 	"lualine",
 	"dap",
 	"comment",
+	"colorscheme",
 	"etc",
 	"mini",
 	"git",
 	"oil",
 	"spellcheking",
 	"big_files",
-    "snacks"
+	"snacks",
 }
 
 for _, file in ipairs(files) do
 	require("conf.plugins." .. file)
 end
-
-

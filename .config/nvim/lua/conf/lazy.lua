@@ -39,7 +39,7 @@ require("lazy").setup({
 	"rafamadriz/friendly-snippets",
 
 	-- Dependencies
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	{ "nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate" },
 	"sharkdp/fd",
 	"BurntSushi/ripgrep",
 	"nvim-lua/plenary.nvim",
