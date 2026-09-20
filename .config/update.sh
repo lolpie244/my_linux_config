@@ -13,5 +13,6 @@ cp -rf ~/.config/hypr/ .
 cp -rf ~/.config/waybar/ .
 cp -rf ~/.config/tofi/ .
 cp -rf ~/.config/mako/ .
+cp -rf ~/.config/shikane/ .
 
 cp -rf ~/.zshrc ..

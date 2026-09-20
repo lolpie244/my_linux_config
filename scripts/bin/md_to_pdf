@@ -61,7 +61,12 @@ function format {
     sed -Ezi 's/([^\n])\n([ \t]*```)/\1\n\n\2/g' $result_file
 
     # add new line before first element in list
-    sed -zi 's/\n\([^*\n][^\n]*\)\n\(\* \)/\n\1\n\n\2/g' $result_file
+    # sed -zi 's/\n\([^*\n][^\n]*\)\n\(\* \)/\n\1\n\n\2/g' $result_file
+    # sed -zi 's/\n\([^-\n][^\n]-\)\n\(\- \)/\n\1\n\n\2/g' $result_file
+    sed -zi 's/\n\([^*\n-][^\n]*\)\n\(\* \|- \)/\n\1\n\n\2/g' "$result_file"
+    # sed -zi 's/\n\([^*-\n][^\n]*\)\n\([*-] \)/\n\1\n\n\2/g' "$result_file"
+
+    sed -Ezi 's/([^\n])\n([[:space:]]*1[.)][[:space:]]+)/\1\n\n\2/g' "$result_file"
 
     # add new line before table
     perl -0777 -pe 's/^([^|\n][^\n]*)\n\|/$1\n\n|/gm' -i $result_file

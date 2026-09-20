@@ -1,0 +1,42 @@
+[[profile]]
+name = "full_dual"
+
+[[profile.output]]
+enable = true
+search = ["m=34M2C3500L", "s=UK02601030928", "v=Philips Consumer Electronics Company"]
+mode = "3440x1440@180Hz"
+position = "2048,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=0x1612", "s=", "v=California Institute of Technology"]
+mode = "2560x1600@165.019Hz"
+position = "0,0"
+scale = 1.25
+transform = "normal"
+adaptive_sync = false
+
+
+[[profile]]
+name = "pbp"
+
+[[profile.output]]
+enable = true
+search = ["m=0x1612", "s=", "v=California Institute of Technology"]
+mode = "2560x1600@165.019Hz"
+position = "0,0"
+scale = 1.25
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=34M2C3500L", "s=UK02601030928", "v=Philips Consumer Electronics Company"]
+mode = "1720x1440@59.936Hz"
+position = "2048,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false

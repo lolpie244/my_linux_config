@@ -4,11 +4,16 @@ unsetopt beep
 
 export PATH="$PATH:${HOME}/.local/bin:${HOME}/.cargo/bin"
 export SUDO_EDITOR=/usr/bin/nvim
+export EDITOR="/usr/bin/nvim"
+
+autoload -U edit-command-line
+zle -N edit-command-line
 
 # bindings
 bindkey -v
 bindkey '^[n' up-line-or-history
 bindkey '^[N' down-line-or-history
+bindkey -M vicmd V edit-command-line
 
 # aliases
 alias ls="ls --color=auto"
@@ -31,6 +36,5 @@ zstyle :compinstall filename "${HOME}/.zshrc"
 autoload -Uz compinit
 compinit
 eval "$(oh-my-posh init zsh --config ~/.config/oh_my_posh_config.json)"
-
 
 
