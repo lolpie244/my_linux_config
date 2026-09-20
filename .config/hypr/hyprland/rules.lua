@@ -213,6 +213,16 @@ hl.window_rule({
 	opacity = "0.90 0.90",
 })
 
+hl.window_rule({
+	name = "wl-mirror-screenshare",
+	match = {
+		class = "^(at.yrlf.wl_mirror)$",
+	},
+	float = true,
+    min_size = {1920, 1080},
+    max_size = {1920, 1080},
+})
+
 hl.layer_rule({
 	match = {
 		namespace = "tofi",
@@ -227,3 +237,5 @@ hl.layer_rule({
 	ignore_alpha = 0,
 	blur = true,
 })
+
+

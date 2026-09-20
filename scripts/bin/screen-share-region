@@ -1,0 +1,3 @@
+#!/bin/bash
+
+wl-mirror -r "$(slurp -a 16:9)"
