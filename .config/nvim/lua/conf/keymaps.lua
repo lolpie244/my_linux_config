@@ -1,28 +1,28 @@
 local keymap = vim.keymap.set
+local command = vim.api.nvim_create_user_command
 local opts = { noremap = true, silent = true }
+local set = vim.opt_local
 
 -- Comments
 keymap("n", "<M-/>", "<Plug>(comment_toggle_linewise_current)", opts)
-keymap("v", "<M-/>", "<Plug>(comment_toggle_linewise_visual)gv", {remap = true})
-keymap("v", "<Leader>b", "<Plug>(comment_toggle_blockwise_visual)gv", {remap = true})
-
+keymap("v", "<M-/>", "<Plug>(comment_toggle_linewise_visual)gv", { remap = true })
+keymap("v", "<Leader>b", "<Plug>(comment_toggle_blockwise_visual)gv", { remap = true })
 
 -- Remaps
-keymap("v", "$", "g_", {remap = true})
-keymap({"n", "v"}, "-", "_", {remap = true})
-keymap("i", "<C-Space>", "<Space>", {remap = true})
+keymap("v", "$", "g_", { remap = true })
+keymap({ "n", "v" }, "-", "_", { remap = true })
+keymap("i", "<C-Space>", "<Space>", { remap = true })
 
 --  buffersize
 keymap("n", "<C-Left>", require("smart-splits").resize_left, opts)
 keymap("n", "<C-Down>", require("smart-splits").resize_down, opts)
-keymap("n", "<C-Up>", require("smart-splits").resize_up, {remap = true})
-keymap("n", "<C-Right>", require("smart-splits").resize_right, {remap = true})
+keymap("n", "<C-Up>", require("smart-splits").resize_up, { remap = true })
+keymap("n", "<C-Right>", require("smart-splits").resize_right, { remap = true })
 
 keymap("n", "<C-h>", require("smart-splits").resize_left, opts)
 keymap("n", "<C-j>", require("smart-splits").resize_down, opts)
 keymap("n", "<C-k>", require("smart-splits").resize_up, opts)
 keymap("n", "<C-l>", require("smart-splits").resize_right, opts)
-
 
 -- select buffer
 keymap("n", "<M-Left>", require("smart-splits").move_cursor_left, opts)
@@ -45,14 +45,14 @@ keymap("n", "<Leader>[", "<C-o>", opts)
 keymap("n", "<Leader>]", "<C-i>", opts)
 
 -- sysym copy/past
-keymap("v", "<A-c>", "\"+y", {remap = true})
-keymap("n", "<A-c>", "v\"+y", {remap = true})
-keymap({"n", "v"}, "<A-v>", "\"+p", {remap = true})
+keymap("v", "<A-c>", '"+y', { remap = true })
+keymap("n", "<A-c>", 'v"+y', { remap = true })
+keymap({ "n", "v" }, "<A-v>", '"+p', { remap = true })
 keymap("v", "p", '"_dP', opts)
 
 -- duplicate line
 keymap("n", "<M-d>", "yyp", opts)
-keymap("v", "<M-d>", "y'>o<Esc>p", {remap = true})
+keymap("v", "<M-d>", "y'>o<Esc>p", { remap = true })
 
 -- select all
 keymap("n", "<A-a>", "ggVG", opts)
@@ -61,11 +61,11 @@ keymap("n", "<A-a>", "ggVG", opts)
 keymap("n", "V", "V0", opts)
 
 -- tab
-keymap("v", ">", ">gv", {remap = true})
-keymap("n", ">", ">>", {remap = true})
+keymap("v", ">", ">gv", { remap = true })
+keymap("n", ">", ">>", { remap = true })
 
-keymap("v", "<", "<gv", {remap = true})
-keymap("n", "<", "<<", {remap = true})
+keymap("v", "<", "<gv", { remap = true })
+keymap("n", "<", "<<", { remap = true })
 
 -- tabs
 keymap("n", "<M-T>", "<C-w>T", opts)
@@ -83,7 +83,6 @@ keymap("n", "<Leader>gh", ":DiffviewFileHistory<CR>", opts)
 keymap("n", "<leader>gb", require("snacks.git").blame_line, opts)
 keymap("n", "<Leader>gs", ":DiffviewOpen<CR>", opts)
 
-
 -- Peekers
 keymap("n", "<Leader><Leader>", ":Oil<CR>", opts)
 keymap("n", "<Leader>P", ':lua require("snacks.picker")()<CR>', opts)
@@ -95,10 +94,9 @@ keymap("n", "<Leader>t", Snacks.picker.treesitter, opts)
 keymap("n", "<Leader>ad", Snacks.picker.diagnostics, opts)
 keymap("n", "<Tab>", Snacks.picker.buffers, opts)
 
-
 -- LSP
 keymap("n", "<Leader>F", require("conform").format, opts) -- format file
-keymap("n","<Leader>d", ":Lspsaga diagnostic_jump_next<CR>", opts) -- show diagnostic
+keymap("n", "<Leader>d", ":Lspsaga diagnostic_jump_next<CR>", opts) -- show diagnostic
 keymap("n", "gdd", vim.lsp.buf.definition, opts)
 keymap("n", "gr", vim.lsp.buf.references, opts)
 keymap("n", "gdx", ":belowright split | lua vim.lsp.buf.definition()<CR>", opts)
@@ -109,12 +107,10 @@ keymap("n", "<Leader>R", vim.lsp.buf.rename, opts)
 keymap("n", "<Leader>o", ":Lspsaga outline<CR>", opts)
 keymap("n", "<Leader>O", Snacks.picker.lsp_symbols, opts)
 
-
 -- Terminal
-keymap('t', "<Leader><Leader>", [[<C-\><C-n>]], opts)
+keymap("t", "<Leader><Leader>", [[<C-\><C-n>]], opts)
 
-
--- dap (debuger)
+-- dap (debugger)
 keymap("n", "<F5>", "<Cmd>lua require'dapui'.open()<CR><Cmd>lua require'dap'.continue()<CR>", opts)
 keymap("n", "<Leader><Tab>", "<Cmd>lua require'dapui'.toggle()<CR>", opts)
 keymap("n", "<C-b>", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
@@ -126,15 +122,40 @@ keymap("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>", opts)
 keymap("n", "<Leader>rc", require("kitty-runner").clear, opts)
 
 -- surround
-keymap("n", "Sd", "<Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)", {remap = true})
-keymap("v", "Sd", "<Plug>(operator-sandwich-delete)", {remap = true})
-keymap("n", "Sr", "<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)")
+keymap(
+	"n",
+	"Sd",
+	"<Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)",
+	{ remap = true }
+)
+keymap("v", "Sd", "<Plug>(operator-sandwich-delete)", { remap = true })
+keymap(
+	"n",
+	"Sr",
+	"<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)"
+)
 keymap("v", "Sr", "<Plug>(operator-sandwich-replace)")
-keymap({"n", "v"}, "Sa", "<Plug>(operator-sandwich-add)")
+keymap({ "n", "v" }, "Sa", "<Plug>(operator-sandwich-add)")
 keymap("o", "Sa", "<Plug>(operator-sandwich-g@)")
 
 -- ETC
 keymap("n", "<C-Space>", require("snacks").zen.zoom, opts) -- zoom
-keymap("n", "<C-R>", require('grug-far').open, opts) -- replace
+keymap("n", "<C-R>", require("grug-far").open, opts) -- replace
 keymap("n", "<Leader>u", vim.cmd.UndotreeToggle, opts) -- undotree
 keymap("i", "<C-z>", "<C-^>") -- language
+keymap("v", "<C-b>", ":VBox<CR>", opts)
+keymap({ "v", "x" }, "Nn", ":NR<CR>:lua vim.diagnostic.enable(false, { bufnr = 0 })<CR>", opts) -- narrow region
+keymap({ "v", "x" }, "NN", ":NR<CR>:noa wincmd T<CR>:lua vim.diagnostic.enable(false, { bufnr = 0 })<CR>", opts) -- narrow region in new tab
+
+command("KittyScrollback", function()
+	set.filetype = "scrollback"
+end, {})
+
+command("DiffBuf", function()
+	if vim.wo.diff then
+		vim.cmd("window diffoff")
+	else
+		vim.cmd("window diffthis")
+	end
+end, {})
+vim.keymap.set("n", "<leader>D", ":DiffBuf<CR>", { silent = true })

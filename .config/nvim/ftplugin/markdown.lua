@@ -39,3 +39,51 @@ vim.cmd([[
   endfunction
   let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 ]])
+
+local function image_under_cursor()
+	local line = vim.api.nvim_get_current_line()
+	local path = line:match("!%[.-%]%((.-)%)")
+	if not path then
+		vim.notify("No image under cursor", vim.log.levels.WARN)
+		return nil
+	end
+
+    return path
+end
+
+vim.api.nvim_create_user_command("DeleteImage", function()
+    local path = image_under_cursor()
+	if not path then
+		return
+	end
+	os.remove(path)
+    vim.api.nvim_del_current_line()
+end, {})
+
+
+vim.api.nvim_create_user_command("ReplaceImage", function()
+    local path = image_under_cursor()
+	if not path then
+		return
+	end
+	os.remove(path)
+	local name = path:match("([^/]+)%.[^.]+$")
+	require("img-clip").paste_image({
+		file_name = name,
+		prompt_for_file_name = false,
+	})
+	vim.schedule(function()
+		local row = vim.api.nvim_win_get_cursor(0)[1]
+		vim.api.nvim_buf_set_lines(0, row - 2, row - 1, false, {})
+        vim.cmd('stopinsert')
+	end)
+end, {})
+
+
+vim.api.nvim_create_user_command("DiagramModeOn", function()
+    vim.cmd('set ve=all')
+end, {})
+
+vim.api.nvim_create_user_command("DiagramModeOff", function()
+    vim.cmd('set ve=onemore')
+end, {})

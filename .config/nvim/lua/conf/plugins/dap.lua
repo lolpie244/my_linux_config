@@ -1,14 +1,13 @@
-local dap, dapui = require('dap')
-require('dapui')
+local dap, dapui = require("dap")
+require("dapui")
 local dap_adapters = string.format("%s/.local/share/nvim/mason/bin", os.getenv("HOME"))
 local foldername = vim.fn.getcwd():match("[^/]*$")
 
-
 -- C#
 dap.adapters.coreclr = {
-	type = 'executable',
-	command = string.format('%s/netcoredbg/netcoredbg', dap_adapters),
-	args = { '--interpreter=vscode' }
+	type = "executable",
+	command = string.format("%s/netcoredbg/netcoredbg", dap_adapters),
+	args = { "--interpreter=vscode" },
 }
 dap.configurations.cs = {
 	{
@@ -17,36 +16,36 @@ dap.configurations.cs = {
 		request = "launch",
 		program = function()
 			return string.format("%s/bin/Debug/net6.0/%s.dll", vim.fn.getcwd(), foldername)
-		end
+		end,
 	},
 }
 
 -- C++
 dap.adapters.lldb = {
-	type = 'server',
+	type = "server",
 	port = "13000",
 	executable = {
 		-- CHANGE THIS to your path!
-		command = dap_adapters .. '/codelldb',
-		args = { "--port", "13000", }
-	}
+		command = dap_adapters .. "/codelldb",
+		args = { "--port", "13000" },
+	},
 }
 dap.adapters.cppdbg = {
-	id = 'cppdbg',
-	type = 'executable',
-	command = dap_adapters .. '/debugAdapters/bin/OpenDebugAD7',
+	id = "cppdbg",
+	type = "executable",
+	command = dap_adapters .. "/debugAdapters/bin/OpenDebugAD7",
 }
 dap.configurations.cpp = {
 	{
 		name = "lldb",
-		type = 'lldb',
-		request = 'launch',
+		type = "lldb",
+		request = "launch",
 		program = function()
 			return vim.fn.input("Path to executable: ", vim.fn.getcwd(), "file")
 		end,
 		--program = '${fileDirname}/${fileBasenameNoExtension}',
-		cwd = '${workspaceFolder}',
-		terminal = 'integrated'
+		cwd = "${workspaceFolder}",
+		terminal = "integrated",
 	},
 	{
 		default = true,
@@ -56,14 +55,14 @@ dap.configurations.cpp = {
 		program = function()
 			return vim.fn.input("Path to executable: ", vim.fn.getcwd(), "file")
 		end,
-		cwd = '${workspaceFolder}',
+		cwd = "${workspaceFolder}",
 		stopAtEntry = true,
 
 		setupCommands = {
 			{
-				text = '-enable-pretty-printing',
-				description = 'enable pretty printing',
-				ignoreFailures = false
+				text = "-enable-pretty-printing",
+				description = "enable pretty printing",
+				ignoreFailures = false,
 			},
 		},
 	},
@@ -71,7 +70,6 @@ dap.configurations.cpp = {
 dap.configurations.h = dap.configurations.cpp
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
-
 
 -- dapui
 require("dapui").setup({

@@ -1,6 +1,7 @@
 local empty_setup = {
 	"nvim-autopairs",
 	"grug-far",
+    "hover-notes"
 }
 
 for _, plugin in ipairs(empty_setup) do

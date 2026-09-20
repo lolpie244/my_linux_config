@@ -40,8 +40,6 @@ init-hypr()
 {
    sudo pacman -Sy hyprland kitty xdg-desktop-portal-hyprland polkit-gnome mako nwg-look qt5ct qt6ct kvantum waybar cliphist swww hyprlock network-manager-applet blueman pavucontrol brightnessctl pamixer xorg-xhost kdeconnect shikane
    yay -S tofi hypridle wlogout grimblast hyprland-per-window-layout nsg-displays
-
-   systemctl --user enable --now shikane
 }
 
 init()

@@ -5,6 +5,7 @@ require("conform").setup({
 		cpp = { "clang-format" },
 		sql = { "sql_formatter" },
 		json = { "jq" },
+        go = {"gofmt"},
 		["*"] = { "codespell" },
 		["_"] = { "trim_whitespace" },
 		gdscript = { "gdformat" },

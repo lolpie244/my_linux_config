@@ -1,6 +1,6 @@
 local lsp_servers_mason = {
 	"pyright",
-	"cmake",
+	"neocmake",
 	"jsonls",
 	"sqlls",
 	"yamlls",

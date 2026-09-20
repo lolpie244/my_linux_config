@@ -50,7 +50,7 @@ vim.cmd([[
 ]])
 
 -- filetypes
-vim.filetype.add({ extension = { pro = "prolog", vert = "glsl", frag = "glsl", puml = "puml" } })
+vim.filetype.add({ extension = { pro = "prolog", vert = "glsl", frag = "glsl", puml = "puml", log = "log" } })
 
 
 

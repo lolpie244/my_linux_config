@@ -76,8 +76,6 @@ require("lazy").setup({
 	-- markdown
 	{ "HakonHarnes/img-clip.nvim", ft = { "markdown" } },
 	{ "dhruvasagar/vim-table-mode", ft = { "markdown" } },
-    -- { "OXY2DEV/markview.nvim", ft = { "markdown", "html", "latex" }},
-
 	-- diagrams
 	"aklt/plantuml-syntax",
 	{ "https://gitlab.com/itaranto/preview.nvim", ft = { "puml" }, version = "*" },
@@ -104,9 +102,13 @@ require("lazy").setup({
 	{ "kevinhwang91/nvim-bqf", ft = { "qf" } }, -- better quick fix
 	"machakann/vim-sandwich", -- surround
 	"chrisgrieser/nvim-scissors", -- snippets
+    "chrisbra/NrrwRgn", -- zoom on region
+
+    "jbyuki/venn.nvim",
 
 	-- own plugins
 	-- { dir = "/mnt/1/projects/lua/kitty_runner.nvim/" },
+	{ dir = "/mnt/1/projects/lua/hover-notes.nvim/" },
 
 	-- Colorshemes
 	{ "catppuccin/nvim", name = "catppuccin" },

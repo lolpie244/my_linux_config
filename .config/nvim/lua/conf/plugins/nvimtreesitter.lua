@@ -12,6 +12,7 @@ local ensure_installed = {
 	"c",
 	"cpp",
 	"cmake",
+    "make",
 	"lua",
 	"python",
 	"javascript",

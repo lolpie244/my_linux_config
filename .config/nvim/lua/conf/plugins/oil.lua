@@ -39,7 +39,13 @@ local compress = function ()
         return
     end
 
-    local cmd = string.format("cd %s; zip -r %s.zip %s", cwd, entry.name, entry.name)
+    local cmd
+    if entry.name:match("%.zip$") then
+        local dir = entry.name:gsub("%.zip$", "")
+        cmd = string.format("cd %s; mkdir -p %s && unzip -o %s -d %s", cwd, dir, entry.name, dir)
+    else
+        cmd = string.format("cd %s; zip -r %s.zip %s", cwd, entry.name, entry.name)
+    end
 
     local loading = require("oil.loading")
     local bufnr = vim.api.nvim_get_current_buf()

@@ -23,6 +23,7 @@ return {
 				"**/.venv/*",
 				"**/^build/*",
 				"**/__pycache__/*",
+                "**/third-party/*",
 			},
 			win = {
 				input = {
